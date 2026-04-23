@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Outfit, Instrument_Serif, JetBrains_Mono } from "next/font/google"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
@@ -81,33 +82,7 @@ export default function RootLayout({
           <Navigation />
           <div className="h-16" />
           {children}
-          <footer className="border-t border-border/40 mt-24">
-            <div className="container mx-auto px-4 py-8">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-                <p>
-                  Built with <a href="https://claude.ai" className="hover:text-foreground transition-colors">Claude Code</a>
-                </p>
-                <div className="flex items-center gap-6">
-                  <a
-                    href="https://github.com/Himanshu507/cgcone/blob/main/LICENSE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-foreground transition-colors"
-                  >
-                    MIT License
-                  </a>
-                  <a
-                    href="https://github.com/Himanshu507/cgcone"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-foreground transition-colors"
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
