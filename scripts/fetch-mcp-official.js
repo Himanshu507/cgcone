@@ -11,6 +11,16 @@ function formatName(name) {
     .split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 }
 
+function resolveUrl(val) {
+  if (!val) return null
+  if (typeof val === 'string') return val || null
+  if (typeof val === 'object') {
+    const url = val.url || val.href || val.link
+    return typeof url === 'string' && url ? url : null
+  }
+  return null
+}
+
 function categorize(name, description = '', tags = []) {
   const text = `${name} ${description} ${tags.join(' ')}`.toLowerCase()
   if (text.match(/database|db|sql|mongo|postgres|redis|sqlite/)) return 'database'
@@ -46,8 +56,8 @@ async function fetchOfficialMCPs() {
         vendor: server.vendor || null,
         sourceRegistry: 'official-mcp',
         sourceUrl: MCP_REGISTRY,
-        githubUrl: server.source_code_url || server.repository || null,
-        documentationUrl: server.documentation_url || null,
+        githubUrl: resolveUrl(server.source_code_url) || resolveUrl(server.repository) || null,
+        documentationUrl: resolveUrl(server.documentation_url) || null,
         packages: server.packages || [],
         verificationStatus: 'verified',
         lastIndexedAt: new Date().toISOString(),

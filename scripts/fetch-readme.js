@@ -75,7 +75,7 @@ async function fetchReadme(githubUrl, retries = 3) {
 async function fetchReadmesBatch(items, getUrl, { concurrency = 5, delayMs = 300, onProgress } = {}) {
   const eligible = items.filter(item => {
     const url = getUrl(item)
-    return url && url.includes('github.com')
+    return typeof url === 'string' && url.includes('github.com')
   })
 
   let done = 0
