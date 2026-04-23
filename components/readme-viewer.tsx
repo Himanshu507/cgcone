@@ -1,5 +1,6 @@
-import { renderMarkdown } from '@/lib/markdown'
-import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import { renderMarkdown, extractToc } from "@/lib/markdown"
+import { ReadmeClient } from "@/components/readme-client"
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
 
 interface ReadmeViewerProps {
   content: string
@@ -9,7 +10,8 @@ interface ReadmeViewerProps {
 }
 
 export function ReadmeViewer({ content, sourceUrl, repoName, truncated }: ReadmeViewerProps) {
-  const html = renderMarkdown(content)
+  const html = renderMarkdown(content, sourceUrl)
+  const toc = extractToc(content)
 
   return (
     <section className="mt-10 sm:mt-12">
@@ -28,31 +30,13 @@ export function ReadmeViewer({ content, sourceUrl, repoName, truncated }: Readme
         )}
       </div>
 
-      <div className="rounded-lg border border-border bg-card overflow-hidden">
-        <div
-          className="p-6 sm:p-8 readme-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-
-        <div className="px-6 sm:px-8 py-3 border-t border-border/50 bg-secondary/30 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <GitHubLogoIcon className="h-3 w-3 shrink-0" />
-          <span>README sourced from GitHub{repoName ? ` · ${repoName}` : ''}</span>
-          {truncated && sourceUrl && (
-            <>
-              <span className="text-border/60">·</span>
-              <span>Content truncated.</span>
-              <a
-                href={sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                View full README →
-              </a>
-            </>
-          )}
-        </div>
-      </div>
+      <ReadmeClient
+        html={html}
+        toc={toc}
+        sourceUrl={sourceUrl}
+        repoName={repoName}
+        truncated={truncated}
+      />
     </section>
   )
 }
