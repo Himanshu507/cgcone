@@ -22,8 +22,8 @@ export function CommandCard({ command }: CommandCardProps) {
         </p>
 
         {command.argumentHint && (
-          <div className="rounded-md bg-secondary px-3 py-1.5">
-            <code className="font-mono text-xs text-muted-foreground">
+          <div className="rounded-md bg-secondary px-3 py-1.5 overflow-x-auto">
+            <code className="font-mono text-xs text-muted-foreground whitespace-nowrap">
               {command.prefix || "/"}{command.name} {command.argumentHint}
             </code>
           </div>

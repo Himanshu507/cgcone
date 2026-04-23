@@ -90,7 +90,7 @@
 
   * { @apply border-border; }
 
-  html { @apply scroll-smooth; }
+  html { @apply scroll-smooth; overflow-x: clip; }
 
   .dark html,
   html.dark { color-scheme: dark; }

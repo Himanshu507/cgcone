@@ -40,7 +40,7 @@ export default function HooksClient({ hooks }: HooksClientProps) {
           <p className="text-muted-foreground">{hooks.length} automation hooks</p>
         </div>
 
-        <div className="relative mb-6 max-w-md">
+        <div className="relative mb-6 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search hooks..."
@@ -74,7 +74,7 @@ export default function HooksClient({ hooks }: HooksClientProps) {
             No hooks found matching your criteria.
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {filtered.map(hook => (
               <HookCard key={hook.slug} hook={hook} />
             ))}

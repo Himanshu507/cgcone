@@ -51,7 +51,7 @@ export default function PluginsClient({ plugins }: PluginsClientProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <div className="relative flex-1 max-w-md">
+          <div className="relative flex-1 sm:max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search plugins..."
@@ -95,7 +95,7 @@ export default function PluginsClient({ plugins }: PluginsClientProps) {
             No plugins found matching your criteria.
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {filtered.map(plugin => (
               <PluginCard key={`${plugin.slug}-${plugin.author}`} plugin={plugin} />
             ))}

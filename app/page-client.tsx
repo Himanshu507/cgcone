@@ -341,32 +341,35 @@ export default function HomePageClient({
             <p className="text-muted-foreground mb-10">
               Add the cgcone marketplace to Claude Code
             </p>
-            <div className="inline-flex items-center gap-1 bg-[#1a1a1a] rounded-full p-1.5 pr-4">
-              <button className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors">
-                Get Extensions
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <code className="font-mono text-sm ml-3">
-                <span className="text-primary">/plugin</span>{' '}
-                <span className="text-foreground/80">marketplace add cgcone/cgcone</span>
-              </code>
-              <button
-                onClick={handleCopy}
-                className="ml-3 p-1.5 text-muted-foreground hover:text-foreground transition-colors"
-                title="Copy command"
-              >
-                {copied ? (
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                ) : (
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                )}
-              </button>
+            <div className="w-full max-w-lg mx-auto rounded-xl border border-border bg-card overflow-hidden">
+              <div className="flex items-center gap-2 px-4 py-3">
+                <div className="flex gap-1.5 shrink-0">
+                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+                </div>
+                <div className="flex-1 overflow-x-auto">
+                  <code className="font-mono text-sm whitespace-nowrap">
+                    <span className="text-primary">/plugin</span>{' '}
+                    <span className="text-foreground/80">marketplace add cgcone/cgcone</span>
+                  </code>
+                </div>
+                <button
+                  onClick={handleCopy}
+                  className="shrink-0 p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                  title="Copy command"
+                >
+                  {copied ? (
+                    <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
             <p className="text-sm text-muted-foreground mt-8">
               Or{' '}
