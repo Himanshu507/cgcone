@@ -3,7 +3,7 @@ interface LogoMarkProps {
   className?: string
 }
 
-export function LogoMark({ size = 20, className }: LogoMarkProps) {
+export function LogoMark({ size = 28, className }: LogoMarkProps) {
   return (
     <svg
       width={size}
@@ -14,24 +14,18 @@ export function LogoMark({ size = 20, className }: LogoMarkProps) {
       aria-hidden="true"
       className={className}
     >
-      {/* Apex glow */}
-      <circle cx="16" cy="24.5" r="7.5" fill="hsl(var(--primary))" fillOpacity="0.13" />
+      {/* Converging lines — bold, full opacity */}
+      <line x1="7.5"  y1="8.5" x2="16" y2="25" stroke="hsl(var(--primary))" strokeWidth="2.2" strokeLinecap="round" strokeOpacity="0.7" />
+      <line x1="16"   y1="8.5" x2="16" y2="25" stroke="hsl(var(--primary))" strokeWidth="2.2" strokeLinecap="round" />
+      <line x1="24.5" y1="8.5" x2="16" y2="25" stroke="hsl(var(--primary))" strokeWidth="2.2" strokeLinecap="round" strokeOpacity="0.7" />
 
-      {/* Source-layer connector */}
-      <line x1="7.5" y1="9" x2="24.5" y2="9" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.28" />
+      {/* Source nodes — solid, clearly visible */}
+      <circle cx="7.5"  cy="8.5" r="3" fill="hsl(var(--primary))" fillOpacity="0.85" />
+      <circle cx="16"   cy="8.5" r="3" fill="hsl(var(--primary))" />
+      <circle cx="24.5" cy="8.5" r="3" fill="hsl(var(--primary))" fillOpacity="0.85" />
 
-      {/* Converging lines */}
-      <line x1="7.5"  y1="9" x2="16" y2="24.5" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.55" />
-      <line x1="16"   y1="9" x2="16" y2="24.5" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.80" />
-      <line x1="24.5" y1="9" x2="16" y2="24.5" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.55" />
-
-      {/* Source nodes */}
-      <circle cx="7.5"  cy="9" r="2.5" fill="hsl(var(--primary))" fillOpacity="0.72" />
-      <circle cx="16"   cy="9" r="2.5" fill="hsl(var(--primary))" />
-      <circle cx="24.5" cy="9" r="2.5" fill="hsl(var(--primary))" fillOpacity="0.72" />
-
-      {/* Apex node */}
-      <circle cx="16" cy="24.5" r="3.5" fill="hsl(var(--primary))" />
+      {/* Apex node — slightly larger, the "one" */}
+      <circle cx="16" cy="25" r="4" fill="hsl(var(--primary))" />
     </svg>
   )
 }

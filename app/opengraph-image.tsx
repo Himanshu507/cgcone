@@ -15,35 +15,28 @@ const badge = {
   display: 'flex',
 } as const
 
-// Icon mark drawn with CSS at ~72x72 (scale from 32x32 by 2.25)
-// Nodes at y=20: (17,20), (36,20), (55,20)  — radius≈5.5 → diameter=11
-// Apex at (36,55), radius≈8 → diameter=16
-// Line angle: 28.7° (same geometry)
+// Icon mark — bold design at 72x72 (scale from 32x32 by 2.25)
+// Node diameter=13 (r=3*2.25=6.75), apex diameter=18 (r=4*2.25=9)
+// Lines width=5 (2.2*2.25≈5), nodes at y=19 (8.5*2.25), x=17/36/55, apex y=56 (25*2.25)
 function IconMark() {
   return (
     <div style={{ width: 72, height: 72, position: 'relative', display: 'flex' }}>
-      {/* Apex outer glow */}
-      <div style={{ position: 'absolute', left: 19, top: 38, width: 34, height: 34, borderRadius: '50%', background: P, opacity: 0.18, display: 'flex' }} />
+      {/* Left line: (17,19)→(36,56), midpoint=(26.5,37.5), len≈39.7, rotate(-27.3°) */}
+      <div style={{ position: 'absolute', left: 24, top: 17.85, width: 5, height: 40, background: P, opacity: 0.7, transform: 'rotate(-27.3deg)', display: 'flex' }} />
 
-      {/* Horizontal bar */}
-      <div style={{ position: 'absolute', left: 17, top: 19.5, width: 38, height: 1.5, background: P, opacity: 0.3, display: 'flex' }} />
+      {/* Center line: (36,19)→(36,56), vertical */}
+      <div style={{ position: 'absolute', left: 33.5, top: 19, width: 5, height: 37, background: P, display: 'flex' }} />
 
-      {/* Left line → rotate(-28.7°), midpoint=(26.5,37.5) */}
-      <div style={{ position: 'absolute', left: 25.75, top: 17.5, width: 1.5, height: 40, background: P, opacity: 0.55, transform: 'rotate(-28.7deg)', display: 'flex' }} />
+      {/* Right line: (55,19)→(36,56), midpoint=(45.5,37.5), rotate(+27.3°) */}
+      <div style={{ position: 'absolute', left: 43, top: 17.85, width: 5, height: 40, background: P, opacity: 0.7, transform: 'rotate(27.3deg)', display: 'flex' }} />
 
-      {/* Center line → vertical */}
-      <div style={{ position: 'absolute', left: 35.25, top: 20, width: 1.5, height: 35, background: P, opacity: 0.82, display: 'flex' }} />
+      {/* Source nodes — diameter=13 */}
+      <div style={{ position: 'absolute', left: 10.5, top: 12.5, width: 13, height: 13, borderRadius: '50%', background: P, opacity: 0.85, display: 'flex' }} />
+      <div style={{ position: 'absolute', left: 29.5, top: 12.5, width: 13, height: 13, borderRadius: '50%', background: P, display: 'flex' }} />
+      <div style={{ position: 'absolute', left: 48.5, top: 12.5, width: 13, height: 13, borderRadius: '50%', background: P, opacity: 0.85, display: 'flex' }} />
 
-      {/* Right line → rotate(+28.7°), midpoint=(45.5,37.5) */}
-      <div style={{ position: 'absolute', left: 44.75, top: 17.5, width: 1.5, height: 40, background: P, opacity: 0.55, transform: 'rotate(28.7deg)', display: 'flex' }} />
-
-      {/* Source nodes */}
-      <div style={{ position: 'absolute', left: 11.5, top: 14.5, width: 11, height: 11, borderRadius: '50%', background: P, opacity: 0.72, display: 'flex' }} />
-      <div style={{ position: 'absolute', left: 30.5, top: 14.5, width: 11, height: 11, borderRadius: '50%', background: P, display: 'flex' }} />
-      <div style={{ position: 'absolute', left: 49.5, top: 14.5, width: 11, height: 11, borderRadius: '50%', background: P, opacity: 0.72, display: 'flex' }} />
-
-      {/* Apex node */}
-      <div style={{ position: 'absolute', left: 28, top: 47, width: 16, height: 16, borderRadius: '50%', background: P, display: 'flex' }} />
+      {/* Apex node — diameter=18 */}
+      <div style={{ position: 'absolute', left: 27, top: 47, width: 18, height: 18, borderRadius: '50%', background: P, display: 'flex' }} />
     </div>
   )
 }
