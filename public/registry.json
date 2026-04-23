@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T01:21:53.657Z",
+  "generatedAt": "2026-04-23T04:54:01.490Z",
   "mcpServers": [
     {
       "name": "ac.inference.sh/mcp",
@@ -16,7 +16,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.464Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.426Z"
     },
     {
       "name": "ac.tandem/docs-mcp",
@@ -36,7 +36,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.467Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "agency.lona/trading",
@@ -58,7 +58,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.467Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.aarna/atars-mcp",
@@ -75,7 +75,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.abmeter/abmeter",
@@ -95,7 +95,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.adadvisor/mcp-server",
@@ -112,7 +112,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.adramp/google-ads",
@@ -132,7 +132,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.adweave/meta-ads-mcp",
@@ -149,7 +149,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.agentdm/agentdm",
@@ -166,7 +166,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.agentic-news/mcp",
@@ -186,7 +186,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.agentrapay/agentra",
@@ -203,7 +203,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.agenttrust/mcp-server",
@@ -240,7 +240,7 @@
         }
       ],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.aliengiraffe/spotdb",
@@ -276,7 +276,7 @@
         }
       ],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.alpic.mcp/alpic-mcp",
@@ -293,7 +293,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.alpic.test/test-mcp-server",
@@ -310,7 +310,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.anomalyarmor/armor-mcp",
@@ -348,7 +348,7 @@
         }
       ],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.anzenna/anzenna",
@@ -365,7 +365,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.appdeploy/deploy-app",
@@ -382,7 +382,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.artidrop/artidrop",
@@ -399,7 +399,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.auteng/docs",
@@ -416,7 +416,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "ai.auteng/mcp",
@@ -436,7 +436,7 @@
       "documentationUrl": null,
       "packages": [],
       "verificationStatus": "verified",
-      "lastIndexedAt": "2026-04-23T01:21:51.468Z"
+      "lastIndexedAt": "2026-04-23T04:53:59.429Z"
     },
     {
       "name": "fetch",
@@ -448,9 +448,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/fetch",
-      "dockerPulls": 1460970,
+      "dockerPulls": 1461384,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "git",
@@ -462,9 +462,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/git",
-      "dockerPulls": 98020,
+      "dockerPulls": 98064,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "time",
@@ -476,9 +476,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/time",
-      "dockerPulls": 650631,
+      "dockerPulls": 650947,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "sentry",
@@ -490,9 +490,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sentry",
-      "dockerPulls": 8661,
+      "dockerPulls": 8662,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "sqlite",
@@ -504,9 +504,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sqlite",
-      "dockerPulls": 37505,
+      "dockerPulls": 37534,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "aws-kb-retrieval-server",
@@ -518,9 +518,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-kb-retrieval-server",
-      "dockerPulls": 7125,
+      "dockerPulls": 7128,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "brave-search",
@@ -532,9 +532,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/brave-search",
-      "dockerPulls": 171211,
+      "dockerPulls": 171371,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "everart",
@@ -546,9 +546,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/everart",
-      "dockerPulls": 5416,
+      "dockerPulls": 5420,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "everything",
@@ -560,9 +560,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/everything",
-      "dockerPulls": 30403,
+      "dockerPulls": 30406,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "filesystem",
@@ -574,9 +574,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/filesystem",
-      "dockerPulls": 164474,
+      "dockerPulls": 164530,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "gdrive",
@@ -588,9 +588,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/gdrive",
-      "dockerPulls": 6118,
+      "dockerPulls": 6123,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "github",
@@ -602,9 +602,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/github",
-      "dockerPulls": 105945,
+      "dockerPulls": 106003,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "gitlab",
@@ -616,9 +616,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/gitlab",
-      "dockerPulls": 43857,
+      "dockerPulls": 43863,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "google-maps",
@@ -630,9 +630,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/google-maps",
-      "dockerPulls": 65252,
+      "dockerPulls": 65253,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "memory",
@@ -644,9 +644,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/memory",
-      "dockerPulls": 436182,
+      "dockerPulls": 436298,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "puppeteer",
@@ -658,9 +658,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/puppeteer",
-      "dockerPulls": 200443,
+      "dockerPulls": 200478,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "sequentialthinking",
@@ -672,9 +672,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sequentialthinking",
-      "dockerPulls": 299563,
+      "dockerPulls": 299685,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "slack",
@@ -686,9 +686,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/slack",
-      "dockerPulls": 298237,
+      "dockerPulls": 298250,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "inspector",
@@ -702,7 +702,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/inspector",
       "dockerPulls": 11744,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "docker",
@@ -714,9 +714,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/docker",
-      "dockerPulls": 210821,
+      "dockerPulls": 210857,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "redis",
@@ -728,9 +728,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/redis",
-      "dockerPulls": 71303,
+      "dockerPulls": 71362,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "perplexity-ask",
@@ -742,9 +742,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/perplexity-ask",
-      "dockerPulls": 53468,
+      "dockerPulls": 53471,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "atlassian",
@@ -756,9 +756,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/atlassian",
-      "dockerPulls": 97952,
+      "dockerPulls": 97995,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "jetbrains",
@@ -770,9 +770,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/jetbrains",
-      "dockerPulls": 17779,
+      "dockerPulls": 17782,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "stripe",
@@ -784,9 +784,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/stripe",
-      "dockerPulls": 24898,
+      "dockerPulls": 24904,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "youtube-transcript",
@@ -798,9 +798,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/youtube-transcript",
-      "dockerPulls": 247189,
+      "dockerPulls": 247239,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "obsidian",
@@ -812,9 +812,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/obsidian",
-      "dockerPulls": 88034,
+      "dockerPulls": 88089,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "resend",
@@ -826,9 +826,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/resend",
-      "dockerPulls": 7826,
+      "dockerPulls": 7831,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "atlas-docs",
@@ -840,9 +840,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/atlas-docs",
-      "dockerPulls": 9162,
+      "dockerPulls": 9168,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "audiense-insights",
@@ -854,9 +854,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/audiense-insights",
-      "dockerPulls": 5094,
+      "dockerPulls": 5095,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.261Z"
     },
     {
       "name": "basic-memory",
@@ -868,9 +868,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/basic-memory",
-      "dockerPulls": 3561,
+      "dockerPulls": 3562,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cyreslab-ai-shodan",
@@ -882,9 +882,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cyreslab-ai-shodan",
-      "dockerPulls": 9053,
+      "dockerPulls": 9055,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "bitrefill",
@@ -896,9 +896,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/bitrefill",
-      "dockerPulls": 5002,
+      "dockerPulls": 5003,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "dart",
@@ -910,9 +910,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/dart",
-      "dockerPulls": 6694,
+      "dockerPulls": 6695,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "databutton",
@@ -924,9 +924,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/databutton",
-      "dockerPulls": 8299,
+      "dockerPulls": 8302,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "devhub-cms",
@@ -938,9 +938,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/devhub-cms",
-      "dockerPulls": 4745,
+      "dockerPulls": 4746,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "e2b",
@@ -952,9 +952,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/e2b",
-      "dockerPulls": 8233,
+      "dockerPulls": 8234,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "descope",
@@ -966,9 +966,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/descope",
-      "dockerPulls": 4510,
+      "dockerPulls": 4511,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "exa",
@@ -980,9 +980,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/exa",
-      "dockerPulls": 16142,
+      "dockerPulls": 16149,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "chroma",
@@ -994,9 +994,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/chroma",
-      "dockerPulls": 20939,
+      "dockerPulls": 20942,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "glif",
@@ -1008,9 +1008,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/glif",
-      "dockerPulls": 6451,
+      "dockerPulls": 6452,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "github-chat",
@@ -1022,9 +1022,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/github-chat",
-      "dockerPulls": 8972,
+      "dockerPulls": 8973,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "firecrawl",
@@ -1036,9 +1036,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/firecrawl",
-      "dockerPulls": 77743,
+      "dockerPulls": 77783,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "handwriting-ocr",
@@ -1050,9 +1050,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/handwriting-ocr",
-      "dockerPulls": 5617,
+      "dockerPulls": 5620,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "hyperbrowser",
@@ -1064,9 +1064,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/hyperbrowser",
-      "dockerPulls": 6728,
+      "dockerPulls": 6730,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "iaptic",
@@ -1078,9 +1078,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/iaptic",
-      "dockerPulls": 4230,
+      "dockerPulls": 4233,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "multiversx-mx",
@@ -1092,9 +1092,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/multiversx-mx",
-      "dockerPulls": 4349,
+      "dockerPulls": 4350,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "hyperspell",
@@ -1106,9 +1106,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/hyperspell",
-      "dockerPulls": 4296,
+      "dockerPulls": 4297,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "kagisearch",
@@ -1120,9 +1120,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/kagisearch",
-      "dockerPulls": 6026,
+      "dockerPulls": 6029,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neon",
@@ -1134,9 +1134,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/neon",
-      "dockerPulls": 9169,
+      "dockerPulls": 9172,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "octomind",
@@ -1150,7 +1150,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/octomind",
       "dockerPulls": 1211,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "opik",
@@ -1162,9 +1162,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/opik",
-      "dockerPulls": 4621,
+      "dockerPulls": 4624,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "oxylabs",
@@ -1176,9 +1176,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/oxylabs",
-      "dockerPulls": 5280,
+      "dockerPulls": 5283,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "osp_marketing_tools",
@@ -1190,9 +1190,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/osp_marketing_tools",
-      "dockerPulls": 8030,
+      "dockerPulls": 8034,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "scrapegraph",
@@ -1204,9 +1204,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/scrapegraph",
-      "dockerPulls": 6452,
+      "dockerPulls": 6455,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "scrapezy",
@@ -1218,9 +1218,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/scrapezy",
-      "dockerPulls": 5194,
+      "dockerPulls": 5195,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "shopify",
@@ -1234,7 +1234,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/shopify",
       "dockerPulls": 5311,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "tavily",
@@ -1246,9 +1246,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/tavily",
-      "dockerPulls": 30881,
+      "dockerPulls": 30889,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "tembo",
@@ -1260,9 +1260,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/tembo",
-      "dockerPulls": 3194,
+      "dockerPulls": 3195,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "triplewhale",
@@ -1274,9 +1274,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/triplewhale",
-      "dockerPulls": 3784,
+      "dockerPulls": 3785,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "veyrax",
@@ -1288,9 +1288,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/veyrax",
-      "dockerPulls": 4265,
+      "dockerPulls": 4266,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "box",
@@ -1302,9 +1302,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/box",
-      "dockerPulls": 5493,
+      "dockerPulls": 5494,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "elasticsearch",
@@ -1316,9 +1316,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/elasticsearch",
-      "dockerPulls": 20684,
+      "dockerPulls": 20686,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "heroku",
@@ -1330,9 +1330,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/heroku",
-      "dockerPulls": 6458,
+      "dockerPulls": 6463,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "astra-db",
@@ -1344,9 +1344,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/astra-db",
-      "dockerPulls": 5491,
+      "dockerPulls": 5492,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "redis-cloud",
@@ -1358,9 +1358,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/redis-cloud",
-      "dockerPulls": 5913,
+      "dockerPulls": 5914,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "lara",
@@ -1372,9 +1372,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/lara",
-      "dockerPulls": 5330,
+      "dockerPulls": 5338,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "kubernetes",
@@ -1386,9 +1386,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/kubernetes",
-      "dockerPulls": 75588,
+      "dockerPulls": 75620,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "notion",
@@ -1400,9 +1400,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/notion",
-      "dockerPulls": 159775,
+      "dockerPulls": 159887,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "wolfram-alpha",
@@ -1414,9 +1414,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/wolfram-alpha",
-      "dockerPulls": 33484,
+      "dockerPulls": 33487,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "duckduckgo",
@@ -1428,9 +1428,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/duckduckgo",
-      "dockerPulls": 577680,
+      "dockerPulls": 587091,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "desktop-commander",
@@ -1442,9 +1442,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/desktop-commander",
-      "dockerPulls": 169853,
+      "dockerPulls": 169956,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "edubase",
@@ -1456,9 +1456,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/edubase",
-      "dockerPulls": 5729,
+      "dockerPulls": 5730,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "webflow",
@@ -1470,9 +1470,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/webflow",
-      "dockerPulls": 4985,
+      "dockerPulls": 4990,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "3d-printer",
@@ -1484,9 +1484,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/3d-printer",
-      "dockerPulls": 2229,
+      "dockerPulls": 2230,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "grafana",
@@ -1498,9 +1498,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/grafana",
-      "dockerPulls": 505982,
+      "dockerPulls": 506304,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pulumi",
@@ -1512,9 +1512,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pulumi",
-      "dockerPulls": 9964,
+      "dockerPulls": 9965,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "kong",
@@ -1526,9 +1526,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/kong",
-      "dockerPulls": 4781,
+      "dockerPulls": 4782,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "circleci",
@@ -1540,9 +1540,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/circleci",
-      "dockerPulls": 6505,
+      "dockerPulls": 6508,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neo4j-server",
@@ -1556,7 +1556,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/neo4j-server",
       "dockerPulls": 1274,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "302_sandbox",
@@ -1570,7 +1570,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/302_sandbox",
       "dockerPulls": 2018,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "doit",
@@ -1584,7 +1584,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/doit",
       "dockerPulls": 1403,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "elevenlabs",
@@ -1596,9 +1596,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/elevenlabs",
-      "dockerPulls": 24355,
+      "dockerPulls": 24368,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "dappier",
@@ -1610,9 +1610,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/dappier",
-      "dockerPulls": 5453,
+      "dockerPulls": 5454,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "risken",
@@ -1624,9 +1624,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/risken",
-      "dockerPulls": 3755,
+      "dockerPulls": 3756,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "azure",
@@ -1638,9 +1638,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/azure",
-      "dockerPulls": 49869,
+      "dockerPulls": 49887,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "openapi-schema",
@@ -1652,9 +1652,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/openapi-schema",
-      "dockerPulls": 14105,
+      "dockerPulls": 14112,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "context7",
@@ -1666,9 +1666,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/context7",
-      "dockerPulls": 384786,
+      "dockerPulls": 385012,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "line",
@@ -1680,9 +1680,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/line",
-      "dockerPulls": 10522,
+      "dockerPulls": 10534,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "gyazo",
@@ -1694,9 +1694,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/gyazo",
-      "dockerPulls": 4583,
+      "dockerPulls": 4586,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mcp-discord",
@@ -1708,9 +1708,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mcp-discord",
-      "dockerPulls": 19929,
+      "dockerPulls": 19933,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "hackle",
@@ -1722,9 +1722,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/hackle",
-      "dockerPulls": 3926,
+      "dockerPulls": 3928,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "flexprice",
@@ -1736,9 +1736,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/flexprice",
-      "dockerPulls": 3678,
+      "dockerPulls": 3679,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neo4j-memory",
@@ -1750,9 +1750,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/neo4j-memory",
-      "dockerPulls": 17767,
+      "dockerPulls": 17772,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "playwright",
@@ -1764,9 +1764,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/playwright",
-      "dockerPulls": 1349538,
+      "dockerPulls": 1352106,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "razorpay",
@@ -1778,9 +1778,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/razorpay",
-      "dockerPulls": 4913,
+      "dockerPulls": 4914,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "fibery",
@@ -1792,9 +1792,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/fibery",
-      "dockerPulls": 4310,
+      "dockerPulls": 4311,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "signatures",
@@ -1806,9 +1806,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/signatures",
-      "dockerPulls": 173303,
+      "dockerPulls": 173306,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "husqvarna-automower",
@@ -1820,9 +1820,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/husqvarna-automower",
-      "dockerPulls": 3672,
+      "dockerPulls": 3675,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neo4j-cypher",
@@ -1834,9 +1834,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/neo4j-cypher",
-      "dockerPulls": 31841,
+      "dockerPulls": 31854,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neo4j-cloud-aura-api",
@@ -1848,9 +1848,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/neo4j-cloud-aura-api",
-      "dockerPulls": 6549,
+      "dockerPulls": 6550,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "wikipedia-mcp",
@@ -1862,9 +1862,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/wikipedia-mcp",
-      "dockerPulls": 159118,
+      "dockerPulls": 159138,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.722Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "node-code-sandbox",
@@ -1876,9 +1876,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/node-code-sandbox",
-      "dockerPulls": 136579,
+      "dockerPulls": 136604,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-diagram",
@@ -1890,9 +1890,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-diagram",
-      "dockerPulls": 41711,
+      "dockerPulls": 41730,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-documentation",
@@ -1904,9 +1904,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-documentation",
-      "dockerPulls": 86615,
+      "dockerPulls": 86668,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-cdk-mcp-server",
@@ -1918,9 +1918,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-cdk-mcp-server",
-      "dockerPulls": 32752,
+      "dockerPulls": 32760,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-core-mcp-server",
@@ -1932,9 +1932,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-core-mcp-server",
-      "dockerPulls": 91275,
+      "dockerPulls": 91295,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cdata-connectcloud",
@@ -1946,9 +1946,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cdata-connectcloud",
-      "dockerPulls": 5015,
+      "dockerPulls": 5016,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mongodb",
@@ -1960,9 +1960,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mongodb",
-      "dockerPulls": 134775,
+      "dockerPulls": 134804,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "novita",
@@ -1974,9 +1974,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/novita",
-      "dockerPulls": 3342,
+      "dockerPulls": 3343,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-terraform",
@@ -1988,9 +1988,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-terraform",
-      "dockerPulls": 41385,
+      "dockerPulls": 41400,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "render",
@@ -2002,9 +2002,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/render",
-      "dockerPulls": 6581,
+      "dockerPulls": 6584,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "vizro",
@@ -2016,9 +2016,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/vizro",
-      "dockerPulls": 6331,
+      "dockerPulls": 6332,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "minecraft-wiki",
@@ -2030,9 +2030,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/minecraft-wiki",
-      "dockerPulls": 5663,
+      "dockerPulls": 5664,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "paper-search",
@@ -2044,9 +2044,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/paper-search",
-      "dockerPulls": 22205,
+      "dockerPulls": 22224,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pinecone",
@@ -2058,9 +2058,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pinecone",
-      "dockerPulls": 5159,
+      "dockerPulls": 5160,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "clickhouse",
@@ -2072,9 +2072,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/clickhouse",
-      "dockerPulls": 37933,
+      "dockerPulls": 37963,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "suzieq-mcp",
@@ -2086,9 +2086,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/suzieq-mcp",
-      "dockerPulls": 3260,
+      "dockerPulls": 3263,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "api-gateway",
@@ -2100,9 +2100,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/api-gateway",
-      "dockerPulls": 16432,
+      "dockerPulls": 16439,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "keboola-mcp",
@@ -2114,9 +2114,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/keboola-mcp",
-      "dockerPulls": 5160,
+      "dockerPulls": 5172,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "openweather",
@@ -2128,9 +2128,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/openweather",
-      "dockerPulls": 11605,
+      "dockerPulls": 11611,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "openbnb-airbnb",
@@ -2142,9 +2142,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/openbnb-airbnb",
-      "dockerPulls": 13144,
+      "dockerPulls": 13147,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "sonarqube",
@@ -2156,9 +2156,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sonarqube",
-      "dockerPulls": 365325,
+      "dockerPulls": 365811,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "tigris",
@@ -2170,9 +2170,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/tigris",
-      "dockerPulls": 3534,
+      "dockerPulls": 3536,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "nasdaq-data-link",
@@ -2184,9 +2184,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/nasdaq-data-link",
-      "dockerPulls": 5284,
+      "dockerPulls": 5287,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "npm-sentinel",
@@ -2198,9 +2198,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/npm-sentinel",
-      "dockerPulls": 47036,
+      "dockerPulls": 47040,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pluggedin-mcp-proxy",
@@ -2212,9 +2212,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pluggedin-mcp-proxy",
-      "dockerPulls": 5083,
+      "dockerPulls": 5084,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pref-editor",
@@ -2226,9 +2226,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pref-editor",
-      "dockerPulls": 3898,
+      "dockerPulls": 3899,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "sec-edgar",
@@ -2240,9 +2240,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sec-edgar",
-      "dockerPulls": 6629,
+      "dockerPulls": 6630,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "text-to-graphql",
@@ -2254,9 +2254,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/text-to-graphql",
-      "dockerPulls": 4294,
+      "dockerPulls": 4295,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "dockerhub",
@@ -2268,9 +2268,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/dockerhub",
-      "dockerPulls": 101311,
+      "dockerPulls": 101338,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "atlan-mcp-server",
@@ -2284,7 +2284,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/atlan-mcp-server",
       "dockerPulls": 1106,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "ref-tools-mcp",
@@ -2296,9 +2296,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/ref-tools-mcp",
-      "dockerPulls": 7024,
+      "dockerPulls": 7027,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "securenote-link-mcp-server",
@@ -2310,9 +2310,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/securenote-link-mcp-server",
-      "dockerPulls": 4257,
+      "dockerPulls": 4258,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "beagle-security-mcp-server",
@@ -2324,9 +2324,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/beagle-security-mcp-server",
-      "dockerPulls": 3854,
+      "dockerPulls": 3855,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "singlestore",
@@ -2338,9 +2338,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/singlestore",
-      "dockerPulls": 3489,
+      "dockerPulls": 3490,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "root",
@@ -2354,7 +2354,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/root",
       "dockerPulls": 1911,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "needle-mcp",
@@ -2366,9 +2366,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/needle-mcp",
-      "dockerPulls": 3740,
+      "dockerPulls": 3741,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "schogini_mcp_image_border",
@@ -2380,9 +2380,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/schogini_mcp_image_border",
-      "dockerPulls": 3516,
+      "dockerPulls": 3517,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "arxiv-mcp-server",
@@ -2394,9 +2394,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/arxiv-mcp-server",
-      "dockerPulls": 52385,
+      "dockerPulls": 52443,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cockroachdb",
@@ -2408,9 +2408,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cockroachdb",
-      "dockerPulls": 3664,
+      "dockerPulls": 3665,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "atlan",
@@ -2422,9 +2422,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/atlan",
-      "dockerPulls": 4687,
+      "dockerPulls": 4688,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "buildkite-mcp-server",
@@ -2438,7 +2438,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/buildkite-mcp-server",
       "dockerPulls": 1017,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "onlyoffice-docspace",
@@ -2450,9 +2450,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/onlyoffice-docspace",
-      "dockerPulls": 4526,
+      "dockerPulls": 4527,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "buildkite",
@@ -2464,9 +2464,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/buildkite",
-      "dockerPulls": 5518,
+      "dockerPulls": 5519,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "omi",
@@ -2478,9 +2478,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/omi",
-      "dockerPulls": 4532,
+      "dockerPulls": 4533,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mcp-playwright",
@@ -2492,9 +2492,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mcp-playwright",
-      "dockerPulls": 9712,
+      "dockerPulls": 9715,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "couchbase",
@@ -2506,9 +2506,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/couchbase",
-      "dockerPulls": 6346,
+      "dockerPulls": 6359,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "firewalla-mcp-server",
@@ -2520,9 +2520,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/firewalla-mcp-server",
-      "dockerPulls": 4066,
+      "dockerPulls": 4070,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "inspektor-gadget",
@@ -2534,9 +2534,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/inspektor-gadget",
-      "dockerPulls": 4305,
+      "dockerPulls": 4306,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "metabase",
@@ -2548,9 +2548,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/metabase",
-      "dockerPulls": 10433,
+      "dockerPulls": 10451,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "okta-mcp-fctr",
@@ -2562,9 +2562,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/okta-mcp-fctr",
-      "dockerPulls": 3163,
+      "dockerPulls": 3166,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "api-mcp-server",
@@ -2576,9 +2576,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/api-mcp-server",
-      "dockerPulls": 11165,
+      "dockerPulls": 11172,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "smartbear",
@@ -2590,9 +2590,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/smartbear",
-      "dockerPulls": 4722,
+      "dockerPulls": 4730,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cloud-run-mcp",
@@ -2604,9 +2604,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cloud-run-mcp",
-      "dockerPulls": 23290,
+      "dockerPulls": 23294,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "dynatrace-mcp-server",
@@ -2618,9 +2618,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/dynatrace-mcp-server",
-      "dockerPulls": 272125,
+      "dockerPulls": 272175,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "sequa",
@@ -2632,9 +2632,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sequa",
-      "dockerPulls": 3045,
+      "dockerPulls": 3046,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "catalog",
@@ -2648,7 +2648,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/catalog",
       "dockerPulls": 264,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aks",
@@ -2660,9 +2660,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aks",
-      "dockerPulls": 7413,
+      "dockerPulls": 7414,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pia",
@@ -2674,9 +2674,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pia",
-      "dockerPulls": 3177,
+      "dockerPulls": 3178,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "ramparts",
@@ -2688,9 +2688,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/ramparts",
-      "dockerPulls": 4059,
+      "dockerPulls": 4060,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "apify-mcp-server",
@@ -2702,9 +2702,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/apify-mcp-server",
-      "dockerPulls": 16392,
+      "dockerPulls": 16401,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "markdownify",
@@ -2716,9 +2716,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/markdownify",
-      "dockerPulls": 26664,
+      "dockerPulls": 26698,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "markitdown",
@@ -2730,9 +2730,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/markitdown",
-      "dockerPulls": 64704,
+      "dockerPulls": 64818,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "camunda",
@@ -2744,9 +2744,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/camunda",
-      "dockerPulls": 3185,
+      "dockerPulls": 3186,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "effect-mcp",
@@ -2758,9 +2758,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/effect-mcp",
-      "dockerPulls": 4585,
+      "dockerPulls": 4586,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "hdx",
@@ -2772,9 +2772,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/hdx",
-      "dockerPulls": 2680,
+      "dockerPulls": 2681,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mapbox",
@@ -2786,9 +2786,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mapbox",
-      "dockerPulls": 6196,
+      "dockerPulls": 6202,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mapbox-devkit",
@@ -2800,9 +2800,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mapbox-devkit",
-      "dockerPulls": 5326,
+      "dockerPulls": 5340,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mcp-code-interpreter",
@@ -2814,9 +2814,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mcp-code-interpreter",
-      "dockerPulls": 14272,
+      "dockerPulls": 14279,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "teamwork",
@@ -2828,9 +2828,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/teamwork",
-      "dockerPulls": 4034,
+      "dockerPulls": 4037,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "schemacrawler-ai",
@@ -2842,9 +2842,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/schemacrawler-ai",
-      "dockerPulls": 4191,
+      "dockerPulls": 4194,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "ast-grep",
@@ -2856,9 +2856,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/ast-grep",
-      "dockerPulls": 42417,
+      "dockerPulls": 42456,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "charmhealth-mcp-server",
@@ -2870,9 +2870,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/charmhealth-mcp-server",
-      "dockerPulls": 3429,
+      "dockerPulls": 3431,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "mcp-python-refactoring",
@@ -2884,9 +2884,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/mcp-python-refactoring",
-      "dockerPulls": 16292,
+      "dockerPulls": 16302,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pomodash",
@@ -2898,9 +2898,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pomodash",
-      "dockerPulls": 2084,
+      "dockerPulls": 2085,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neo4j-data-modeling",
@@ -2912,9 +2912,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/neo4j-data-modeling",
-      "dockerPulls": 8311,
+      "dockerPulls": 8314,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "oracle",
@@ -2926,9 +2926,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/oracle",
-      "dockerPulls": 5398,
+      "dockerPulls": 5399,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "postman",
@@ -2940,9 +2940,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/postman",
-      "dockerPulls": 23224,
+      "dockerPulls": 23244,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "hackernews-mcp",
@@ -2954,9 +2954,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/hackernews-mcp",
-      "dockerPulls": 36172,
+      "dockerPulls": 36179,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "openapi",
@@ -2968,9 +2968,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/openapi",
-      "dockerPulls": 9850,
+      "dockerPulls": 9855,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "unreal-engine-mcp-server",
@@ -2982,9 +2982,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/unreal-engine-mcp-server",
-      "dockerPulls": 7036,
+      "dockerPulls": 7039,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "vuln-nist-mcp-server",
@@ -2996,9 +2996,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/vuln-nist-mcp-server",
-      "dockerPulls": 4271,
+      "dockerPulls": 4273,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "ros2",
@@ -3010,9 +3010,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/ros2",
-      "dockerPulls": 4667,
+      "dockerPulls": 4670,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "kubectl-mcp-server",
@@ -3024,9 +3024,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/kubectl-mcp-server",
-      "dockerPulls": 9397,
+      "dockerPulls": 9404,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "df-mcp",
@@ -3038,9 +3038,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/df-mcp",
-      "dockerPulls": 3149,
+      "dockerPulls": 3150,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "airtable-mcp-server",
@@ -3052,9 +3052,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/airtable-mcp-server",
-      "dockerPulls": 9942,
+      "dockerPulls": 9946,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "quantconnect",
@@ -3066,9 +3066,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/quantconnect",
-      "dockerPulls": 3254,
+      "dockerPulls": 3258,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "stackhawk",
@@ -3080,9 +3080,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/stackhawk",
-      "dockerPulls": 2420,
+      "dockerPulls": 2421,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "zerodha-kite",
@@ -3094,9 +3094,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/zerodha-kite",
-      "dockerPulls": 2742,
+      "dockerPulls": 2743,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "explorium",
@@ -3108,9 +3108,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/explorium",
-      "dockerPulls": 3296,
+      "dockerPulls": 3297,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "maestro-mcp-server",
@@ -3122,9 +3122,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/maestro-mcp-server",
-      "dockerPulls": 2883,
+      "dockerPulls": 2884,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "reddit-mcp",
@@ -3136,9 +3136,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/reddit-mcp",
-      "dockerPulls": 8069,
+      "dockerPulls": 8072,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "google-maps-comprehensive",
@@ -3150,9 +3150,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/google-maps-comprehensive",
-      "dockerPulls": 6341,
+      "dockerPulls": 6344,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "rust-mcp-filesystem",
@@ -3164,9 +3164,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/rust-mcp-filesystem",
-      "dockerPulls": 8177,
+      "dockerPulls": 8184,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "browserbase",
@@ -3178,9 +3178,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/browserbase",
-      "dockerPulls": 6620,
+      "dockerPulls": 6621,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cylera-mcp-server",
@@ -3192,9 +3192,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cylera-mcp-server",
-      "dockerPulls": 2778,
+      "dockerPulls": 2779,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "next-devtools-mcp",
@@ -3206,9 +3206,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/next-devtools-mcp",
-      "dockerPulls": 13687,
+      "dockerPulls": 13701,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "sqlite-mcp-server",
@@ -3220,9 +3220,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/sqlite-mcp-server",
-      "dockerPulls": 8041,
+      "dockerPulls": 8048,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "thingsboard",
@@ -3234,9 +3234,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/thingsboard",
-      "dockerPulls": 2116,
+      "dockerPulls": 2121,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "gemini-api-docs-mcp",
@@ -3248,9 +3248,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/gemini-api-docs-mcp",
-      "dockerPulls": 12919,
+      "dockerPulls": 12927,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "amazon-neptune-mcp-server",
@@ -3262,9 +3262,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/amazon-neptune-mcp-server",
-      "dockerPulls": 3578,
+      "dockerPulls": 3579,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "amazon-kendra-index-mcp-server",
@@ -3276,9 +3276,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/amazon-kendra-index-mcp-server",
-      "dockerPulls": 3482,
+      "dockerPulls": 3483,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "amazon-bedrock-agentcore-mcp-server",
@@ -3290,9 +3290,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/amazon-bedrock-agentcore-mcp-server",
-      "dockerPulls": 6802,
+      "dockerPulls": 6805,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "amazon-qbusiness-anonymous-mcp-server",
@@ -3304,9 +3304,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/amazon-qbusiness-anonymous-mcp-server",
-      "dockerPulls": 3720,
+      "dockerPulls": 3721,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-appsync-mcp-server",
@@ -3318,9 +3318,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-appsync-mcp-server",
-      "dockerPulls": 3575,
+      "dockerPulls": 3576,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-bedrock-custom-model-import-mcp-server",
@@ -3332,9 +3332,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-bedrock-custom-model-import-mcp-server",
-      "dockerPulls": 2894,
+      "dockerPulls": 2895,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-api-mcp-server",
@@ -3346,9 +3346,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-api-mcp-server",
-      "dockerPulls": 9794,
+      "dockerPulls": 9802,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-bedrock-data-automation-mcp-server",
@@ -3360,9 +3360,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-bedrock-data-automation-mcp-server",
-      "dockerPulls": 3905,
+      "dockerPulls": 3906,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-dataprocessing-mcp-server",
@@ -3374,9 +3374,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-dataprocessing-mcp-server",
-      "dockerPulls": 4375,
+      "dockerPulls": 4378,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-iot-sitewise-mcp-server",
@@ -3388,9 +3388,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-iot-sitewise-mcp-server",
-      "dockerPulls": 3306,
+      "dockerPulls": 3309,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-location-mcp-server",
@@ -3402,9 +3402,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-location-mcp-server",
-      "dockerPulls": 3390,
+      "dockerPulls": 3393,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-healthomics-mcp-server",
@@ -3416,9 +3416,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-healthomics-mcp-server",
-      "dockerPulls": 3535,
+      "dockerPulls": 3538,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-msk-mcp-server",
@@ -3430,9 +3430,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-msk-mcp-server",
-      "dockerPulls": 3156,
+      "dockerPulls": 3159,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "aws-pricing-mcp-server",
@@ -3444,9 +3444,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/aws-pricing-mcp-server",
-      "dockerPulls": 6319,
+      "dockerPulls": 6324,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "billing-cost-management-mcp-server",
@@ -3458,9 +3458,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/billing-cost-management-mcp-server",
-      "dockerPulls": 5488,
+      "dockerPulls": 5505,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "ccapi-mcp-server",
@@ -3472,9 +3472,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/ccapi-mcp-server",
-      "dockerPulls": 3648,
+      "dockerPulls": 3651,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cfn-mcp-server",
@@ -3486,9 +3486,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cfn-mcp-server",
-      "dockerPulls": 6731,
+      "dockerPulls": 6732,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cloudtrail-mcp-server",
@@ -3500,9 +3500,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cloudtrail-mcp-server",
-      "dockerPulls": 5093,
+      "dockerPulls": 5096,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cloudwatch-appsignals-mcp-server",
@@ -3514,9 +3514,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cloudwatch-appsignals-mcp-server",
-      "dockerPulls": 3605,
+      "dockerPulls": 3606,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cloudwatch-mcp-server",
@@ -3528,9 +3528,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cloudwatch-mcp-server",
-      "dockerPulls": 13028,
+      "dockerPulls": 13036,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "cost-explorer-mcp-server",
@@ -3542,9 +3542,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/cost-explorer-mcp-server",
-      "dockerPulls": 5096,
+      "dockerPulls": 5097,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "dynamodb-mcp-server",
@@ -3556,9 +3556,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/dynamodb-mcp-server",
-      "dockerPulls": 8461,
+      "dockerPulls": 8467,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "elasticache-mcp-server",
@@ -3570,9 +3570,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/elasticache-mcp-server",
-      "dockerPulls": 3143,
+      "dockerPulls": 3144,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "iam-mcp-server",
@@ -3584,9 +3584,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/iam-mcp-server",
-      "dockerPulls": 3748,
+      "dockerPulls": 3751,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "memcached-mcp-server",
@@ -3598,9 +3598,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/memcached-mcp-server",
-      "dockerPulls": 2920,
+      "dockerPulls": 2921,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "nova-canvas-mcp-server",
@@ -3612,9 +3612,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/nova-canvas-mcp-server",
-      "dockerPulls": 1985,
+      "dockerPulls": 1986,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "redshift-mcp-server",
@@ -3626,9 +3626,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/redshift-mcp-server",
-      "dockerPulls": 3260,
+      "dockerPulls": 3261,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "s3-tables-mcp-server",
@@ -3640,9 +3640,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/s3-tables-mcp-server",
-      "dockerPulls": 3670,
+      "dockerPulls": 3671,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "valkey-mcp-server",
@@ -3654,9 +3654,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/valkey-mcp-server",
-      "dockerPulls": 2392,
+      "dockerPulls": 2393,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "timestream-for-influxdb-mcp-server",
@@ -3668,9 +3668,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/timestream-for-influxdb-mcp-server",
-      "dockerPulls": 2835,
+      "dockerPulls": 2836,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "pica-mcp-server",
@@ -3682,9 +3682,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/pica-mcp-server",
-      "dockerPulls": 2297,
+      "dockerPulls": 2298,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "vectra-ai-rux-mcp-server",
@@ -3696,9 +3696,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/vectra-ai-rux-mcp-server",
-      "dockerPulls": 1999,
+      "dockerPulls": 2000,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "testkube",
@@ -3710,9 +3710,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/testkube",
-      "dockerPulls": 2899,
+      "dockerPulls": 2902,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "temporal",
@@ -3724,9 +3724,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/temporal",
-      "dockerPulls": 3235,
+      "dockerPulls": 3241,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "google-flights",
@@ -3738,9 +3738,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/google-flights",
-      "dockerPulls": 10497,
+      "dockerPulls": 10501,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "docker-mcp-catalog",
@@ -3752,9 +3752,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/docker-mcp-catalog",
-      "dockerPulls": 740207,
+      "dockerPulls": 850659,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "zen",
@@ -3766,9 +3766,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/zen",
-      "dockerPulls": 3514,
+      "dockerPulls": 3517,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "n8n",
@@ -3780,9 +3780,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/n8n",
-      "dockerPulls": 95336,
+      "dockerPulls": 95355,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "neo4j",
@@ -3794,9 +3794,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/neo4j",
-      "dockerPulls": 6004,
+      "dockerPulls": 6012,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "community-registry",
@@ -3810,7 +3810,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/community-registry",
       "dockerPulls": 480,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "genai-toolbox",
@@ -3824,7 +3824,7 @@
       "dockerUrl": "https://hub.docker.com/r/mcp/genai-toolbox",
       "dockerPulls": 0,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "proxmox",
@@ -3836,9 +3836,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/proxmox",
-      "dockerPulls": 627,
+      "dockerPulls": 630,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     },
     {
       "name": "zscaler-mcp-server",
@@ -3850,9 +3850,9 @@
       "serverType": "stdio",
       "sourceRegistry": "docker",
       "dockerUrl": "https://hub.docker.com/r/mcp/zscaler-mcp-server",
-      "dockerPulls": 107,
+      "dockerPulls": 111,
       "verificationStatus": "community",
-      "lastIndexedAt": "2026-04-23T01:21:51.723Z"
+      "lastIndexedAt": "2026-04-23T04:54:00.262Z"
     }
   ],
   "plugins": [
@@ -3887,8 +3887,8 @@
         "supermemory"
       ],
       "category": "community",
-      "stars": 65830,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 65951,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "agents",
@@ -3921,8 +3921,8 @@
         "workflows"
       ],
       "category": "community",
-      "stars": 34116,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 34124,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "OpenMythos",
@@ -3953,8 +3953,8 @@
         "torch"
       ],
       "category": "community",
-      "stars": 8881,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 9011,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "arscontexta",
@@ -3973,8 +3973,8 @@
         "second-brain"
       ],
       "category": "community",
-      "stars": 3202,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 3203,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-octopus",
@@ -3999,8 +3999,8 @@
         "ollama"
       ],
       "category": "community",
-      "stars": 2799,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 2804,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "harness",
@@ -4017,8 +4017,8 @@
         "harness-engineering"
       ],
       "category": "community",
-      "stars": 2783,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 2795,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "pro-workflow",
@@ -4051,7 +4051,7 @@
       ],
       "category": "community",
       "stars": 1994,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "pg-aiguide",
@@ -4080,8 +4080,8 @@
         "skills"
       ],
       "category": "community",
-      "stars": 1697,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 1698,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "awesome-claude-plugins",
@@ -4106,8 +4106,8 @@
         "plugins"
       ],
       "category": "community",
-      "stars": 1436,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 1440,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "design-extract",
@@ -4140,8 +4140,8 @@
         "web-scraping"
       ],
       "category": "community",
-      "stars": 1371,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 1385,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "memsearch",
@@ -4173,8 +4173,8 @@
         "skills"
       ],
       "category": "community",
-      "stars": 1309,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 1316,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-safety-net",
@@ -4193,8 +4193,8 @@
         "security"
       ],
       "category": "community",
-      "stars": 1271,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 1272,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "awesome-claude-code-plugins",
@@ -4217,8 +4217,8 @@
         "claude-code-subagents"
       ],
       "category": "community",
-      "stars": 701,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 703,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "skills",
@@ -4241,8 +4241,8 @@
         "skillsmp"
       ],
       "category": "community",
-      "stars": 697,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 700,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "antigravity-skills",
@@ -4274,8 +4274,8 @@
         "workflows"
       ],
       "category": "community",
-      "stars": 683,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 684,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-codex-settings",
@@ -4308,8 +4308,8 @@
         "slack"
       ],
       "category": "community",
-      "stars": 631,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 632,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-ios-dev-guide",
@@ -4333,7 +4333,7 @@
       ],
       "category": "community",
       "stars": 610,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "flow-next",
@@ -4364,7 +4364,7 @@
       ],
       "category": "community",
       "stars": 573,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "adversarial-spec",
@@ -4385,7 +4385,7 @@
       ],
       "category": "community",
       "stars": 529,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-equity-research",
@@ -4412,7 +4412,7 @@
       ],
       "category": "community",
       "stars": 447,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "reins",
@@ -4440,7 +4440,7 @@
       ],
       "category": "community",
       "stars": 383,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "maestro-orchestrate",
@@ -4473,8 +4473,8 @@
         "subagents"
       ],
       "category": "community",
-      "stars": 368,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 369,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-stt",
@@ -4496,7 +4496,7 @@
       ],
       "category": "community",
       "stars": 365,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "shinkoku",
@@ -4516,8 +4516,8 @@
         "tax-filing"
       ],
       "category": "community",
-      "stars": 334,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 335,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "orchestrator-supaconductor",
@@ -4540,7 +4540,7 @@
       ],
       "category": "community",
       "stars": 334,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "modularity",
@@ -4565,7 +4565,7 @@
       ],
       "category": "community",
       "stars": 331,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "Codeman",
@@ -4596,8 +4596,8 @@
         "xterm-zerolag-input"
       ],
       "category": "community",
-      "stars": 328,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 329,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-workflows",
@@ -4623,8 +4623,8 @@
         "skills"
       ],
       "category": "community",
-      "stars": 318,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 319,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "cc-thingz",
@@ -4642,7 +4642,7 @@
       ],
       "category": "community",
       "stars": 315,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-elixir-phoenix",
@@ -4668,7 +4668,7 @@
       ],
       "category": "community",
       "stars": 285,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "awesome-claude-code",
@@ -4692,7 +4692,7 @@
       ],
       "category": "community",
       "stars": 285,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "smart-ralph",
@@ -4724,7 +4724,7 @@
       ],
       "category": "community",
       "stars": 284,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-organizer",
@@ -4758,7 +4758,7 @@
       ],
       "category": "community",
       "stars": 272,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "naksha-studio",
@@ -4787,7 +4787,7 @@
       ],
       "category": "community",
       "stars": 269,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "the-startup",
@@ -4805,7 +4805,7 @@
       ],
       "category": "community",
       "stars": 260,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "code-container",
@@ -4839,7 +4839,7 @@
       ],
       "category": "community",
       "stars": 233,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "power-platform-skills",
@@ -4860,7 +4860,7 @@
       ],
       "category": "community",
       "stars": 199,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "total-recall",
@@ -4881,7 +4881,7 @@
       ],
       "category": "community",
       "stars": 196,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "sage",
@@ -4904,7 +4904,7 @@
       ],
       "category": "community",
       "stars": 179,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "ed3d-plugins",
@@ -4923,7 +4923,7 @@
       ],
       "category": "community",
       "stars": 176,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-karma",
@@ -4953,7 +4953,7 @@
       ],
       "category": "community",
       "stars": 164,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "domscribe",
@@ -4987,7 +4987,7 @@
       ],
       "category": "community",
       "stars": 158,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "CLI-Anything-WEB",
@@ -5008,8 +5008,8 @@
         "web-scraping"
       ],
       "category": "community",
-      "stars": 155,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 156,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "sd0x-dev-flow",
@@ -5029,7 +5029,7 @@
       ],
       "category": "community",
       "stars": 146,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "open-code-review",
@@ -5054,7 +5054,7 @@
       ],
       "category": "community",
       "stars": 140,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "xclaude-plugin",
@@ -5087,7 +5087,7 @@
       ],
       "category": "community",
       "stars": 133,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-toolbox",
@@ -5121,7 +5121,7 @@
       ],
       "category": "community",
       "stars": 133,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "genshijin",
@@ -5140,70 +5140,8 @@
         "genshijin"
       ],
       "category": "community",
-      "stars": 132,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "jar-analyzer-claude",
-      "slug": "jar-analyzer-claude",
-      "description": "Claude Code plugin for Java JAR security audit — 基于 jar-analyzer 的 Claude Code 安全审计插件，构建数据库，AI 深入分析",
-      "version": "1.0.0",
-      "author": "jar-analyzer",
-      "authorUrl": "https://github.com/jar-analyzer",
-      "repository": "https://github.com/jar-analyzer/jar-analyzer-claude",
-      "keywords": [
-        "claude-code-plugin",
-        "code-audit",
-        "jar-analyzer",
-        "security-audit",
-        "vulnerability"
-      ],
-      "category": "community",
-      "stars": 124,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "agent-toolkit",
-      "slug": "agent-toolkit",
-      "description": "Collection of resources to help AI agents build better with Sanity.",
-      "version": "1.0.0",
-      "author": "sanity-io",
-      "authorUrl": "https://github.com/sanity-io",
-      "repository": "https://github.com/sanity-io/agent-toolkit",
-      "keywords": [
-        "agent-rules",
-        "ai-rules",
-        "claude-code",
-        "claude-code-plugin",
-        "cursor-ai",
-        "mcp",
-        "mcp-server",
-        "vs-code"
-      ],
-      "category": "community",
-      "stars": 123,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "research-mode",
-      "slug": "research-mode",
-      "description": "Anti-hallucination research mode for Claude Code. Toggle on/off to enforce citation requirements and source grounding.",
-      "version": "1.0.0",
-      "author": "assafkip",
-      "authorUrl": "https://github.com/assafkip",
-      "repository": "https://github.com/assafkip/research-mode",
-      "keywords": [
-        "ai-safety",
-        "anti-hallucination",
-        "citations",
-        "claude-code",
-        "claude-code-plugin",
-        "llm",
-        "research"
-      ],
-      "category": "community",
-      "stars": 123,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 133,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "yume",
@@ -5236,8 +5174,89 @@
         "typescript"
       ],
       "category": "community",
+      "stars": 124,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "jar-analyzer-claude",
+      "slug": "jar-analyzer-claude",
+      "description": "Claude Code plugin for Java JAR security audit — 基于 jar-analyzer 的 Claude Code 安全审计插件，构建数据库，AI 深入分析",
+      "version": "1.0.0",
+      "author": "jar-analyzer",
+      "authorUrl": "https://github.com/jar-analyzer",
+      "repository": "https://github.com/jar-analyzer/jar-analyzer-claude",
+      "keywords": [
+        "claude-code-plugin",
+        "code-audit",
+        "jar-analyzer",
+        "security-audit",
+        "vulnerability"
+      ],
+      "category": "community",
+      "stars": 124,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "deep-project",
+      "slug": "deep-project",
+      "description": "Claude Code plugin that transforms vague software ideas into individual, ready-to-be-planned components",
+      "version": "1.0.0",
+      "author": "piercelamb",
+      "authorUrl": "https://github.com/piercelamb",
+      "repository": "https://github.com/piercelamb/deep-project",
+      "keywords": [
+        "claude-code",
+        "claude-code-plugin",
+        "planning",
+        "project-management",
+        "requirements"
+      ],
+      "category": "community",
+      "stars": 124,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "agent-toolkit",
+      "slug": "agent-toolkit",
+      "description": "Collection of resources to help AI agents build better with Sanity.",
+      "version": "1.0.0",
+      "author": "sanity-io",
+      "authorUrl": "https://github.com/sanity-io",
+      "repository": "https://github.com/sanity-io/agent-toolkit",
+      "keywords": [
+        "agent-rules",
+        "ai-rules",
+        "claude-code",
+        "claude-code-plugin",
+        "cursor-ai",
+        "mcp",
+        "mcp-server",
+        "vs-code"
+      ],
+      "category": "community",
       "stars": 123,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "research-mode",
+      "slug": "research-mode",
+      "description": "Anti-hallucination research mode for Claude Code. Toggle on/off to enforce citation requirements and source grounding.",
+      "version": "1.0.0",
+      "author": "assafkip",
+      "authorUrl": "https://github.com/assafkip",
+      "repository": "https://github.com/assafkip/research-mode",
+      "keywords": [
+        "ai-safety",
+        "anti-hallucination",
+        "citations",
+        "claude-code",
+        "claude-code-plugin",
+        "llm",
+        "research"
+      ],
+      "category": "community",
+      "stars": 123,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-memory-engine",
@@ -5263,26 +5282,7 @@
       ],
       "category": "community",
       "stars": 123,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "deep-project",
-      "slug": "deep-project",
-      "description": "Claude Code plugin that transforms vague software ideas into individual, ready-to-be-planned components",
-      "version": "1.0.0",
-      "author": "piercelamb",
-      "authorUrl": "https://github.com/piercelamb",
-      "repository": "https://github.com/piercelamb/deep-project",
-      "keywords": [
-        "claude-code",
-        "claude-code-plugin",
-        "planning",
-        "project-management",
-        "requirements"
-      ],
-      "category": "community",
-      "stars": 123,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "VibesOS",
@@ -5300,7 +5300,7 @@
       ],
       "category": "community",
       "stars": 119,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-skills",
@@ -5320,8 +5320,30 @@
         "claude-code-skills"
       ],
       "category": "community",
-      "stars": 118,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 119,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "claudikins-kernel",
+      "slug": "claudikins-kernel",
+      "description": "SRE thinking applied to Claude Code, based on Boris Cherny's Q&A. It enforces a strict 4-stage pipeline with gates between each step. You literally cannot skip verification. You cannot ship without approval.",
+      "version": "1.0.0",
+      "author": "elb-pr",
+      "authorUrl": "https://github.com/elb-pr",
+      "repository": "https://github.com/elb-pr/claudikins-kernel",
+      "keywords": [
+        "agent-skills",
+        "claude",
+        "claude-ai",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "claudecode",
+        "sre"
+      ],
+      "category": "community",
+      "stars": 117,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-ai-music-skills",
@@ -5355,29 +5377,7 @@
       ],
       "category": "community",
       "stars": 118,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "claudikins-kernel",
-      "slug": "claudikins-kernel",
-      "description": "SRE thinking applied to Claude Code, based on Boris Cherny's Q&A. It enforces a strict 4-stage pipeline with gates between each step. You literally cannot skip verification. You cannot ship without approval.",
-      "version": "1.0.0",
-      "author": "elb-pr",
-      "authorUrl": "https://github.com/elb-pr",
-      "repository": "https://github.com/elb-pr/claudikins-kernel",
-      "keywords": [
-        "agent-skills",
-        "claude",
-        "claude-ai",
-        "claude-code",
-        "claude-code-plugin",
-        "claude-skills",
-        "claudecode",
-        "sre"
-      ],
-      "category": "community",
-      "stars": 117,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-rules",
@@ -5399,23 +5399,7 @@
       ],
       "category": "community",
       "stars": 117,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "Claude-Matrix",
-      "slug": "claude-matrix",
-      "description": "Claude on Rails - Tooling System for Claude Code.",
-      "version": "1.0.0",
-      "author": "ojowwalker77",
-      "authorUrl": "https://github.com/ojowwalker77",
-      "repository": "https://github.com/ojowwalker77/Claude-Matrix",
-      "keywords": [
-        "claude-code-plugin",
-        "claude-on-rails"
-      ],
-      "category": "community",
-      "stars": 108,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "m5-paper-buddy",
@@ -5442,8 +5426,24 @@
         "platformio"
       ],
       "category": "community",
-      "stars": 106,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 108,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "Claude-Matrix",
+      "slug": "claude-matrix",
+      "description": "Claude on Rails - Tooling System for Claude Code.",
+      "version": "1.0.0",
+      "author": "ojowwalker77",
+      "authorUrl": "https://github.com/ojowwalker77",
+      "repository": "https://github.com/ojowwalker77/Claude-Matrix",
+      "keywords": [
+        "claude-code-plugin",
+        "claude-on-rails"
+      ],
+      "category": "community",
+      "stars": 108,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-emporium",
@@ -5477,7 +5477,7 @@
       ],
       "category": "community",
       "stars": 105,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "devglobe-extension",
@@ -5504,7 +5504,7 @@
       ],
       "category": "community",
       "stars": 104,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "wozcode-plugin",
@@ -5521,7 +5521,7 @@
       ],
       "category": "community",
       "stars": 98,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "plan-cascade",
@@ -5543,7 +5543,7 @@
       ],
       "category": "community",
       "stars": 97,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-art-skill",
@@ -5567,7 +5567,7 @@
       ],
       "category": "community",
       "stars": 95,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "atdd",
@@ -5591,7 +5591,7 @@
       ],
       "category": "community",
       "stars": 91,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "canvas-apps-tools",
@@ -5612,7 +5612,7 @@
       ],
       "category": "community",
       "stars": 91,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "Claude-Patent-Creator",
@@ -5637,7 +5637,7 @@
       ],
       "category": "community",
       "stars": 89,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "deep-plan",
@@ -5655,8 +5655,8 @@
         "tdd"
       ],
       "category": "community",
-      "stars": 88,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 89,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "essentials-claude-code",
@@ -5677,7 +5677,7 @@
       ],
       "category": "community",
       "stars": 88,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "atlas-session-lifecycle",
@@ -5701,7 +5701,7 @@
       ],
       "category": "community",
       "stars": 86,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "grainulator",
@@ -5730,7 +5730,7 @@
       ],
       "category": "community",
       "stars": 84,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "altk-evolve",
@@ -5763,7 +5763,7 @@
       ],
       "category": "community",
       "stars": 76,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-supervisor",
@@ -5792,33 +5792,7 @@
       ],
       "category": "community",
       "stars": 75,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "ipybox",
-      "slug": "ipybox",
-      "description": "Unified execution environment for Python code, shell commands, and programmatic MCP tool calls.",
-      "version": "1.0.0",
-      "author": "gradion-ai",
-      "authorUrl": "https://github.com/gradion-ai",
-      "repository": "https://github.com/gradion-ai/ipybox",
-      "keywords": [
-        "claude-code-plugin",
-        "code-execution",
-        "code-interpreter",
-        "code-mode",
-        "code-sandbox",
-        "ipython",
-        "mcp",
-        "mcp-client",
-        "mcp-server",
-        "programmatic-tool-calling",
-        "python",
-        "sandbox-runtime"
-      ],
-      "category": "community",
-      "stars": 74,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "alive",
@@ -5850,8 +5824,34 @@
         "productivity"
       ],
       "category": "community",
-      "stars": 73,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 75,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "ipybox",
+      "slug": "ipybox",
+      "description": "Unified execution environment for Python code, shell commands, and programmatic MCP tool calls.",
+      "version": "1.0.0",
+      "author": "gradion-ai",
+      "authorUrl": "https://github.com/gradion-ai",
+      "repository": "https://github.com/gradion-ai/ipybox",
+      "keywords": [
+        "claude-code-plugin",
+        "code-execution",
+        "code-interpreter",
+        "code-mode",
+        "code-sandbox",
+        "ipython",
+        "mcp",
+        "mcp-client",
+        "mcp-server",
+        "programmatic-tool-calling",
+        "python",
+        "sandbox-runtime"
+      ],
+      "category": "community",
+      "stars": 74,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-wakatime",
@@ -5871,7 +5871,7 @@
       ],
       "category": "community",
       "stars": 70,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "autocode",
@@ -5898,7 +5898,31 @@
       ],
       "category": "community",
       "stars": 69,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "director-mode-lite",
+      "slug": "director-mode-lite",
+      "description": "Use Claude Code like a Director, not a Programmer. Free toolkit with Auto-Loop, Self-Evolving Loop, 25 commands, 14 agents, 29 skills.",
+      "version": "1.0.0",
+      "author": "claude-world",
+      "authorUrl": "https://github.com/claude-world",
+      "repository": "https://github.com/claude-world/director-mode-lite",
+      "keywords": [
+        "ai-agents",
+        "ai-coding",
+        "anthropic",
+        "automation",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-code-plugins",
+        "claude-code-skills",
+        "developer-tools",
+        "tdd"
+      ],
+      "category": "community",
+      "stars": 67,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "gsd-pro",
@@ -5932,31 +5956,7 @@
       ],
       "category": "community",
       "stars": 67,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "director-mode-lite",
-      "slug": "director-mode-lite",
-      "description": "Use Claude Code like a Director, not a Programmer. Free toolkit with Auto-Loop, Self-Evolving Loop, 25 commands, 14 agents, 29 skills.",
-      "version": "1.0.0",
-      "author": "claude-world",
-      "authorUrl": "https://github.com/claude-world",
-      "repository": "https://github.com/claude-world/director-mode-lite",
-      "keywords": [
-        "ai-agents",
-        "ai-coding",
-        "anthropic",
-        "automation",
-        "claude-code",
-        "claude-code-plugin",
-        "claude-code-plugins",
-        "claude-code-skills",
-        "developer-tools",
-        "tdd"
-      ],
-      "category": "community",
-      "stars": 67,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-plugins",
@@ -5979,7 +5979,7 @@
       ],
       "category": "community",
       "stars": 66,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "pith",
@@ -5998,69 +5998,7 @@
       ],
       "category": "community",
       "stars": 66,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "claudebin.com",
-      "slug": "claudebin-com",
-      "description": "Claudebin is a minimalistic tool for publishing and sharing Claude coding sessions",
-      "version": "1.0.0",
-      "author": "wunderlabs-dev",
-      "authorUrl": "https://github.com/wunderlabs-dev",
-      "repository": "https://github.com/wunderlabs-dev/claudebin.com",
-      "keywords": [
-        "claude",
-        "claude-code",
-        "claude-code-plugin"
-      ],
-      "category": "community",
-      "stars": 63,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "dev-agent-skills",
-      "slug": "dev-agent-skills",
-      "description": "Claude Code skills plugin for Git, GitHub, and skill authoring workflows",
-      "version": "1.0.0",
-      "author": "fvadicamo",
-      "authorUrl": "https://github.com/fvadicamo",
-      "repository": "https://github.com/fvadicamo/dev-agent-skills",
-      "keywords": [
-        "ai-coding-agent",
-        "anthropic",
-        "claude-code",
-        "claude-code-plugin",
-        "claude-code-skills",
-        "conventional-commits",
-        "developer-tools",
-        "git",
-        "github",
-        "pull-requests"
-      ],
-      "category": "community",
-      "stars": 62,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
-    },
-    {
-      "name": "toonify-mcp",
-      "slug": "toonify-mcp",
-      "description": "Automatic token optimization for Claude Code and MCP workflows, including structured data and source code compression.",
-      "version": "1.0.0",
-      "author": "PCIRCLE-AI",
-      "authorUrl": "https://github.com/PCIRCLE-AI",
-      "repository": "https://github.com/PCIRCLE-AI/toonify-mcp",
-      "keywords": [
-        "claude-code",
-        "claude-code-plugin",
-        "developer-tooling",
-        "mcp-server",
-        "source-code-compression",
-        "token-optimization",
-        "toon-format"
-      ],
-      "category": "community",
-      "stars": 59,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "bdpan-storage",
@@ -6088,8 +6026,70 @@
         "skills"
       ],
       "category": "community",
-      "stars": 60,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 64,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "claudebin.com",
+      "slug": "claudebin-com",
+      "description": "Claudebin is a minimalistic tool for publishing and sharing Claude coding sessions",
+      "version": "1.0.0",
+      "author": "wunderlabs-dev",
+      "authorUrl": "https://github.com/wunderlabs-dev",
+      "repository": "https://github.com/wunderlabs-dev/claudebin.com",
+      "keywords": [
+        "claude",
+        "claude-code",
+        "claude-code-plugin"
+      ],
+      "category": "community",
+      "stars": 63,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "dev-agent-skills",
+      "slug": "dev-agent-skills",
+      "description": "Claude Code skills plugin for Git, GitHub, and skill authoring workflows",
+      "version": "1.0.0",
+      "author": "fvadicamo",
+      "authorUrl": "https://github.com/fvadicamo",
+      "repository": "https://github.com/fvadicamo/dev-agent-skills",
+      "keywords": [
+        "ai-coding-agent",
+        "anthropic",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-code-skills",
+        "conventional-commits",
+        "developer-tools",
+        "git",
+        "github",
+        "pull-requests"
+      ],
+      "category": "community",
+      "stars": 62,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
+    },
+    {
+      "name": "toonify-mcp",
+      "slug": "toonify-mcp",
+      "description": "Automatic token optimization for Claude Code and MCP workflows, including structured data and source code compression.",
+      "version": "1.0.0",
+      "author": "PCIRCLE-AI",
+      "authorUrl": "https://github.com/PCIRCLE-AI",
+      "repository": "https://github.com/PCIRCLE-AI/toonify-mcp",
+      "keywords": [
+        "claude-code",
+        "claude-code-plugin",
+        "developer-tooling",
+        "mcp-server",
+        "source-code-compression",
+        "token-optimization",
+        "toon-format"
+      ],
+      "category": "community",
+      "stars": 59,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "devpace",
@@ -6115,7 +6115,7 @@
       ],
       "category": "community",
       "stars": 57,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "pinecone-claude-code-plugin",
@@ -6140,7 +6140,7 @@
       ],
       "category": "community",
       "stars": 57,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "apple-platform-build-tools-claude-code-plugin",
@@ -6166,7 +6166,7 @@
       ],
       "category": "community",
       "stars": 56,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "design-system-ops",
@@ -6187,7 +6187,7 @@
       ],
       "category": "community",
       "stars": 55,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "buddy",
@@ -6220,8 +6220,8 @@
         "terminal-pet"
       ],
       "category": "community",
-      "stars": 54,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "stars": 55,
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "ship",
@@ -6238,7 +6238,7 @@
       ],
       "category": "community",
       "stars": 54,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "shipyard",
@@ -6262,7 +6262,7 @@
       ],
       "category": "community",
       "stars": 54,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "hivemind",
@@ -6294,7 +6294,7 @@
       ],
       "category": "community",
       "stars": 53,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "vibe-coder-kit",
@@ -6328,7 +6328,7 @@
       ],
       "category": "community",
       "stars": 52,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     },
     {
       "name": "claude-code-setup",
@@ -6352,7 +6352,7 @@
       ],
       "category": "community",
       "stars": 51,
-      "lastIndexedAt": "2026-04-23T01:21:53.646Z"
+      "lastIndexedAt": "2026-04-23T04:54:01.479Z"
     }
   ],
   "subagents": [
