@@ -36,6 +36,7 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 sm:py-12 max-w-4xl">
+
         {/* Back */}
         <Link href="/mcp-servers" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 sm:mb-8 transition-colors">
           <ArrowLeft className="h-4 w-4 shrink-0" />
@@ -125,16 +126,21 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
           </div>
         )}
 
-        {/* README */}
-        {server.readmeContent && (
-          <ReadmeViewer
-            content={server.readmeContent}
-            sourceUrl={server.githubUrl}
-            repoName={server.githubUrl?.replace('https://github.com/', '')}
-            truncated={server.readmeTruncated}
-          />
-        )}
       </div>
+
+      {/* README — wider container so TOC + content have room */}
+      {server.readmeContent && (
+        <div className="container mx-auto px-4 pb-16 max-w-6xl">
+          <div className="border-t border-border/40 pt-10 sm:pt-12">
+            <ReadmeViewer
+              content={server.readmeContent}
+              sourceUrl={server.githubUrl}
+              repoName={server.githubUrl?.replace('https://github.com/', '')}
+              truncated={server.readmeTruncated}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

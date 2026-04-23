@@ -107,16 +107,21 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
           </div>
         )}
 
-        {/* README */}
-        {plugin.readmeContent && (
-          <ReadmeViewer
-            content={plugin.readmeContent}
-            sourceUrl={plugin.repository}
-            repoName={plugin.repository?.replace('https://github.com/', '')}
-            truncated={plugin.readmeTruncated}
-          />
-        )}
       </div>
+
+      {/* README — wider container so TOC + content have room */}
+      {plugin.readmeContent && (
+        <div className="container mx-auto px-4 pb-16 max-w-6xl">
+          <div className="border-t border-border/40 pt-10 sm:pt-12">
+            <ReadmeViewer
+              content={plugin.readmeContent}
+              sourceUrl={plugin.repository}
+              repoName={plugin.repository?.replace('https://github.com/', '')}
+              truncated={plugin.readmeTruncated}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

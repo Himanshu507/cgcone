@@ -14,8 +14,8 @@ export function ReadmeViewer({ content, sourceUrl, repoName, truncated }: Readme
   const toc = extractToc(content)
 
   return (
-    <section className="mt-10 sm:mt-12">
-      <div className="flex items-center justify-between gap-4 mb-4">
+    <section>
+      <div className="flex items-center justify-between gap-4 mb-5">
         <h2 className="text-base font-semibold">README</h2>
         {sourceUrl && (
           <a
