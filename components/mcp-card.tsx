@@ -24,13 +24,19 @@ export function MCPCard({ server }: MCPCardProps) {
 
   return (
     <>
-      <div className="p-5 rounded-lg border border-border hover:border-primary/40 transition-colors h-full flex flex-col gap-3 bg-card">
-        <div className="flex items-start justify-between gap-2">
-          <Link href={`/mcp-server/${server.slug}`} className="flex-1 min-w-0">
-            <h3 className="font-medium text-foreground hover:text-primary transition-colors truncate">
-              {server.displayName}
-            </h3>
-          </Link>
+      <div className="relative p-5 rounded-lg border border-border hover:border-primary/40 transition-colors h-full flex flex-col gap-3 bg-card">
+        {/* Whole-card click overlay — mouse navigation, hidden from a11y */}
+        <Link
+          href={`/mcp-server/${server.slug}`}
+          className="absolute inset-0 rounded-lg z-0"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+
+        <div className="flex items-start justify-between gap-2 relative z-10">
+          <h3 className="font-medium text-foreground truncate flex-1 min-w-0">
+            {server.displayName}
+          </h3>
           <span
             className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium shrink-0 ${verificationColors[server.verificationStatus]}`}
           >
@@ -53,7 +59,7 @@ export function MCPCard({ server }: MCPCardProps) {
           ))}
         </div>
 
-        <div className="flex items-center gap-2 mt-auto pt-1">
+        <div className="relative z-10 flex items-center gap-2 mt-auto pt-1">
           <Button
             size="sm"
             onClick={() => setModalOpen(true)}
