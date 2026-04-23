@@ -35,7 +35,7 @@ export default async function HookPage({ params }: { params: Promise<{ slug: str
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-5xl">
         <Link href="/hooks" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 sm:mb-8 transition-colors">
           <ArrowLeft className="h-4 w-4 shrink-0" />
           Back to Hooks
