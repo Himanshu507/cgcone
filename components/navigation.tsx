@@ -9,6 +9,7 @@ import { useState } from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { cn } from "@/lib/utils"
 import { useTheme } from "@/components/theme-provider"
+import { LogoMark } from "@/components/logo-mark"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -32,8 +33,9 @@ export function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex h-14 items-center justify-between">
             <div className="flex items-center gap-8">
-              <Link href="/" className="font-medium text-foreground hover:text-primary transition-colors font-mono text-sm">
-                cgcone
+              <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="cgcone home">
+                <LogoMark size={20} />
+                <span className="font-mono text-sm font-medium text-foreground">cgcone</span>
               </Link>
               <div className="hidden lg:flex items-center gap-1">
                 {navigationLinks.map((link) => {
@@ -112,10 +114,12 @@ export function Navigation() {
               <div className="flex items-center justify-between border-b border-border p-4">
                 <Link
                   href="/"
-                  className="font-mono text-sm font-medium"
+                  className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                   onClick={() => setMobileMenuOpen(false)}
+                  aria-label="cgcone home"
                 >
-                  cgcone
+                  <LogoMark size={18} />
+                  <span className="font-mono text-sm font-medium">cgcone</span>
                 </Link>
                 <DialogPrimitive.Close className="rounded-sm opacity-70 hover:opacity-100">
                   <Cross2Icon className="h-4 w-4" />

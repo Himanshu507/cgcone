@@ -24,8 +24,47 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "CGCone - Claude Code Marketplace",
-  description: "The marketplace for Claude Code. Browse MCP servers, plugins, subagents, skills, commands, and hooks to enhance your AI development workflow.",
+  metadataBase: new URL('https://cgcone.vercel.app'),
+  title: {
+    default: 'cgcone — Universal AI CLI Extension Manager',
+    template: '%s | cgcone',
+  },
+  description:
+    'Install MCP servers, plugins, skills, and hooks once. cgcone syncs across Claude Code, Gemini CLI, OpenAI Codex, and Copilot CLI in one command.',
+  keywords: [
+    'MCP server', 'Claude Code', 'Gemini CLI', 'OpenAI Codex', 'Copilot CLI',
+    'AI CLI manager', 'plugins', 'skills', 'hooks', 'subagents', 'cgcone',
+    'AI extensions marketplace', 'MCP marketplace',
+  ],
+  authors: [{ name: 'cgcone', url: 'https://cgcone.vercel.app' }],
+  creator: 'cgcone',
+  publisher: 'cgcone',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://cgcone.vercel.app',
+    siteName: 'cgcone',
+    title: 'cgcone — Universal AI CLI Extension Manager',
+    description:
+      'Install MCP servers, plugins, and skills to every AI CLI — Claude Code, Gemini CLI, Codex — in one command.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@cgcone',
+    title: 'cgcone — Universal AI CLI Extension Manager',
+    description:
+      'Install MCP servers, plugins, and skills to every AI CLI — Claude Code, Gemini CLI, Codex — in one command.',
+  },
+  other: {
+    'theme-color': '#0a0a0a',
+    'color-scheme': 'dark light',
+    'msapplication-TileColor': '#0a0a0a',
+  },
 }
 
 export default function RootLayout({
