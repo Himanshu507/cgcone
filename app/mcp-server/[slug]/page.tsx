@@ -126,12 +126,9 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
           </div>
         )}
 
-      </div>
-
-      {/* README — wider container so TOC + content have room */}
-      {server.readmeContent && (
-        <div className="container mx-auto px-4 pb-16 max-w-6xl">
-          <div className="border-t border-border/40 pt-10 sm:pt-12">
+        {/* README */}
+        {server.readmeContent && (
+          <div className="border-t border-border/40 mt-8 sm:mt-12 pt-8 sm:pt-10">
             <ReadmeViewer
               content={server.readmeContent}
               sourceUrl={server.githubUrl}
@@ -139,8 +136,8 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
               truncated={server.readmeTruncated}
             />
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

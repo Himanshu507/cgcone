@@ -107,12 +107,9 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
           </div>
         )}
 
-      </div>
-
-      {/* README — wider container so TOC + content have room */}
-      {plugin.readmeContent && (
-        <div className="container mx-auto px-4 pb-16 max-w-6xl">
-          <div className="border-t border-border/40 pt-10 sm:pt-12">
+        {/* README */}
+        {plugin.readmeContent && (
+          <div className="border-t border-border/40 mt-8 sm:mt-12 pt-8 sm:pt-10">
             <ReadmeViewer
               content={plugin.readmeContent}
               sourceUrl={plugin.repository}
@@ -120,8 +117,8 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
               truncated={plugin.readmeTruncated}
             />
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
