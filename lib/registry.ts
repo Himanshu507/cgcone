@@ -1,8 +1,22 @@
 import fs from 'fs'
 import path from 'path'
 import type { Registry, MCPServer, Plugin, Subagent, Skill, Command, Hook, Marketplace } from './types'
+import { resolveUrl } from './utils'
 
 let cached: Registry | null = null
+
+function normalizeMCPServer(raw: Record<string, unknown>): MCPServer {
+  return {
+    ...(raw as unknown as MCPServer),
+    githubUrl: resolveUrl(raw.githubUrl),
+    dockerUrl: resolveUrl(raw.dockerUrl) ?? (typeof raw.dockerUrl === 'string' ? raw.dockerUrl : undefined),
+    documentationUrl: resolveUrl(raw.documentationUrl) ?? (typeof raw.documentationUrl === 'string' ? raw.documentationUrl : undefined),
+    npmUrl: resolveUrl(raw.npmUrl) ?? (typeof raw.npmUrl === 'string' ? raw.npmUrl : undefined),
+    description: typeof raw.description === 'string' ? raw.description : '',
+    tags: Array.isArray(raw.tags) ? (raw.tags as string[]) : [],
+    packages: Array.isArray(raw.packages) ? raw.packages : [],
+  }
+}
 
 function loadRegistry(): Registry {
   if (cached) return cached
@@ -19,7 +33,13 @@ function loadRegistry(): Registry {
       marketplaces: [],
     }
   }
-  cached = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as Registry
+  const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+  cached = {
+    ...raw,
+    mcpServers: Array.isArray(raw.mcpServers)
+      ? raw.mcpServers.map((s: Record<string, unknown>) => normalizeMCPServer(s))
+      : [],
+  } as Registry
   return cached
 }
 

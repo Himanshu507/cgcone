@@ -16,10 +16,10 @@ export interface MCPServer {
   description: string
   category: string
   tags: string[]
-  serverType: 'stdio' | 'http' | 'sse'
+  serverType: string
   vendor?: string
   logoUrl?: string
-  sourceRegistry: 'official-mcp' | 'docker' | 'github' | 'community'
+  sourceRegistry: string
   sourceUrl?: string
   githubUrl?: string
   dockerUrl?: string
