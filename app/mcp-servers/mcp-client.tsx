@@ -55,9 +55,9 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-8 sm:py-12">
         {/* Header */}
-        <div className="mb-10">
+        <div className="mb-6 sm:mb-10">
           <h1 className="text-display-2 mb-3">MCP Servers</h1>
           <p className="text-muted-foreground">
             {servers.length} servers across {categories.length - 1} categories
@@ -65,7 +65,7 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
         </div>
 
         {/* Search */}
-        <div className="relative mb-6 max-w-md">
+        <div className="relative mb-6 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search servers..."

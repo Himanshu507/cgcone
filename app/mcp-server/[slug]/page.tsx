@@ -34,58 +34,54 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-4xl">
         {/* Back */}
-        <Link href="/mcp-servers" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
-          <ArrowLeft className="h-4 w-4" />
+        <Link href="/mcp-servers" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 sm:mb-8 transition-colors">
+          <ArrowLeft className="h-4 w-4 shrink-0" />
           Back to MCP Servers
         </Link>
 
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-start gap-4 flex-wrap">
-            <div className="flex-1">
-              <h1 className="text-display-2 mb-3">{server.displayName}</h1>
-              <p className="text-lg text-muted-foreground">{server.description}</p>
-            </div>
-            <span
-              className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${verificationColors[server.verificationStatus]}`}
-            >
+        <div className="mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-3">
+            <h1 className="text-display-2 flex-1 min-w-0 break-words">{server.displayName}</h1>
+            <span className={`self-start shrink-0 inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${verificationColors[server.verificationStatus]}`}>
               {server.verificationStatus}
             </span>
           </div>
+          <p className="text-base sm:text-lg text-muted-foreground">{server.description}</p>
         </div>
 
         {/* Install section (client) */}
         <MCPInstallSection server={server} />
 
         {/* Metadata grid */}
-        <div className="grid sm:grid-cols-2 gap-6 mt-10">
-          <div className="p-5 rounded-lg border border-border bg-card space-y-3">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mt-6 sm:mt-10">
+          <div className="p-4 sm:p-5 rounded-lg border border-border bg-card space-y-3">
             <h3 className="font-medium">Details</h3>
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Category</span>
-                <Badge variant="outline">{server.category}</Badge>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">Category</span>
+                <Badge variant="outline" className="truncate max-w-[160px]">{server.category}</Badge>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Server Type</span>
-                <Badge variant="secondary" className="font-mono">{server.serverType}</Badge>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">Server Type</span>
+                <Badge variant="secondary" className="font-mono truncate max-w-[160px]">{server.serverType}</Badge>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Source</span>
-                <Badge variant="outline">{server.sourceRegistry}</Badge>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">Source</span>
+                <Badge variant="outline" className="truncate max-w-[160px]">{server.sourceRegistry}</Badge>
               </div>
               {server.vendor && (
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Vendor</span>
-                  <span className="text-foreground">{server.vendor}</span>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-muted-foreground shrink-0">Vendor</span>
+                  <span className="text-foreground truncate">{server.vendor}</span>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="p-5 rounded-lg border border-border bg-card space-y-3">
+          <div className="p-4 sm:p-5 rounded-lg border border-border bg-card space-y-3">
             <h3 className="font-medium">Links</h3>
             <div className="space-y-2">
               {server.githubUrl && (
@@ -109,13 +105,16 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
                   </Button>
                 </a>
               )}
+              {!server.githubUrl && !server.dockerUrl && !server.documentationUrl && (
+                <p className="text-sm text-muted-foreground">No links available</p>
+              )}
             </div>
           </div>
         </div>
 
         {/* Tags */}
         {server.tags && server.tags.length > 0 && (
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <h3 className="font-medium mb-3">Tags</h3>
             <div className="flex flex-wrap gap-2">
               {server.tags.map(tag => (

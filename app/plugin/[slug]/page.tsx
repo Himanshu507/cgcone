@@ -29,59 +29,57 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <Link href="/plugins" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
-          <ArrowLeft className="h-4 w-4" />
+      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-4xl">
+        <Link href="/plugins" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 sm:mb-8 transition-colors">
+          <ArrowLeft className="h-4 w-4 shrink-0" />
           Back to Plugins
         </Link>
 
-        <div className="mb-8">
-          <div className="flex items-start gap-4 flex-wrap">
-            <div className="flex-1">
-              <h1 className="text-display-2 mb-3">{plugin.name}</h1>
-              <p className="text-lg text-muted-foreground">{plugin.description}</p>
-            </div>
+        <div className="mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-3">
+            <h1 className="text-display-2 flex-1 min-w-0 break-words">{plugin.name}</h1>
             {plugin.stars !== undefined && (
-              <div className="flex items-center gap-1 text-muted-foreground">
+              <div className="self-start shrink-0 flex items-center gap-1 text-muted-foreground">
                 <StarFilledIcon className="h-4 w-4 text-yellow-500" />
                 <span>{formatNumber(plugin.stars)}</span>
               </div>
             )}
           </div>
+          <p className="text-base sm:text-lg text-muted-foreground">{plugin.description}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="p-5 rounded-lg border border-border bg-card space-y-3">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+          <div className="p-4 sm:p-5 rounded-lg border border-border bg-card space-y-3">
             <h3 className="font-medium">Details</h3>
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Author</span>
-                <span>{plugin.author}</span>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">Author</span>
+                <span className="truncate text-right">{plugin.author}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Version</span>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">Version</span>
                 <Badge variant="secondary" className="font-mono">v{plugin.version}</Badge>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Category</span>
-                <Badge variant="outline">{plugin.category}</Badge>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">Category</span>
+                <Badge variant="outline" className="truncate max-w-[140px]">{plugin.category}</Badge>
               </div>
               {plugin.license && (
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">License</span>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-muted-foreground shrink-0">License</span>
                   <Badge variant="outline">{plugin.license}</Badge>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="p-5 rounded-lg border border-border bg-card space-y-3">
+          <div className="p-4 sm:p-5 rounded-lg border border-border bg-card space-y-3">
             <h3 className="font-medium">Links</h3>
             <div className="space-y-2">
               {plugin.repository && (
                 <a href={plugin.repository} target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="sm" className="w-full justify-start gap-2">
-                    <GitHubLogoIcon className="h-4 w-4" />
+                    <GitHubLogoIcon className="h-4 w-4 shrink-0" />
                     Repository
                   </Button>
                 </a>
@@ -98,7 +96,7 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
         </div>
 
         {plugin.keywords && plugin.keywords.length > 0 && (
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <h3 className="font-medium mb-3">Keywords</h3>
             <div className="flex flex-wrap gap-2">
               {plugin.keywords.map(kw => (
