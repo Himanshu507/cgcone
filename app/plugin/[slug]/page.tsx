@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { ReadmeViewer } from "@/components/readme-viewer"
 import { ArrowLeft } from "lucide-react"
 import { GitHubLogoIcon, StarFilledIcon } from "@radix-ui/react-icons"
 import { formatNumber } from "@/lib/utils"
@@ -104,6 +105,16 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
               ))}
             </div>
           </div>
+        )}
+
+        {/* README */}
+        {plugin.readmeContent && (
+          <ReadmeViewer
+            content={plugin.readmeContent}
+            sourceUrl={plugin.repository}
+            repoName={plugin.repository?.replace('https://github.com/', '')}
+            truncated={plugin.readmeTruncated}
+          />
         )}
       </div>
     </div>

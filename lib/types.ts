@@ -31,6 +31,8 @@ export interface MCPServer {
   installationMethods?: unknown[]
   verificationStatus: 'verified' | 'community' | 'experimental'
   lastIndexedAt: string
+  readmeContent?: string
+  readmeTruncated?: boolean
 }
 
 export interface Plugin {
@@ -46,6 +48,8 @@ export interface Plugin {
   category: string
   stars?: number
   lastIndexedAt: string
+  readmeContent?: string
+  readmeTruncated?: boolean
 }
 
 export interface Subagent {

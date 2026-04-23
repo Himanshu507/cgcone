@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import MCPInstallSection from "./install-section"
+import { ReadmeViewer } from "@/components/readme-viewer"
 import { ArrowLeft } from "lucide-react"
 
 export async function generateStaticParams() {
@@ -122,6 +123,16 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
               ))}
             </div>
           </div>
+        )}
+
+        {/* README */}
+        {server.readmeContent && (
+          <ReadmeViewer
+            content={server.readmeContent}
+            sourceUrl={server.githubUrl}
+            repoName={server.githubUrl?.replace('https://github.com/', '')}
+            truncated={server.readmeTruncated}
+          />
         )}
       </div>
     </div>
