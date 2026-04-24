@@ -25,7 +25,7 @@ export default function MarketplacesClient({ marketplaces }: MarketplacesClientP
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-10">
           <h1 className="text-display-2 mb-3">Marketplaces</h1>
           <p className="text-muted-foreground">{marketplaces.length} curated plugin marketplaces</p>

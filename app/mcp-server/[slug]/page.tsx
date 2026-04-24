@@ -35,7 +35,7 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-5xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-5xl">
 
         {/* Back */}
         <Link href="/mcp-servers" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 sm:mb-8 transition-colors">

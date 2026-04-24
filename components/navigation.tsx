@@ -30,7 +30,7 @@ export function Navigation() {
   return (
     <>
       <nav className="fixed top-0 w-full z-50 border-b border-border/50 bg-background/95 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-14 items-center justify-between">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity" aria-label="cgcone home">

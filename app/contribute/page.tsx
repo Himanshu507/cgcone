@@ -51,7 +51,7 @@ const contentTypes = [
 export default function ContributePage() {
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-5xl">
         <div className="mb-12">
           <h1 className="text-display-2 mb-4">Contribute</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">

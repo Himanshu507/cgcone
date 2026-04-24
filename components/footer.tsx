@@ -25,7 +25,7 @@ const RESOURCE_LINKS = [
 export function Footer() {
   return (
     <footer className="border-t border-border/40 mt-24" aria-label="Site footer">
-      <div className="container mx-auto px-4 py-14">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
 
         {/* Top grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">

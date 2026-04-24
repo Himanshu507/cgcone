@@ -55,7 +55,7 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header */}
         <div className="mb-6 sm:mb-10">
           <h1 className="text-display-2 mb-3">MCP Servers</h1>

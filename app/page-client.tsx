@@ -146,7 +146,7 @@ export default function HomePageClient({
     <main>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section aria-labelledby="hero-heading" className="pt-24 pb-20 md:pt-32 md:pb-28">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
 
             {/* Left copy */}
@@ -252,7 +252,7 @@ export default function HomePageClient({
 
       {/* ── Stats bar ────────────────────────────────────────── */}
       <section aria-label="Extension counts" className="border-y border-border bg-secondary/30 py-6">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <dl className="flex flex-wrap justify-center gap-8 sm:gap-16 text-center">
             {[
               { value: totalCount + '+', label: 'Total Extensions' },
@@ -271,7 +271,7 @@ export default function HomePageClient({
 
       {/* ── How it works ─────────────────────────────────────── */}
       <section aria-labelledby="how-heading" className="py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">How it works</p>
             <h2 id="how-heading" className="text-display-2">Three steps to one CLI to rule them all</h2>
@@ -302,7 +302,7 @@ export default function HomePageClient({
 
       {/* ── Features ─────────────────────────────────────────── */}
       <section aria-labelledby="features-heading" className="py-24 border-t border-border bg-secondary/20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Features</p>
             <h2 id="features-heading" className="text-display-2">Everything your AI toolchain needs</h2>
@@ -327,7 +327,7 @@ export default function HomePageClient({
 
       {/* ── CLI commands ─────────────────────────────────────── */}
       <section aria-labelledby="cli-heading" className="py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center max-w-5xl mx-auto">
             <div>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">CLI Tool</p>
@@ -396,7 +396,7 @@ export default function HomePageClient({
 
       {/* ── Marketplace preview ──────────────────────────────── */}
       <section aria-labelledby="marketplace-heading" className="py-24 border-t border-border">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Marketplace</p>
             <h2 id="marketplace-heading" className="text-display-2 mb-4">
@@ -455,7 +455,7 @@ export default function HomePageClient({
 
       {/* ── Get started ──────────────────────────────────────── */}
       <section aria-labelledby="getstarted-heading" className="py-24 border-t border-border bg-secondary/20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 id="getstarted-heading" className="text-display-2 mb-4">Get started today</h2>
