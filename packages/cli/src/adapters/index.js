@@ -1,11 +1,13 @@
-import { ClaudeCodeAdapter } from './claude-code.js'
-import { GeminiCLIAdapter }  from './gemini-cli.js'
-import { CodexCLIAdapter }   from './codex-cli.js'
+import { ClaudeCodeAdapter }  from './claude-code.js'
+import { GeminiCLIAdapter }   from './gemini-cli.js'
+import { CodexCLIAdapter }    from './codex-cli.js'
+import { CopilotCLIAdapter }  from './copilot-cli.js'
 
 export const ALL_ADAPTERS = [
   new ClaudeCodeAdapter(),
   new GeminiCLIAdapter(),
   new CodexCLIAdapter(),
+  new CopilotCLIAdapter(),
 ]
 
 export async function getDetectedAdapters() {
@@ -15,4 +17,4 @@ export async function getDetectedAdapters() {
   return results.filter(r => r.detected).map(r => r.adapter)
 }
 
-export { ClaudeCodeAdapter, GeminiCLIAdapter, CodexCLIAdapter }
+export { ClaudeCodeAdapter, GeminiCLIAdapter, CodexCLIAdapter, CopilotCLIAdapter }

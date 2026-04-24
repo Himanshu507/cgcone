@@ -1,12 +1,11 @@
-import { readFile, writeFile, mkdir, access, rename } from 'fs/promises'
+import { readFile, writeFile, mkdir, rename } from 'fs/promises'
 import { execSync } from 'child_process'
 import { join } from 'path'
 import { homedir, tmpdir } from 'os'
 import { randomBytes } from 'crypto'
 import { BaseAdapter } from './base.js'
 
-const CONFIG_PATH = join(homedir(), '.claude.json')
-const CLAUDE_DIR  = join(homedir(), '.claude')
+const CONFIG_PATH = join(homedir(), '.copilot', 'mcp-config.json')
 
 async function readConfig() {
   try {
@@ -14,13 +13,13 @@ async function readConfig() {
     return JSON.parse(raw)
   } catch (err) {
     if (err.code === 'ENOENT') return {}
-    throw new Error(`Cannot read Claude Code config: ${err.message}`)
+    throw new Error(`Cannot read Copilot CLI config: ${err.message}`)
   }
 }
 
 async function writeConfig(data) {
-  await mkdir(homedir(), { recursive: true })
-  const tmp = join(tmpdir(), `cgcone-claude-${randomBytes(6).toString('hex')}.json`)
+  await mkdir(join(homedir(), '.copilot'), { recursive: true })
+  const tmp = join(tmpdir(), `cgcone-copilot-${randomBytes(6).toString('hex')}.json`)
   await writeFile(tmp, JSON.stringify(data, null, 2) + '\n', 'utf8')
   await rename(tmp, CONFIG_PATH)
 }
@@ -32,14 +31,11 @@ function hasBinary(name) {
   } catch { return false }
 }
 
-export class ClaudeCodeAdapter extends BaseAdapter {
-  get name() { return 'Claude Code' }
-  get id()   { return 'claude-code' }
+export class CopilotCLIAdapter extends BaseAdapter {
+  get name() { return 'GitHub Copilot CLI' }
+  get id()   { return 'copilot-cli' }
 
-  async detect() {
-    if (hasBinary('claude')) return true
-    try { await access(CLAUDE_DIR); return true } catch { return false }
-  }
+  async detect() { return hasBinary('copilot') }
 
   async install(slug, config) {
     const data = await readConfig()
@@ -56,7 +52,7 @@ export class ClaudeCodeAdapter extends BaseAdapter {
   async uninstall(slug) {
     const data = await readConfig()
     if (!data.mcpServers?.[slug]) {
-      return { ok: false, message: `${slug} not found in Claude Code config` }
+      return { ok: false, message: `${slug} not found in Copilot CLI config` }
     }
     delete data.mcpServers[slug]
     await writeConfig(data)
@@ -70,27 +66,20 @@ export class ClaudeCodeAdapter extends BaseAdapter {
 
   async doctor() {
     const issues = []
-
-    if (!hasBinary('claude')) {
-      issues.push({ level: 'warn', message: 'claude binary not found in PATH' })
+    if (!hasBinary('copilot')) {
+      issues.push({ level: 'warn', message: 'copilot binary not found in PATH' })
+    } else {
+      issues.push({ level: 'ok', message: 'copilot binary found' })
     }
-
     try {
       const raw = await readFile(CONFIG_PATH, 'utf8')
       JSON.parse(raw)
-      issues.push({ level: 'ok', message: `~/.claude.json valid` })
+      issues.push({ level: 'ok', message: '~/.copilot/mcp-config.json valid' })
     } catch (err) {
       issues.push(err.code === 'ENOENT'
-        ? { level: 'warn', message: '~/.claude.json not found — created on first install' }
-        : { level: 'error', message: `~/.claude.json invalid JSON: ${err.message}` })
+        ? { level: 'warn', message: '~/.copilot/mcp-config.json not found — created on first install' }
+        : { level: 'error', message: `~/.copilot/mcp-config.json invalid JSON: ${err.message}` })
     }
-
-    if (!hasBinary('npx')) {
-      issues.push({ level: 'error', message: 'npx not found — required to run most MCP servers' })
-    } else {
-      issues.push({ level: 'ok', message: 'npx available' })
-    }
-
     return issues
   }
 }
