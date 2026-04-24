@@ -17,9 +17,9 @@ const LEGAL_LINKS = [
 ]
 
 const RESOURCE_LINKS = [
-  { href: "https://github.com/Himanshu507/cgcone_web", label: "GitHub", external: true },
+  { href: "https://github.com/Himanshu507/cgcone", label: "GitHub", external: true },
   { href: "/contribute", label: "Contribute" },
-  { href: "https://github.com/Himanshu507/cgcone_web/blob/main/LICENSE", label: "MIT License", external: true },
+  { href: "https://github.com/Himanshu507/cgcone/blob/main/LICENSE", label: "MIT License", external: true },
 ]
 
 export function Footer() {

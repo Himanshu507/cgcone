@@ -5,8 +5,8 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { ArrowRight, Bot, Sparkles, Terminal, Webhook } from "lucide-react"
 
 export const metadata = {
-  title: "Contribute - CGCone",
-  description: "Learn how to contribute to the CGCone marketplace.",
+  title: "Submit Extension - CGCone",
+  description: "Add your MCP server, plugin, skill, subagent, command, or hook to the cgcone registry.",
 }
 
 const contentTypes = [
@@ -53,11 +53,42 @@ export default function ContributePage() {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-5xl">
         <div className="mb-12">
-          <h1 className="text-display-2 mb-4">Contribute</h1>
+          <h1 className="text-display-2 mb-4">Submit an Extension</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Help build the largest collection of Claude Code extensions. Contributions are welcome from everyone.
+            Add your MCP server, plugin, skill, subagent, command, or hook to the cgcone registry. Free, open source, community-driven.
           </p>
         </div>
+
+        {/* MCP server fast lane */}
+        <section className="mb-12">
+          <h2 className="text-display-3 mb-4">MCP Server or Plugin</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="p-5 rounded-lg border border-primary/20 bg-card">
+              <h3 className="font-medium mb-2">Open a submission issue</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Fill out the form and we&apos;ll add it to the registry within a few days.
+              </p>
+              <a href="https://github.com/Himanshu507/cgcone/issues/new?template=extension_submission.yml" target="_blank" rel="noopener noreferrer">
+                <Button className="gap-2 w-full">
+                  <GitHubLogoIcon className="h-4 w-4" />
+                  Submit via GitHub Issue
+                </Button>
+              </a>
+            </div>
+            <div className="p-5 rounded-lg border border-border bg-card">
+              <h3 className="font-medium mb-2">Official MCP Registry</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                MCP servers listed at <a href="https://registry.modelcontextprotocol.io" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">registry.modelcontextprotocol.io</a> are automatically indexed into cgcone nightly.
+              </p>
+              <a href="https://registry.modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="w-full">
+                  Go to Official Registry
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Quick start */}
         <section className="mb-12">
@@ -69,8 +100,8 @@ export default function ContributePage() {
                 <p className="font-medium mb-1">Fork the repository</p>
                 <p className="text-sm text-muted-foreground">
                   Fork{' '}
-                  <a href="https://github.com/cgcone/cgcone" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                    github.com/cgcone/cgcone
+                  <a href="https://github.com/Himanshu507/cgcone" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                    github.com/Himanshu507/cgcone
                   </a>{' '}
                   and clone it locally.
                 </p>
@@ -191,7 +222,7 @@ You are a specialized assistant focused on...
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="https://github.com/cgcone/cgcone" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Himanshu507/cgcone" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="gap-2">
               <GitHubLogoIcon className="h-4 w-4" />
               Fork on GitHub

@@ -1,0 +1,68 @@
+name: Submit Extension / MCP Server
+description: Add your MCP server, plugin, skill, subagent, command, or hook to the cgcone registry
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Skills, subagents, commands, and hooks** — open a PR adding a Markdown file to `content/` instead. See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md).
+
+        **This form is for MCP servers and plugins** that aren't yet in the registry.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Extension type
+      options:
+        - MCP Server
+        - Plugin
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "e.g. My Awesome MCP"
+    validations:
+      required: true
+
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repository URL
+      placeholder: "https://github.com/owner/repo"
+    validations:
+      required: true
+
+  - type: input
+    id: npm
+    attributes:
+      label: npm package name (if published)
+      placeholder: "e.g. @owner/my-mcp-server"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description (1–2 sentences)
+      placeholder: "What does it do? What problem does it solve?"
+    validations:
+      required: true
+
+  - type: input
+    id: install
+    attributes:
+      label: Install command
+      placeholder: "e.g. npx -y @owner/my-mcp-server"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The extension has a README with usage instructions
+          required: true
+        - label: The repository is public
+          required: true
+        - label: I am the author or have permission to submit this
+          required: true

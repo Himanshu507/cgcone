@@ -84,7 +84,7 @@ export default function PrivacyPage() {
             <p>
               Questions about this policy? Reach out via{" "}
               <a
-                href="https://github.com/Himanshu507/cgcone_web/issues"
+                href="https://github.com/Himanshu507/cgcone/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"

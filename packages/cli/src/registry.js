@@ -75,37 +75,75 @@ export function extensionType(entry, registry) {
   return 'unknown'
 }
 
+// Extract install config from README content — regex-based, best-effort
+function extractFromReadme(content) {
+  // JSON snippet: "args": ["-y", "@scope/pkg"] — most reliable pattern in README examples
+  const jsonArgs = content.match(/"args"\s*:\s*\[\s*"-y"\s*,\s*"((?:@[a-z0-9-]+\/)?[a-z0-9][a-z0-9._-]*)"\s*\]/)
+  if (jsonArgs) return { command: 'npx', args: ['-y', jsonArgs[1]], env: {}, source: 'readme' }
+
+  // npx -y <pkg> — filter mcp-remote (relay, not a direct install)
+  const npxY = content.match(/npx\s+-y\s+((?:@[a-z0-9-]+\/)?[a-z0-9][a-z0-9._-]*)/)
+  if (npxY && npxY[1] !== 'mcp-remote') {
+    return { command: 'npx', args: ['-y', npxY[1]], env: {}, source: 'readme' }
+  }
+
+  // uvx <pkg> — require hyphen/underscore to avoid matching English words like "uvx is..."
+  const uvxM = content.match(/uvx\s+([a-z0-9][a-z0-9._-]*[-_][a-z0-9][a-z0-9._-]*)/)
+  if (uvxM) return { command: 'uvx', args: [uvxM[1]], env: {}, source: 'readme' }
+
+  return null
+}
+
 /**
  * Derive the CLI install config for an MCP server entry.
+ * Priority: explicit packageName → structured packages field → README extraction → heuristics
  * Returns { command, args, env } or null if not installable automatically.
  */
 export function getInstallConfig(entry) {
-  // Explicit packageName field takes priority (once we add it to registry schema)
+  // 1. Explicit packageName field (highest trust — set by registry maintainers)
   if (entry.packageName) {
     return { command: 'npx', args: ['-y', entry.packageName], env: {} }
   }
 
-  // Official MCP servers from modelcontextprotocol/servers monorepo
+  // 2. Structured packages field from official MCP registry — authoritative
+  if (entry.packages?.length) {
+    for (const pkg of entry.packages) {
+      if (pkg.registryType === 'npm' && pkg.identifier) {
+        const env = {}
+        for (const ev of pkg.environmentVariables ?? []) {
+          if (ev.isRequired && ev.name) env[ev.name] = ''
+        }
+        return { command: 'npx', args: ['-y', pkg.identifier], env }
+      }
+      if (pkg.registryType === 'pypi' && pkg.identifier) {
+        return { command: 'uvx', args: [pkg.identifier], env: {} }
+      }
+      // oci/docker skipped — config is too variable to auto-generate
+    }
+  }
+
+  // 3. README-based extraction (already fetched during registry generation)
+  if (entry.readmeContent) {
+    const config = extractFromReadme(entry.readmeContent)
+    if (config) return config
+  }
+
+  // 4. Official MCP monorepo heuristic
   if (entry.githubUrl?.includes('github.com/modelcontextprotocol/servers')) {
     const pkg = `@modelcontextprotocol/server-${entry.slug.replace(/^mcp-/, '').replace(/-mcp$/, '')}`
     return { command: 'npx', args: ['-y', pkg], env: {} }
   }
 
-  // npm-sourced entries — slug is typically the npm package name
+  // 5. npm-sourced slug heuristic
   if (entry.sourceRegistry === 'npm' && entry.slug) {
     return { command: 'npx', args: ['-y', entry.slug], env: {} }
   }
 
-  // GitHub-sourced: try @owner/repo if it looks like an npm package
+  // 6. GitHub owner/repo guess — uncertain, installer will warn
   if (entry.githubUrl) {
     const m = entry.githubUrl.match(/github\.com\/([^/]+)\/([^/?#]+)/)
     if (m) {
-      return {
-        command: 'npx',
-        args: ['-y', `@${m[1]}/${m[2]}`],
-        env: {},
-        uncertain: true,  // might not be on npm — installer will warn
-      }
+      return { command: 'npx', args: ['-y', `@${m[1]}/${m[2]}`], env: {}, uncertain: true }
     }
   }
 

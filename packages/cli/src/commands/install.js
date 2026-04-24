@@ -34,6 +34,13 @@ export async function install(name, opts = {}) {
     warn(`Install command inferred (not verified): ${installConfig.command} ${installConfig.args.join(' ')}`)
   }
 
+  const missingEnv = Object.entries(installConfig.env ?? {}).filter(([, v]) => v === '')
+  if (missingEnv.length) {
+    warn(`Required env vars (edit config after install):`)
+    for (const [key] of missingEnv) console.log(`  ${c.dim('$')}${c.bold(key)}`)
+    console.log()
+  }
+
   // Determine which adapters to target
   const targets = opts.for
     ? ALL_ADAPTERS.filter(a => a.id === opts.for || a.name.toLowerCase() === opts.for.toLowerCase())

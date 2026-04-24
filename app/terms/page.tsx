@@ -56,7 +56,7 @@ export default function TermsPage() {
             <p>
               cgcone is open source software released under the{" "}
               <a
-                href="https://github.com/Himanshu507/cgcone_web/blob/main/LICENSE"
+                href="https://github.com/Himanshu507/cgcone/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
@@ -98,7 +98,7 @@ export default function TermsPage() {
             <p>
               Questions?{" "}
               <a
-                href="https://github.com/Himanshu507/cgcone_web/issues"
+                href="https://github.com/Himanshu507/cgcone/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"

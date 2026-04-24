@@ -59,25 +59,25 @@
 - [ ] Codex CLI adapter (community contribution welcome)
 
 ### Registry — Add `packageName` field for CLI install
-- [ ] Add `packageName` to registry schema (inferred from source/slug)
+- [x] `getInstallConfig()` uses structured `packages` field → README extraction → heuristics
 - [ ] Re-run `npm run generate` with updated schema
-- [ ] Verification status visible on website cards (verified/community/experimental badges)
-- [ ] Author submission form (basic — GitHub issue template first, web form later)
+- [x] Verification status visible on website cards (verified/community/experimental badges)
+- [x] Author submission form — GitHub issue template (`extension_submission.yml`)
 
 ### Website Updates — CLI-First Landing Page
-- [ ] Hero rewrite: "npm for AI CLIs" — primary CTA → `npm install -g cgcone`
-- [ ] Remove desktop app as primary CTA (move to "Coming Soon" section)
-- [ ] Add `cgcone install <slug>` one-liner on every extension detail page
-- [ ] Add verified/unverified badge UI on extension cards
-- [ ] Add "Submit your extension" page for authors
+- [x] Hero rewrite: "npm for AI CLIs" — primary CTA → `npm install -g cgcone`
+- [x] Remove desktop app as primary CTA (moved to "Coming Soon" section)
+- [x] Add `cgcone install <slug>` one-liner on every MCP detail page
+- [x] Verified/unverified badge UI on extension cards (was already present)
+- [x] "Submit your extension" page updated (`/contribute`)
 
 ### Open Source Readiness
 - [x] Repo renamed: `cgcone_web` → `cgcone`
-- [ ] `LICENSE` — MIT
-- [ ] `CONTRIBUTING.md` — how to submit extensions + contribute code
-- [ ] Root `README.md` — killer README with screen recording, install command, supported CLIs table
-- [ ] `.github/ISSUE_TEMPLATE/` — bug, feature request, extension submission templates
-- [ ] Audit git history for secrets before making repo public
+- [x] `LICENSE` — MIT
+- [x] `CONTRIBUTING.md` — how to submit extensions + contribute code
+- [x] Root `README.md` — killer README with install command, supported CLIs table, commands
+- [x] `.github/ISSUE_TEMPLATE/` — bug_report, feature_request, extension_submission
+- [x] Audit git history for secrets — none found. Stale `Himanshu507/cgcone_web` URLs updated to `cgcone/cgcone`
 
 ---
 

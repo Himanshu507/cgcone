@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# cgcone
 
-## Getting Started
-
-First, run the development server:
+**npm for AI CLIs.** One command installs any MCP server, plugin, or skill to every AI CLI on your machine.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install -g cgcone
+cgcone install filesystem-mcp
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/cgcone)](https://www.npmjs.com/package/cgcone)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What it does
 
-## Learn More
+You have Claude Code. Maybe Gemini CLI. Maybe OpenAI Codex. Each has its own config format, its own location, its own way to add MCP servers. cgcone abstracts that away.
 
-To learn more about Next.js, take a look at the following resources:
+```
+$ cgcone scan
+  ✓ Claude Code    ~/.claude.json
+  ✓ Gemini CLI     ~/.gemini/settings.json
+  ✓ OpenAI Codex   ~/.codex/config.toml
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+$ cgcone install github-mcp
+  ✓ Claude Code  → configured
+  ✓ Gemini CLI   → configured
+  ✓ OpenAI Codex → configured
+  ✓ github-mcp installed in 1.2s
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Supported CLIs
 
-## Deploy on Vercel
+| CLI | Config location | Status |
+|-----|----------------|--------|
+| Claude Code | `~/.claude.json` | ✅ Supported |
+| Gemini CLI | `~/.gemini/settings.json` | ✅ Supported |
+| OpenAI Codex | `~/.codex/config.toml` | ✅ Supported |
+| GitHub Copilot CLI | `~/.copilot/mcp-config.json` | ✅ Supported |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Commands
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+cgcone scan                       # detect AI CLIs on this machine
+cgcone install <name>             # install to all detected CLIs
+cgcone install <name> --for claude-code  # install to one CLI only
+cgcone uninstall <name>           # remove from all CLIs
+cgcone list                       # show installed extensions
+cgcone search <query>             # search the registry
+cgcone info <name>                # show details, version, security status
+cgcone doctor                     # diagnose broken installs and configs
+cgcone update <name>              # update an extension
+cgcone update --all               # update everything
+```
+
+## Install
+
+Requires Node.js 18+.
+
+```bash
+npm install -g cgcone
+```
+
+## Registry
+
+cgcone pulls from [cgcone.com/registry.json](https://cgcone.com/registry.json) — 380+ extensions indexed from:
+
+- [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) — official MCP registry
+- Docker Hub `mcp/` organization
+- Community submissions (open a PR or issue)
+
+Browse at **[cgcone.com](https://cgcone.com)**.
+
+## Repository structure
+
+```
+cgcone/
+├── app/              Next.js website (cgcone.com)
+├── components/
+├── lib/
+├── scripts/          registry crawlers (fetch-mcp-official, fetch-readme, etc.)
+├── public/
+│   └── registry.json
+├── packages/
+│   └── cli/          cgcone npm CLI package
+│       └── src/
+│           ├── index.js
+│           ├── adapters/   per-CLI config adapters
+│           └── commands/   scan, install, uninstall, list, search, info, doctor, update
+├── content/          community skills, subagents, commands, hooks (Markdown)
+├── CONTRIBUTING.md
+└── LICENSE
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+- Submit a skill, subagent, command, or hook: open a PR adding a file to `content/`
+- Submit an MCP server: [open an issue](../../issues/new?template=extension_submission.yml)
+- Bug reports and feature requests: [GitHub Issues](../../issues)
+
+## License
+
+MIT — see [LICENSE](LICENSE).

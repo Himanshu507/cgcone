@@ -6,8 +6,9 @@ import { Button } from '@/components/ui/button'
 import {
   ArrowRight, Bot, Terminal, Webhook, Sparkles, Package, Server,
   Check, Download, Zap, Shield, Search, Activity, ChevronRight,
-  Monitor, Command
+  Monitor, Command, Copy, Star, GitFork
 } from 'lucide-react'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import type { MCPServer, Plugin, Skill, Subagent, Command as CommandType, Hook } from '@/lib/types'
 
 interface HomePageClientProps {
@@ -63,39 +64,39 @@ const FEATURES = [
     bg: 'bg-yellow-500/10',
   },
   {
-    icon: Monitor,
-    title: 'Desktop App',
-    description: 'Native cross-platform desktop app built with Tauri. Full GUI for managing your AI CLI ecosystem.',
-    color: 'text-blue-500',
-    bg: 'bg-blue-500/10',
-  },
-  {
     icon: Terminal,
-    title: 'cgcone CLI',
-    description: 'Scriptable CLI for power users. Install, uninstall, list, and doctor from your terminal.',
+    title: 'Scriptable CLI',
+    description: 'cgcone is a real CLI. Automate installs, script your setup, and pipe output to your tools.',
     color: 'text-green-500',
     bg: 'bg-green-500/10',
   },
   {
     icon: Activity,
     title: 'Scan & Audit',
-    description: 'See every installed extension across all your AI CLIs from one unified dashboard view.',
+    description: 'See every installed extension across all your AI CLIs from one unified dashboard.',
     color: 'text-primary',
     bg: 'bg-primary/10',
   },
   {
     icon: Shield,
-    title: 'Secure Key Storage',
-    description: 'API keys stored in OS-managed keychains — macOS Keychain and Windows Credential Manager.',
+    title: 'Verified Extensions',
+    description: 'Registry entries include verification status — verified, community, or experimental — so you know what you\'re installing.',
     color: 'text-purple-500',
     bg: 'bg-purple-500/10',
   },
   {
     icon: Server,
     title: 'Live Marketplace',
-    description: '380+ curated extensions synced nightly from the community. Always up to date.',
+    description: '380+ curated extensions synced nightly from the official MCP registry and community.',
     color: 'text-red-500',
     bg: 'bg-red-500/10',
+  },
+  {
+    icon: GitFork,
+    title: 'Open Source',
+    description: 'MIT licensed. Contribute adapters, extensions, or improvements. The registry is community-driven.',
+    color: 'text-blue-500',
+    bg: 'bg-blue-500/10',
   },
 ]
 
@@ -153,21 +154,44 @@ export default function HomePageClient({
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Universal AI CLI Manager
+                npm for AI CLIs · Open Source
               </div>
 
               <h1 id="hero-heading" className="text-display-1 mb-6 leading-tight">
-                Install once.{' '}
-                <span className="text-primary">Works across every AI CLI.</span>
+                One command.{' '}
+                <span className="text-primary">Every AI CLI covered.</span>
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                cgcone is a desktop app and CLI that scans your machine, discovers AI CLI tools,
-                and lets you install MCP servers, plugins, skills, and hooks to all of them in one action.
+                cgcone is the package manager for AI CLI extensions. Scan your machine, find every
+                AI CLI you have installed, and deploy MCP servers, plugins, and skills to all of them simultaneously.
               </p>
 
+              {/* Install command */}
+              <div className="rounded-lg border border-border bg-card overflow-hidden mb-6">
+                <div className="flex items-center gap-2 px-4 py-3">
+                  <div className="flex-1 overflow-x-auto">
+                    <code className="font-mono text-sm whitespace-nowrap">
+                      <span className="text-muted-foreground">$</span>{' '}
+                      <span className="text-foreground">npm install -g cgcone</span>
+                    </code>
+                  </div>
+                  <button
+                    onClick={() => handleCopy('npm install -g cgcone')}
+                    className="shrink-0 p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="Copy install command"
+                  >
+                    {copiedCmd === 'npm install -g cgcone' ? (
+                      <Check className="w-4 h-4 text-green-500" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
               {/* Supported CLIs */}
-              <div className="flex flex-wrap gap-2 mb-10" aria-label="Supported AI CLI tools">
+              <div className="flex flex-wrap gap-2 mb-8" aria-label="Supported AI CLI tools">
                 {AI_CLIS.map(cli => (
                   <span
                     key={cli.name}
@@ -179,17 +203,17 @@ export default function HomePageClient({
               </div>
 
               <div className="flex gap-3 flex-wrap">
-                <Button size="lg" className="gap-2" asChild>
-                  <a href="https://github.com/Himanshu507/cgcone" target="_blank" rel="noopener noreferrer">
-                    <Download className="h-4 w-4" />
-                    Download App
-                  </a>
-                </Button>
                 <Button size="lg" variant="outline" className="gap-2" asChild>
                   <Link href="/mcp-servers">
                     Browse Marketplace
                     <ArrowRight className="h-4 w-4" />
                   </Link>
+                </Button>
+                <Button size="lg" variant="ghost" className="gap-2" asChild>
+                  <a href="https://github.com/Himanshu507/cgcone" target="_blank" rel="noopener noreferrer">
+                    <GitHubLogoIcon className="h-4 w-4" />
+                    GitHub
+                  </a>
                 </Button>
               </div>
             </div>
@@ -458,69 +482,67 @@ export default function HomePageClient({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 id="getstarted-heading" className="text-display-2 mb-4">Get started today</h2>
-              <p className="text-muted-foreground">Two ways in — pick what fits your workflow.</p>
+              <h2 id="getstarted-heading" className="text-display-2 mb-4">Get started in seconds</h2>
+              <p className="text-muted-foreground">Requires Node.js 18+. Works on macOS, Windows, and Linux.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Desktop App */}
-              <div className="p-8 rounded-2xl border border-border bg-card flex flex-col">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <Monitor className="h-6 w-6 text-primary" aria-hidden="true" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Desktop App</h3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-1">
-                  Native desktop app for macOS, Windows, and Linux. Visual dashboard, one-click install,
-                  and integrated marketplace browsing.
-                </p>
-                <a
-                  href="https://github.com/Himanshu507/cgcone"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Button className="w-full gap-2">
-                    <Download className="h-4 w-4" />
-                    Download for Desktop
-                  </Button>
-                </a>
-                <p className="text-xs text-muted-foreground mt-3 text-center">macOS · Windows · Linux</p>
-              </div>
-
-              {/* CLI */}
-              <div className="p-8 rounded-2xl border border-border bg-card flex flex-col">
-                <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-5">
+            {/* Primary: CLI install */}
+            <div className="p-8 rounded-2xl border border-primary/20 bg-card flex flex-col mb-6">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0">
                   <Terminal className="h-6 w-6 text-green-500" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">CLI via npm</h3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-1">
-                  Scriptable, fast, and terminal-native. Install the <code className="font-mono text-xs bg-secondary px-1 py-0.5 rounded">cgcone</code> package
-                  globally and manage everything from the command line.
-                </p>
-                <div className="rounded-lg border border-border overflow-hidden mb-3">
-                  <div className="flex items-center gap-2 px-4 py-2.5 bg-secondary/50">
-                    <div className="flex-1 overflow-x-auto">
-                      <code className="font-mono text-sm whitespace-nowrap">
-                        <span className="text-muted-foreground">$</span>{' '}
-                        <span className="text-foreground">npm install -g cgcone</span>
-                      </code>
-                    </div>
-                    <button
-                      onClick={() => handleCopy('npm install -g cgcone')}
-                      className="shrink-0 p-1 text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label="Copy npm install command"
-                    >
-                      {copiedCmd === 'npm install -g cgcone' ? (
-                        <Check className="w-4 h-4 text-green-500" />
-                      ) : (
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                      )}
-                    </button>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-lg font-semibold">cgcone CLI</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 font-medium">Available now</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                    Install, manage, and audit AI CLI extensions from any terminal. One command reaches every AI CLI on your machine.
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      { cmd: 'npm install -g cgcone', comment: '# install cgcone' },
+                      { cmd: 'cgcone scan', comment: '# detect your AI CLIs' },
+                      { cmd: 'cgcone install filesystem-mcp', comment: '# install to all of them' },
+                    ].map(({ cmd, comment }) => (
+                      <div key={cmd} className="flex items-center gap-2 rounded-lg border border-border bg-secondary/50 px-4 py-2.5 group">
+                        <div className="flex-1 overflow-x-auto">
+                          <code className="font-mono text-sm whitespace-nowrap">
+                            <span className="text-muted-foreground">$</span>{' '}
+                            <span className="text-foreground">{cmd}</span>
+                            <span className="text-muted-foreground/40 ml-2 hidden sm:inline">{comment}</span>
+                          </code>
+                        </div>
+                        <button
+                          onClick={() => handleCopy(cmd)}
+                          className="shrink-0 p-1 text-muted-foreground hover:text-foreground transition-colors opacity-0 group-hover:opacity-100"
+                          aria-label={`Copy: ${cmd}`}
+                        >
+                          {copiedCmd === cmd ? (
+                            <Check className="w-3.5 h-3.5 text-green-500" />
+                          ) : (
+                            <Copy className="w-3.5 h-3.5" />
+                          )}
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground text-center">Requires Node.js 20+</p>
+              </div>
+            </div>
+
+            {/* Secondary: Coming soon */}
+            <div className="p-6 rounded-2xl border border-border bg-card/50 flex items-center gap-5 opacity-60">
+              <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                <Monitor className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <h3 className="font-medium text-muted-foreground">Desktop App</h3>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-secondary text-muted-foreground font-medium">Coming soon</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Native GUI for macOS, Windows, and Linux. Visual dashboard for managing your extension ecosystem.</p>
               </div>
             </div>
 
