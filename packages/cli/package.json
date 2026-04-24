@@ -1,0 +1,32 @@
+{
+  "name": "cgcone",
+  "version": "0.1.0",
+  "description": "Universal AI CLI extension manager — install MCP servers, plugins and skills across Claude Code, Gemini CLI and Codex in one command",
+  "type": "module",
+  "bin": {
+    "cgcone": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "claude-code",
+    "gemini-cli",
+    "ai-cli",
+    "extensions",
+    "mcp-server",
+    "plugins"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Himanshu507/cgcone.git"
+  },
+  "homepage": "https://cgcone.com",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "ora": "^8.1.0"
+  }
+}
