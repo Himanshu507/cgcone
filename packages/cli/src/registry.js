@@ -101,14 +101,18 @@ export function findExtension(slug, registry) {
   )
   if (ciMatches.length) return bestMatch(ciMatches)
 
-  // 3. Normalized fuzzy match — strips docker-/mcp- prefixes/suffixes
+  // 3. Normalized match — collect ALL candidates (exact + substring) then pick best install priority
+  // Must not early-return on exact only: docker-context7 exact-matches "context7" after stripping
+  // "docker-" prefix, but upstash-context7 only matches via substring — both must compete together.
   const norm = normalizeSlug(slug)
-  const fuzzyMatches = all.filter(e =>
-    normalizeSlug(e.slug ?? '') === norm ||
-    normalizeSlug(e.name ?? '') === norm ||
-    normalizeSlug(e.displayName ?? '') === norm
-  )
-  return bestMatch(fuzzyMatches)
+  const candidates = all.filter(e => {
+    const ns = normalizeSlug(e.slug ?? '')
+    const nd = normalizeSlug(e.displayName ?? '')
+    const nn = normalizeSlug(e.name ?? '')
+    return ns === norm || nd === norm || nn === norm ||
+           ns.includes(norm) || nd.includes(norm) || nn.includes(norm)
+  })
+  return bestMatch(candidates)
 }
 
 export function extensionType(entry, registry) {
