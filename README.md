@@ -1,20 +1,27 @@
 # cgcone
 
-**npm for AI CLIs.** One command installs any MCP server, plugin, or skill to every AI CLI on your machine.
+**The package manager for AI CLI extensions.**  
+One command installs any MCP server, plugin, or skill across every AI CLI on your machine.
 
 ```bash
 npm install -g @cgcone/cli
-cgcone install filesystem-mcp
+cgcone install context7
 ```
 
+[![npm version](https://img.shields.io/npm/v/@cgcone/cli?color=orange&label=npm)](https://www.npmjs.com/package/@cgcone/cli)
+[![npm downloads](https://img.shields.io/npm/dm/@cgcone/cli?color=orange)](https://www.npmjs.com/package/@cgcone/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/v/cgcone)](https://www.npmjs.com/package/cgcone)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18-green)](https://nodejs.org)
+
+---
+
+![cgcone homepage](docs/images/homepage.png)
 
 ---
 
 ## What it does
 
-You have Claude Code. Maybe Gemini CLI. Maybe OpenAI Codex. Each has its own config format, its own location, its own way to add MCP servers. cgcone abstracts that away.
+You have Claude Code. Maybe Gemini CLI. Maybe OpenAI Codex. Each has its own config format, its own file location, its own way to add MCP servers. **cgcone abstracts that away.**
 
 ```
 $ cgcone scan
@@ -22,83 +29,215 @@ $ cgcone scan
   ✓ Gemini CLI     ~/.gemini/settings.json
   ✓ OpenAI Codex   ~/.codex/config.toml
 
-$ cgcone install github-mcp
+$ cgcone install brave-search
+  Multiple matches — select one to install:
+  ● Brave Search  brave-brave-search-mcp-server  [npm]
+  ○ docker-brave-search                          [docker]
+
+  Does this MCP require API keys or env vars? ● Yes
+  BRAVE_API_KEY — Your Brave Search API key:  ••••••••••
+
   ✓ Claude Code  → configured
   ✓ Gemini CLI   → configured
   ✓ OpenAI Codex → configured
-  ✓ github-mcp installed in 1.2s
+  ✓ brave-brave-search-mcp-server installed
 ```
 
-## Supported CLIs
-
-| CLI | Config location | Status |
-|-----|----------------|--------|
-| Claude Code | `~/.claude.json` | ✅ Supported |
-| Gemini CLI | `~/.gemini/settings.json` | ✅ Supported |
-| OpenAI Codex | `~/.codex/config.toml` | ✅ Supported |
-| GitHub Copilot CLI | `~/.copilot/mcp-config.json` | ✅ Supported |
-
-## Commands
-
-```bash
-cgcone scan                       # detect AI CLIs on this machine
-cgcone install <name>             # install to all detected CLIs
-cgcone install <name> --for claude-code  # install to one CLI only
-cgcone uninstall <name>           # remove from all CLIs
-cgcone list                       # show installed extensions
-cgcone search <query>             # search the registry
-cgcone info <name>                # show details, version, security status
-cgcone doctor                     # diagnose broken installs and configs
-cgcone update <name>              # update an extension
-cgcone update --all               # update everything
-```
+---
 
 ## Install
 
-Requires Node.js 18+.
+Requires **Node.js 18+**.
 
 ```bash
 npm install -g @cgcone/cli
 ```
 
+---
+
+## Supported CLIs
+
+| CLI | Config file | Status |
+|-----|-------------|--------|
+| [Claude Code](https://claude.ai/code) | `~/.claude.json` | ✅ |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `~/.gemini/settings.json` | ✅ |
+| [OpenAI Codex](https://github.com/openai/codex) | `~/.codex/config.toml` | ✅ |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line) | `~/.copilot/mcp-config.json` | ✅ |
+
+---
+
+## Commands
+
+```bash
+# Discover
+cgcone scan                          # detect AI CLIs installed on this machine
+cgcone search <query>                # search 2400+ extensions in the registry
+cgcone info <name>                   # show details, author, install config
+
+# Install & manage
+cgcone install <name>                # install to all detected CLIs (interactive picker if multiple matches)
+cgcone install <name> --for claude-code   # install to one CLI only
+cgcone uninstall <name>              # remove from all CLIs (fuzzy match + picker)
+cgcone configure <name>              # update API keys / env vars for an installed MCP
+
+# Maintenance
+cgcone list                          # show installed extensions per CLI
+cgcone update <name>                 # update a single extension
+cgcone update --all                  # update all installed extensions
+cgcone doctor                        # diagnose broken installs and config issues
+```
+
+### Interactive install picker
+
+When a search query matches multiple extensions, cgcone shows an interactive selection prompt instead of auto-installing the wrong one:
+
+```
+◆ Multiple matches — select one to install:
+│ ● Context7  upstash-context7  [npm]
+│ ○ Context7  docker-context7   [docker]
+└
+```
+
+Arrow keys to navigate, Enter to confirm. npm entries are listed first.
+
+### API key configuration
+
+MCPs that require API keys prompt you interactively during install. Sensitive keys are masked:
+
+```
+ℹ This MCP requires 1 env var:
+
+◆ BRAVE_API_KEY — Your Brave Search API key
+│ ••••••••••••••••••••••••••••••
+└
+
+✓ Env vars saved
+```
+
+Update them later without reinstalling:
+
+```bash
+cgcone configure brave-search
+```
+
+---
+
 ## Registry
 
-cgcone pulls from [cgcone.com/registry.json](https://cgcone.com/registry.json) — 380+ extensions indexed from:
+cgcone pulls from **[cgcone.com/registry.json](https://cgcone.com/registry.json)** — 2400+ extensions indexed from:
 
-- [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) — official MCP registry
-- Docker Hub `mcp/` organization
-- Community submissions (open a PR or issue)
+- Official [modelcontextprotocol.io](https://registry.modelcontextprotocol.io) registry
+- GitHub repositories tagged `mcp-server`, `model-context-protocol`
+- Claude Code plugins (marketplace.json format)
+- Claude Code skills (SKILL.md format)
+- Community subagents, commands, and hooks
 
 Browse at **[cgcone.com](https://cgcone.com)**.
+
+---
+
+## Website
+
+![MCP Servers listing](docs/images/mcp-servers.png)
+
+![MCP detail page](docs/images/mcp-detail.png)
+
+**[cgcone.com](https://cgcone.com)** is a full marketplace UI with:
+- **MCP Servers** — 1943 servers, searchable by name, category, source
+- **Plugins** — Claude Code plugins with one-line install commands
+- **Skills, Subagents, Commands, Hooks** — Claude Code extensions
+- Per-entry detail pages with README, install command, tags, links
+- Light/dark mode
+
+---
 
 ## Repository structure
 
 ```
 cgcone/
-├── app/              Next.js website (cgcone.com)
-├── components/
-├── lib/
-├── scripts/          registry crawlers (fetch-mcp-official, fetch-readme, etc.)
+├── app/                  Next.js 15 website (cgcone.com)
+│   ├── mcp-server/[slug] MCP detail pages
+│   ├── mcp-servers/      MCP listing
+│   ├── plugin/[slug]     Plugin detail pages
+│   ├── plugins/          Plugin listing
+│   ├── skills/           Skills listing
+│   ├── subagents/        Subagents listing
+│   └── ...
+├── components/           Shared UI components
+├── lib/                  Shared utilities (registry, types, utils)
+├── scripts/              Registry generation pipeline
+│   ├── generate-registry.js        orchestrator
+│   ├── fetch-mcp-official.js       official MCP registry
+│   ├── fetch-mcp-github.js         GitHub topic search
+│   ├── fetch-mcp-docker.js         Docker Hub
+│   ├── fetch-plugins-github.js     GitHub plugin search
+│   ├── fetch-skills-github.js      GitHub skills search
+│   └── fetch-readme.js             README batch fetcher
 ├── public/
-│   └── registry.json
+│   └── registry.json               generated registry (2400+ entries)
 ├── packages/
-│   └── cli/          cgcone npm CLI package
+│   └── cli/                        @cgcone/cli npm package
 │       └── src/
-│           ├── index.js
-│           ├── adapters/   per-CLI config adapters
-│           └── commands/   scan, install, uninstall, list, search, info, doctor, update
-├── content/          community skills, subagents, commands, hooks (Markdown)
+│           ├── index.js            CLI entry point
+│           ├── registry.js         registry fetch + search + fuzzy match
+│           ├── store.js            local install tracking (~/.cgcone/)
+│           ├── ui.js               chalk/ora helpers
+│           ├── adapters/           per-CLI config adapters
+│           │   ├── claude-code.js
+│           │   ├── gemini-cli.js
+│           │   ├── codex-cli.js
+│           │   └── copilot-cli.js
+│           └── commands/           CLI commands
+│               ├── install.js      interactive install + env var prompts
+│               ├── uninstall.js    fuzzy uninstall + picker
+│               ├── configure.js    post-install env var management
+│               ├── search.js
+│               ├── list.js
+│               ├── info.js
+│               ├── scan.js
+│               ├── doctor.js
+│               └── update.js
+├── content/              Community extensions (Markdown)
+│   ├── subagents/
+│   ├── skills/
+│   ├── commands/
+│   └── hooks/
 ├── CONTRIBUTING.md
 └── LICENSE
 ```
+
+---
+
+## Regenerating the registry
+
+Requires a GitHub token for full results (5000 req/hr vs 60 unauthenticated):
+
+```bash
+export GITHUB_TOKEN=ghp_...
+npm run generate
+```
+
+Skip slow steps during development:
+
+```bash
+SKIP_GITHUB=1 SKIP_DOCKER=1 npm run generate   # official registry only (fast)
+SKIP_SKILLS=1 SKIP_PLUGINS=1 npm run generate  # skip skill/plugin discovery
+```
+
+---
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-- Submit a skill, subagent, command, or hook: open a PR adding a file to `content/`
-- Submit an MCP server: [open an issue](../../issues/new?template=extension_submission.yml)
-- Bug reports and feature requests: [GitHub Issues](../../issues)
+| Contribution | How |
+|---|---|
+| Submit a skill, subagent, command, or hook | Open a PR adding a file to `content/` |
+| Submit an MCP server | [Open an issue](../../issues/new?template=extension_submission.yml) |
+| Bug report | [GitHub Issues](../../issues) |
+| Feature request | [GitHub Issues](../../issues) |
+
+---
 
 ## License
 

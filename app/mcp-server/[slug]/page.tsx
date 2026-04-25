@@ -1,4 +1,5 @@
 import { getMCPBySlug, getMCPServers } from "@/lib/registry"
+import { fetchGitHubReadme } from "@/lib/github-readme"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
@@ -32,6 +33,17 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
   const { slug } = await params
   const server = getMCPBySlug(slug)
   if (!server) notFound()
+
+  // Fetch README from GitHub if not pre-computed in registry
+  let readmeContent = server.readmeContent
+  let readmeTruncated = server.readmeTruncated ?? false
+  if (!readmeContent && server.githubUrl) {
+    const readme = await fetchGitHubReadme(server.githubUrl)
+    if (readme) {
+      readmeContent = readme.content
+      readmeTruncated = readme.truncated
+    }
+  }
 
   return (
     <div className="min-h-screen">
@@ -127,13 +139,13 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
         )}
 
         {/* README */}
-        {server.readmeContent && (
+        {readmeContent && (
           <div className="border-t border-border/40 mt-8 sm:mt-12 pt-8 sm:pt-10">
             <ReadmeViewer
-              content={server.readmeContent}
+              content={readmeContent}
               sourceUrl={server.githubUrl}
               repoName={server.githubUrl?.replace('https://github.com/', '')}
-              truncated={server.readmeTruncated}
+              truncated={readmeTruncated}
             />
           </div>
         )}
