@@ -10,7 +10,7 @@ import { formatNumber } from "@/lib/utils"
 
 export async function generateStaticParams() {
   const plugins = getPlugins()
-  return plugins.map(p => ({ slug: p.slug }))
+  return plugins.filter(p => typeof p.slug === 'string' && p.slug).map(p => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -55,7 +55,7 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
             <div className="space-y-2 text-sm">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-muted-foreground shrink-0">Author</span>
-                <span className="truncate text-right">{plugin.author}</span>
+                <span className="truncate text-right">{typeof plugin.author === 'object' ? (plugin.author as {name?: string})?.name : plugin.author}</span>
               </div>
               <div className="flex items-center justify-between gap-2">
                 <span className="text-muted-foreground shrink-0">Version</span>
