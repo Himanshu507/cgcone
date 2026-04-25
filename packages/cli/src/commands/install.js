@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import { select, text, password, isCancel } from '@clack/prompts'
+import { select, text, password, confirm, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
@@ -35,6 +35,28 @@ async function promptEnvVars(missingEnv, entry) {
     filled[key] = val.trim()
   }
   return filled
+}
+
+async function promptFreeformEnvVars() {
+  const env = {}
+  info('Enter env vars one at a time. Leave name blank when done.')
+  console.log()
+  while (true) {
+    const key = await text({
+      message: 'Env var name:',
+      placeholder: 'e.g. BRAVE_API_KEY  (blank to finish)',
+    })
+    if (isCancel(key) || !key?.trim()) break
+    const k = key.trim()
+    const fn = isSensitiveKey(k) ? password : text
+    const val = await fn({
+      message: `Value for ${c.bold(k)}:`,
+      placeholder: isSensitiveKey(k) ? '' : 'enter value',
+    })
+    if (isCancel(val)) break
+    env[k] = val.trim()
+  }
+  return env
 }
 
 function entryTypeLabel(e) {
@@ -180,6 +202,7 @@ export async function install(name, opts = {}) {
   }
 
   console.log()
+  let anyInstalled = false
   for (const adapter of targets) {
     const s = spinner(`Installing to ${c.bold(adapter.name)}...`).start()
     try {
@@ -191,6 +214,7 @@ export async function install(name, opts = {}) {
           version: entry.version,
         })
         s.succeed(`${c.bold(adapter.name)} ${c.dim('→')} ${result.message ?? 'done'}`)
+        anyInstalled = true
       } else {
         s.warn(`${c.bold(adapter.name)} ${c.dim('→')} ${result.message}`)
       }
@@ -201,4 +225,25 @@ export async function install(name, opts = {}) {
 
   console.log()
   success(`${c.primary(entry.slug)} installed`)
+
+  // If registry had no env metadata (missingEnv was empty), offer free-form env entry
+  if (anyInstalled && missingEnv.length === 0) {
+    console.log()
+    const addEnv = await confirm({
+      message: 'Does this MCP require API keys or env vars?',
+      initialValue: false,
+    })
+    if (!isCancel(addEnv) && addEnv) {
+      console.log()
+      const extraEnv = await promptFreeformEnvVars()
+      if (Object.keys(extraEnv).length) {
+        for (const adapter of targets) {
+          const existing = await adapter.getEnv(entry.slug).catch(() => ({}))
+          await adapter.setEnv(entry.slug, { ...existing, ...extraEnv }).catch(() => {})
+        }
+        console.log()
+        success(`Env vars saved for ${c.primary(entry.slug)}`)
+      }
+    }
+  }
 }
