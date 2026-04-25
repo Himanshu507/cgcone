@@ -46,6 +46,11 @@ Requires Node.js 18+.
 npm install -g @cgcone/cli
 ```
 
+> If the install hangs for more than a minute, npm's post-install audit step is likely stalling on your network. Use:
+> ```bash
+> npm install -g @cgcone/cli --no-audit
+> ```
+
 ## Commands
 
 ```bash
