@@ -97,7 +97,7 @@ export default function PluginsClient({ plugins }: PluginsClientProps) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {filtered.map(plugin => (
-              <PluginCard key={`${plugin.slug}-${plugin.author}`} plugin={plugin} />
+              <PluginCard key={plugin.slug} plugin={plugin} />
             ))}
           </div>
         )}

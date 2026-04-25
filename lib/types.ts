@@ -40,7 +40,7 @@ export interface Plugin {
   slug: string
   description: string
   version: string
-  author: string
+  author: string | { name?: string; email?: string; url?: string }
   authorUrl?: string
   repository: string
   license?: string

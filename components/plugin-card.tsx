@@ -48,7 +48,7 @@ export function PluginCard({ plugin }: PluginCardProps) {
       </div>
 
       <div className="relative z-10 flex items-center gap-2 mt-auto pt-1">
-        <span className="text-xs text-muted-foreground flex-1">by {plugin.author}</span>
+        <span className="text-xs text-muted-foreground flex-1">by {typeof plugin.author === 'object' ? (plugin.author as {name?: string})?.name : plugin.author}</span>
         {plugin.repository && (
           <a
             href={plugin.repository}
