@@ -127,10 +127,15 @@ function extractFromReadme(content) {
 
 /**
  * Derive the CLI install config for an MCP server entry.
- * Priority: explicit packageName → npm/pypi packages → Docker/OCI → README → heuristics
+ * Priority: pre-computed installConfig → explicit packageName → npm/pypi packages → Docker/OCI → README → heuristics
  * Returns { command, args, env, type? } or null if not installable automatically.
  */
 export function getInstallConfig(entry) {
+  // 0. Pre-computed installConfig from registry generation (highest trust)
+  if (entry.installConfig?.command) {
+    return entry.installConfig
+  }
+
   // 1. Explicit packageName field (highest trust)
   if (entry.packageName) {
     return { command: 'npx', args: ['-y', entry.packageName], env: {} }

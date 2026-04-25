@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "generate": "node scripts/generate-registry.js",
+    "generate:fast": "SKIP_GITHUB=1 SKIP_SKILLS=1 SKIP_PLUGINS=1 node scripts/generate-registry.js",
+    "generate:mcp-only": "SKIP_SKILLS=1 SKIP_PLUGINS=1 node scripts/generate-registry.js",
     "sync": "npm run generate"
   },
   "dependencies": {

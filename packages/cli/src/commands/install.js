@@ -36,6 +36,26 @@ export async function install(name, opts = {}) {
     info(`Matched registry slug: ${c.bold(entry.slug)}`)
   }
 
+  // Skills have a direct installCommand (claude skill add ...) — not MCP config
+  if (entry.installCommand && (entry.sourceRegistry === 'github' || entry.installCommand.startsWith('claude skill'))) {
+    console.log()
+    info(`Skill install command:`)
+    console.log(`  ${c.bold(entry.installCommand)}`)
+    console.log()
+    success(`Run the command above to install ${c.primary(entry.name ?? entry.id)}`)
+    return
+  }
+
+  // Plugins have /plugin install ... command
+  if (entry.installCommand?.startsWith('/plugin install')) {
+    console.log()
+    info(`Plugin install command (run inside Claude Code):`)
+    console.log(`  ${c.bold(entry.installCommand)}`)
+    console.log()
+    success(`Run the command above inside Claude Code to install ${c.primary(entry.name)}`)
+    return
+  }
+
   const installConfig = getInstallConfig(entry)
   if (!installConfig) {
     const isRemote = entry.serverType === 'streamable-http' || entry.serverType === 'sse'
