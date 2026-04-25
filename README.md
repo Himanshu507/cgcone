@@ -15,10 +15,6 @@ cgcone install context7
 
 ---
 
-![cgcone homepage](docs/images/homepage.png)
-
----
-
 ## What it does
 
 You have Claude Code. Maybe Gemini CLI. Maybe OpenAI Codex. Each has its own config format, its own file location, its own way to add MCP servers. **cgcone abstracts that away.**
@@ -138,9 +134,7 @@ Browse at **[cgcone.com](https://cgcone.com)**.
 
 ## Website
 
-![MCP Servers listing](docs/images/mcp-servers.png)
-
-![MCP detail page](docs/images/mcp-detail.png)
+![cgcone website](docs/images/mcp-servers.png)
 
 **[cgcone.com](https://cgcone.com)** is a full marketplace UI with:
 - **MCP Servers** — 1943 servers, searchable by name, category, source
