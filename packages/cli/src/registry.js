@@ -57,7 +57,7 @@ export function searchExtensions(query, registry) {
 }
 
 // Strip common prefixes/suffixes to get a comparable core name
-function normalizeSlug(s) {
+export function normalizeSlug(s) {
   return s.toLowerCase()
     .replace(/^docker-/, '')
     .replace(/^mcp-/, '')
