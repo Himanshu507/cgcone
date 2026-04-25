@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react"
 
 export async function generateStaticParams() {
   const skills = getSkills()
-  return skills.map(s => ({ slug: s.slug }))
+  return skills.filter(s => typeof s.slug === 'string' && s.slug).map(s => ({ slug: s.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

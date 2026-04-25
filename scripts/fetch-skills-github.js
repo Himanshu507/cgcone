@@ -84,8 +84,11 @@ async function fetchGitHubSkills() {
     const skillName = frontmatter?.name ?? skillDir
     const skillId   = `${owner}-${repo}/${skillName}`.toLowerCase().replace(/[^a-z0-9/]+/g, '-')
 
+    const slug = skillId.replace('/', '--')
+
     skills.push({
       id:             skillId,
+      slug,
       name:           skillName,
       displayName:    skillName.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
       description:    frontmatter?.description ?? `${skillName} skill for Claude Code`,
