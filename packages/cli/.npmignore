@@ -1,0 +1,6 @@
+# tests and dev files
+*.test.js
+*.spec.js
+__tests__/
+
+# nothing else to exclude — src/ is the whole package
