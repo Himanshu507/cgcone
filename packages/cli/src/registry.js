@@ -85,6 +85,31 @@ function bestMatch(candidates) {
   return candidates.sort((a, b) => installPriority(a) - installPriority(b))[0]
 }
 
+export function findExtensions(slug, registry) {
+  const all = allEntries(registry)
+
+  const exactMatches = all.filter(e => e.slug === slug || e.name === slug)
+  if (exactMatches.length) return exactMatches.sort((a, b) => installPriority(a) - installPriority(b))
+
+  const lower = slug.toLowerCase()
+  const ciMatches = all.filter(e =>
+    e.slug?.toLowerCase() === lower ||
+    e.displayName?.toLowerCase() === lower ||
+    e.name?.toLowerCase() === lower
+  )
+  if (ciMatches.length) return ciMatches.sort((a, b) => installPriority(a) - installPriority(b))
+
+  const norm = normalizeSlug(slug)
+  const candidates = all.filter(e => {
+    const ns = normalizeSlug(e.slug ?? '')
+    const nd = normalizeSlug(e.displayName ?? '')
+    const nn = normalizeSlug(e.name ?? '')
+    return ns === norm || nd === norm || nn === norm ||
+           ns.includes(norm) || nd.includes(norm) || nn.includes(norm)
+  })
+  return candidates.sort((a, b) => installPriority(a) - installPriority(b))
+}
+
 export function findExtension(slug, registry) {
   const all = allEntries(registry)
 

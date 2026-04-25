@@ -1,8 +1,43 @@
 import { execSync } from 'child_process'
+import { createInterface } from 'readline'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
-import { fetchRegistry, findExtension, getInstallConfig } from '../registry.js'
+import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
 import { spinner, success, error, warn, info, c } from '../ui.js'
+
+function entryTypeLabel(e) {
+  if (e.installCommand?.startsWith('claude skill')) return 'skill'
+  if (e.installCommand?.startsWith('/plugin')) return 'plugin'
+  if (e.sourceRegistry === 'docker' || e.slug?.startsWith('docker-') || e.installConfig?.type === 'docker') return 'docker'
+  if (e.sourceRegistry === 'npm' || e.installConfig?.type === 'npm') return 'npm'
+  if (e.sourceRegistry === 'pypi' || e.installConfig?.type === 'uvx') return 'uvx'
+  return 'mcp'
+}
+
+async function pickEntry(entries) {
+  if (entries.length === 1) return entries[0]
+
+  console.log()
+  info('Multiple matches found — pick one to install:')
+  console.log()
+  entries.forEach((e, i) => {
+    const label = e.displayName ?? e.name ?? e.slug
+    const type  = entryTypeLabel(e)
+    const desc  = e.description ? '  ' + c.dim(e.description.slice(0, 72)) : ''
+    console.log(`  ${c.bold(String(i + 1).padStart(2))}. ${label} ${c.dim('(' + e.slug + ')')} ${c.primary('[' + type + ']')}`)
+    if (desc) console.log(`      ${desc}`)
+  })
+  console.log()
+
+  const rl = createInterface({ input: process.stdin, output: process.stdout })
+  return new Promise(resolve => {
+    rl.question(c.bold(`Select [1-${entries.length}] (default 1): `), answer => {
+      rl.close()
+      const n = parseInt(answer.trim(), 10)
+      resolve((n >= 1 && n <= entries.length) ? entries[n - 1] : entries[0])
+    })
+  })
+}
 
 function hasDocker() {
   try {
@@ -22,17 +57,28 @@ export async function install(name, opts = {}) {
     return
   }
 
-  const entry = findExtension(name, registry)
-  if (!entry) {
+  const matches = findExtensions(name, registry)
+  if (!matches.length) {
     spin.fail(`Extension ${c.primary(name)} not found in registry`)
     info(`Try ${c.bold('cgcone search ' + name)} to find similar extensions`)
     return
   }
 
-  spin.succeed(`Found: ${c.bold(entry.displayName ?? entry.name)} — ${entry.description ?? ''}`)
+  if (matches.length === 1) {
+    spin.succeed(`Found: ${c.bold(matches[0].displayName ?? matches[0].name)} — ${matches[0].description ?? ''}`)
+  } else {
+    spin.stop()
+  }
+
+  const entry = await pickEntry(matches)
+
+  if (matches.length > 1) {
+    console.log()
+    info(`Installing: ${c.bold(entry.displayName ?? entry.name)} ${c.dim('(' + entry.slug + ')')}`)
+  }
 
   // Warn if we matched a different slug than what the user typed
-  if (entry.slug !== name) {
+  if (entry.slug !== name && matches.length === 1) {
     info(`Matched registry slug: ${c.bold(entry.slug)}`)
   }
 
