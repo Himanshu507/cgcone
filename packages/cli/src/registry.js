@@ -65,29 +65,50 @@ function normalizeSlug(s) {
     .replace(/[^a-z0-9]/g, '')
 }
 
+function isDocker(e) {
+  return e.sourceRegistry === 'docker' ||
+    e.slug?.startsWith('docker-') ||
+    e.installConfig?.type === 'docker'
+}
+
+// Score entry: lower = better. npm=0, uvx=1, no-config=2, docker=3
+function installPriority(e) {
+  if (e.installConfig?.type === 'npm')  return 0
+  if (e.installConfig?.type === 'uvx')  return 1
+  if (e.installConfig?.command)         return 1
+  if (isDocker(e))                      return 3
+  return 2
+}
+
+function bestMatch(candidates) {
+  if (!candidates.length) return null
+  return candidates.sort((a, b) => installPriority(a) - installPriority(b))[0]
+}
+
 export function findExtension(slug, registry) {
   const all = allEntries(registry)
 
-  // 1. Exact slug or name match
-  const exact = all.find(e => e.slug === slug || e.name === slug)
-  if (exact) return exact
+  // 1. Exact slug match — collect all, pick best install priority
+  const exactMatches = all.filter(e => e.slug === slug || e.name === slug)
+  if (exactMatches.length) return bestMatch(exactMatches)
 
-  // 2. Case-insensitive displayName match
+  // 2. Case-insensitive name/displayName match
   const lower = slug.toLowerCase()
-  const ci = all.find(e =>
+  const ciMatches = all.filter(e =>
     e.slug?.toLowerCase() === lower ||
     e.displayName?.toLowerCase() === lower ||
     e.name?.toLowerCase() === lower
   )
-  if (ci) return ci
+  if (ciMatches.length) return bestMatch(ciMatches)
 
   // 3. Normalized fuzzy match — strips docker-/mcp- prefixes/suffixes
   const norm = normalizeSlug(slug)
-  return all.find(e =>
+  const fuzzyMatches = all.filter(e =>
     normalizeSlug(e.slug ?? '') === norm ||
     normalizeSlug(e.name ?? '') === norm ||
     normalizeSlug(e.displayName ?? '') === norm
-  ) ?? null
+  )
+  return bestMatch(fuzzyMatches)
 }
 
 export function extensionType(entry, registry) {
