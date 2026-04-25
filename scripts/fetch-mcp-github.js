@@ -1,9 +1,7 @@
 const { searchRepos, fetchFileContent, sleep } = require('./lib/github')
-const { detectRuntime, runtimeToInstallConfig } = require('./lib/detect-runtime')
+const { batchDetectAllRuntimes } = require('./lib/detect-runtime')
 
-const MIN_STARS      = 50
-const CONCURRENCY    = 4
-const RUNTIME_DELAY  = 400
+const MIN_STARS  = 50
 
 function slugify(owner, repo) {
   return `${owner}-${repo}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -17,24 +15,17 @@ function categorize(name, description = '') {
   if (/\bfile|filesystem|fs\b|directory/.test(text))                    return 'file-system'
   if (/search|brave|google|bing|duckduck/.test(text))                   return 'web-search'
   if (/aws|azure|gcp|cloud|kubernetes|docker|terraform/.test(text))     return 'cloud-infrastructure'
-  if (/slack|notion|discord|calendar|email|gmail|jira/.test(text))      return 'productivity'
+  if (/slack|notion|discord|calendar|email|gmail/.test(text))           return 'productivity'
   if (/\bapi|rest\b|graphql|webhook/.test(text))                        return 'api-integration'
   return 'general'
 }
 
-/**
- * Fetch all MCP servers from the official modelcontextprotocol/servers monorepo.
- * Each server dir under src/ becomes its own entry with verified npm install config.
- */
 async function fetchMonorepoMCPs() {
   const OWNER = 'modelcontextprotocol'
   const REPO  = 'servers'
   const servers = []
 
   try {
-    // Fetch src/ directory listing
-    const content = await fetchFileContent(OWNER, REPO, 'src')
-    // This won't work for directory — use REST API directly
     const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/src`, {
       headers: {
         Accept: 'application/vnd.github+json',
@@ -48,11 +39,10 @@ async function fetchMonorepoMCPs() {
 
     for (const dir of dirs) {
       if (dir.type !== 'dir') continue
-      const name = dir.name
+      const name    = dir.name
       const pkgName = `@modelcontextprotocol/server-${name}`
       const slug    = `modelcontextprotocol-server-${name}`
 
-      // Try to get description from that server's package.json
       let description = `MCP server for ${name}`
       try {
         const pkgJson = await fetchFileContent(OWNER, REPO, `src/${name}/package.json`)
@@ -73,15 +63,10 @@ async function fetchMonorepoMCPs() {
         vendor:           'Anthropic',
         sourceRegistry:   'github',
         githubUrl:        `https://github.com/${OWNER}/${REPO}/tree/main/src/${name}`,
-        stars:            null, // monorepo stars added separately
+        stars:            null,
         verificationStatus: 'verified',
         lastIndexedAt:    new Date().toISOString(),
-        installConfig: {
-          command: 'npx',
-          args:    ['-y', pkgName],
-          env:     {},
-          type:    'npm',
-        },
+        installConfig: { command: 'npx', args: ['-y', pkgName], env: {}, type: 'npm' },
       })
       await sleep(200)
     }
@@ -93,20 +78,16 @@ async function fetchMonorepoMCPs() {
   return servers
 }
 
-/**
- * Search GitHub for MCP server repos and detect install runtime for each.
- */
 async function fetchGitHubMCPs() {
   console.log('  Searching GitHub for MCP server repos...')
 
-  // Multiple search queries to maximise coverage
   const queries = [
     `topic:mcp-server stars:>=${MIN_STARS}`,
     `topic:model-context-protocol stars:>=${MIN_STARS}`,
     `mcp-server in:name stars:>=${MIN_STARS}`,
   ]
 
-  const seen    = new Set()
+  const seen     = new Set()
   const rawRepos = []
 
   for (const q of queries) {
@@ -117,35 +98,38 @@ async function fetchGitHubMCPs() {
         rawRepos.push(r)
       }
     }
-    await sleep(2000) // space search queries
+    await sleep(2000)
   }
 
-  console.log(`  Found ${rawRepos.length} unique repos, detecting runtimes...`)
+  console.log(`  Found ${rawRepos.length} unique repos, batch-detecting runtimes...`)
 
-  const servers = []
+  // Build input for batch detector
+  const repoInputs = rawRepos.map(r => ({
+    owner:    r.full_name.split('/')[0],
+    name:     r.full_name.split('/')[1],
+    language: r.language ?? '',
+  }))
+
   let done = 0
+  const runtimeMap = await batchDetectAllRuntimes(repoInputs, {
+    batchSize:  40,
+    delayMs:    800,
+    onProgress: (d, t) => {
+      done = d
+      process.stdout.write(`\r  Runtime detection: ${d}/${t}`)
+    },
+  })
 
-  // Process with concurrency limit
-  async function processRepo(repo) {
-    const [owner, name] = repo.full_name.split('/')
-    done++
-    process.stdout.write(`\r  Runtime detection: ${done}/${rawRepos.length}`)
+  const servers = rawRepos.map(repo => {
+    const key           = repo.full_name
+    const [owner, name] = key.split('/')
+    const installConfig = runtimeMap.get(key) ?? null
 
-    let runtime, installConfig
-    try {
-      runtime = await detectRuntime(owner, name, repo.default_branch)
-      installConfig = runtimeToInstallConfig(runtime)
-    } catch {
-      installConfig = null
-    }
-
-    const slug = slugify(owner, name)
-
-    servers.push({
-      name:             repo.full_name,
+    return {
+      name:             key,
       displayName:      name.replace(/-mcp$|^mcp-/, '').replace(/[-_]/g, ' ')
                           .split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-      slug,
+      slug:             slugify(owner, name),
       description:      repo.description || '',
       category:         categorize(name, repo.description || ''),
       tags:             repo.topics || [],
@@ -157,17 +141,9 @@ async function fetchGitHubMCPs() {
       language:         repo.language,
       verificationStatus: 'community',
       lastIndexedAt:    new Date().toISOString(),
-      installConfig:    installConfig ?? null,
-    })
-
-    await sleep(RUNTIME_DELAY)
-  }
-
-  // Chunk into batches of CONCURRENCY
-  for (let i = 0; i < rawRepos.length; i += CONCURRENCY) {
-    const batch = rawRepos.slice(i, i + CONCURRENCY)
-    await Promise.all(batch.map(processRepo))
-  }
+      installConfig,
+    }
+  })
 
   console.log(`\n  GitHub MCPs: ${servers.length} entries (${servers.filter(s => s.installConfig).length} auto-installable)`)
   return servers
@@ -179,9 +155,8 @@ async function fetchAllGitHubMCPs() {
     fetchGitHubMCPs(),
   ])
 
-  // Deduplicate: monorepo entries win over search results
-  const seen    = new Set(monorepo.map(s => s.slug))
-  const unique  = searched.filter(s => !seen.has(s.slug))
+  const seen   = new Set(monorepo.map(s => s.slug))
+  const unique = searched.filter(s => !seen.has(s.slug))
   return [...monorepo, ...unique]
 }
 

@@ -1,89 +1,177 @@
-const { fetchFileContent } = require('./github')
+const fs   = require('fs')
+const path = require('path')
+
+const GITHUB_GRAPHQL = 'https://api.github.com/graphql'
+const CACHE_FILE     = path.join(__dirname, '..', '.runtime-cache.json')
+
+function headers() {
+  const h = { 'Content-Type': 'application/json', 'User-Agent': 'cgcone-registry-sync/2.0' }
+  if (process.env.GITHUB_TOKEN) h.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
+  return h
+}
+
+async function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
+
+// ── Disk cache ────────────────────────────────────────────────────────────────
+
+function loadCache() {
+  try { return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8')) } catch { return {} }
+}
+
+function saveCache(cache) {
+  fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2))
+}
+
+// ── GraphQL batch detector ────────────────────────────────────────────────────
 
 /**
- * Parse package name from pyproject.toml content.
- * Handles both [project] name = "foo" and [tool.poetry] name = "foo"
+ * Detect runtimes for up to 40 repos in a single GraphQL request.
+ * Returns Map<"owner/repo", installConfig | null>
  */
-function parsePyprojectName(content) {
-  const m = content.match(/^\[(?:project|tool\.poetry)\][^\[]*?^name\s*=\s*["']([^"']+)["']/ms)
-  return m ? m[1] : null
+async function batchDetectRuntimes(repos) {
+  // repos: array of { owner, name, language }
+  const aliases = repos.map((r, i) => `
+    r${i}: repository(owner: "${r.owner}", name: "${r.name}") {
+      primaryLanguage { name }
+      pkgJson:   object(expression: "HEAD:package.json")   { ... on Blob { text } }
+      pyproject: object(expression: "HEAD:pyproject.toml") { ... on Blob { text } }
+    }`)
+
+  const query = `{ ${aliases.join('\n')} }`
+
+  for (let attempt = 0; attempt < 4; attempt++) {
+    let res
+    try {
+      res = await fetch(GITHUB_GRAPHQL, {
+        method: 'POST',
+        headers: headers(),
+        body: JSON.stringify({ query }),
+      })
+    } catch {
+      await sleep((attempt + 1) * 3000)
+      continue
+    }
+
+    if (res.status === 403 || res.status === 429) {
+      const reset     = res.headers.get('X-RateLimit-Reset')
+      const remaining = res.headers.get('X-RateLimit-Remaining')
+      if (remaining === '0' && reset) {
+        const wait = Math.max(2000, parseInt(reset) * 1000 - Date.now() + 2000)
+        console.warn(`\n  GraphQL rate limited. Waiting ${Math.ceil(wait / 1000)}s...`)
+        await sleep(Math.min(wait, 120_000))
+        continue
+      }
+      await sleep((attempt + 1) * 5000)
+      continue
+    }
+
+    if (!res.ok) { await sleep(3000); continue }
+
+    let json
+    try { json = await res.json() } catch { await sleep(2000); continue }
+
+    const results = new Map()
+    repos.forEach((r, i) => {
+      const key  = `${r.owner}/${r.name}`
+      const data = json.data?.[`r${i}`]
+      if (!data) { results.set(key, null); return }
+
+      const lang   = data.primaryLanguage?.name ?? r.language ?? ''
+      const config = extractInstallConfig(data.pkgJson?.text, data.pyproject?.text, lang)
+      results.set(key, config)
+    })
+    return results
+  }
+
+  // All attempts failed — return nulls
+  const results = new Map()
+  repos.forEach(r => results.set(`${r.owner}/${r.name}`, null))
+  return results
 }
 
 /**
- * Detect install runtime for a GitHub repo.
- * Checks for package.json (npm), pyproject.toml (uvx), Dockerfile (docker).
- *
- * Returns:
- * { type: 'npm'|'uvx'|'docker'|'unknown', command, args, packageName, env }
+ * Derive installConfig from fetched file contents + language.
  */
-async function detectRuntime(owner, repo, branch = null) {
-  // Try package.json first
-  const pkgJson = await fetchFileContent(owner, repo, 'package.json', branch)
-  if (pkgJson) {
+function extractInstallConfig(pkgJsonText, pyprojectText, language) {
+  // npm / Node.js
+  if (pkgJsonText) {
     try {
-      const pkg = JSON.parse(pkgJson)
+      const pkg = JSON.parse(pkgJsonText)
       const name = pkg.name
       if (name && !name.startsWith('_') && !name.includes(' ')) {
-        const envVars = {}
-        // Scan for common env var patterns in scripts/readme hints
-        // (full README parsing done separately; here just trust package.json name)
-        return {
-          type:        'npm',
-          command:     'npx',
-          args:        ['-y', name],
-          packageName: name,
-          env:         envVars,
-        }
+        return { command: 'npx', args: ['-y', name], env: {}, type: 'npm' }
       }
     } catch {}
+    // package.json exists but couldn't parse name — still Node project, uncertain
+    return null
   }
 
-  // Try pyproject.toml
-  const pyproject = await fetchFileContent(owner, repo, 'pyproject.toml', branch)
-  if (pyproject) {
-    const name = parsePyprojectName(pyproject)
-    if (name) {
-      return {
-        type:        'uvx',
-        command:     'uvx',
-        args:        [name],
-        packageName: name,
-        env:         {},
-      }
-    }
-    // pyproject exists but couldn't parse name — still a Python project
-    return {
-      type:        'uvx',
-      command:     'uvx',
-      args:        [`${owner}/${repo}`],
-      packageName: null,
-      env:         {},
-      uncertain:   true,
-    }
+  // Python / uvx
+  if (pyprojectText) {
+    const m = pyprojectText.match(/^\[(?:project|tool\.poetry)\][^\[]*?^name\s*=\s*["']([^"']+)["']/ms)
+    if (m) return { command: 'uvx', args: [m[1]], env: {}, type: 'uvx' }
+    return null
   }
 
-  // Try Dockerfile
-  const dockerfile = await fetchFileContent(owner, repo, 'Dockerfile', branch)
-  if (dockerfile) {
-    return { type: 'docker', command: null, args: null, packageName: null, env: {} }
-  }
+  // Language fallback — no file found but language gives a hint
+  if (/typescript|javascript/i.test(language)) return null // need package.json name
+  if (/python/i.test(language))               return null // need pyproject name
 
-  return { type: 'unknown', command: null, args: null, packageName: null, env: {} }
+  return null
 }
+
+// ── Public API ────────────────────────────────────────────────────────────────
 
 /**
- * Build the registry installConfig from a detected runtime.
- * Returns null if runtime is docker or unknown (can't auto-install).
+ * Batch-detect runtimes for an array of repos with disk caching + resume.
+ * @param {Array<{owner, name, language}>} repos
+ * @param {object} opts
+ * @param {number} opts.batchSize   - repos per GraphQL request (default 40)
+ * @param {number} opts.delayMs     - ms between batches (default 1000)
+ * @param {Function} opts.onProgress - (done, total) => void
+ * @returns {Map<"owner/repo", installConfig | null>}
  */
-function runtimeToInstallConfig(runtime) {
-  if (!runtime || !runtime.command) return null
-  return {
-    command: runtime.command,
-    args:    runtime.args,
-    env:     runtime.env ?? {},
-    type:    runtime.type,
-    ...(runtime.uncertain ? { uncertain: true } : {}),
+async function batchDetectAllRuntimes(repos, { batchSize = 40, delayMs = 1000, onProgress } = {}) {
+  const cache    = loadCache()
+  const results  = new Map()
+  const pending  = []
+
+  // Split into cached vs needs-fetch
+  for (const r of repos) {
+    const key = `${r.owner}/${r.name}`
+    if (Object.prototype.hasOwnProperty.call(cache, key)) {
+      results.set(key, cache[key])
+    } else {
+      pending.push(r)
+    }
   }
+
+  if (pending.length === 0) {
+    if (onProgress) onProgress(repos.length, repos.length)
+    return results
+  }
+
+  let done = repos.length - pending.length
+
+  for (let i = 0; i < pending.length; i += batchSize) {
+    const batch    = pending.slice(i, i + batchSize)
+    const batchMap = await batchDetectRuntimes(batch)
+
+    batchMap.forEach((config, key) => {
+      results.set(key, config)
+      cache[key] = config
+    })
+
+    done += batch.length
+    if (onProgress) onProgress(done, repos.length)
+
+    // Save cache after each batch so progress survives interruption
+    saveCache(cache)
+
+    if (i + batchSize < pending.length) await sleep(delayMs)
+  }
+
+  return results
 }
 
-module.exports = { detectRuntime, runtimeToInstallConfig, parsePyprojectName }
+module.exports = { batchDetectAllRuntimes, extractInstallConfig }

@@ -48,3 +48,4 @@ next-env.d.ts
 # Test artifacts
 .playwright-mcp/
 ROADMAP.md
+scripts/.runtime-cache.json
