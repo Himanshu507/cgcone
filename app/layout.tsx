@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cgcone.vercel.app'),
+  metadataBase: new URL('https://cgcone.com'),
   title: {
     default: 'cgcone — Universal AI CLI Extension Manager',
     template: '%s | cgcone',
@@ -37,18 +37,18 @@ export const metadata: Metadata = {
     'AI CLI manager', 'plugins', 'skills', 'hooks', 'subagents', 'cgcone',
     'AI extensions marketplace', 'MCP marketplace',
   ],
-  authors: [{ name: 'cgcone', url: 'https://cgcone.vercel.app' }],
+  authors: [{ name: 'cgcone', url: 'https://cgcone.com' }],
   creator: 'cgcone',
   publisher: 'cgcone',
   robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://cgcone.vercel.app',
+    url: 'https://cgcone.com',
     siteName: 'cgcone',
     title: 'cgcone — Universal AI CLI Extension Manager',
     description:
