@@ -87,27 +87,32 @@ function bestMatch(candidates) {
 
 export function findExtensions(slug, registry) {
   const all = allEntries(registry)
+  const seen = new Set()
 
-  const exactMatches = all.filter(e => e.slug === slug || e.name === slug)
-  if (exactMatches.length) return exactMatches.sort((a, b) => installPriority(a) - installPriority(b))
-
+  // Collect from all match levels without early-return, then dedup + sort.
+  // Early-return would miss entries that only appear in later (broader) levels
+  // e.g. docker-context7 hits CI-exact on displayName="Context7" but upstash-context7
+  // only hits substring-normalized — both must compete together.
   const lower = slug.toLowerCase()
-  const ciMatches = all.filter(e =>
-    e.slug?.toLowerCase() === lower ||
-    e.displayName?.toLowerCase() === lower ||
-    e.name?.toLowerCase() === lower
-  )
-  if (ciMatches.length) return ciMatches.sort((a, b) => installPriority(a) - installPriority(b))
+  const norm  = normalizeSlug(slug)
 
-  const norm = normalizeSlug(slug)
-  const candidates = all.filter(e => {
+  const gathered = all.filter(e => {
     const ns = normalizeSlug(e.slug ?? '')
     const nd = normalizeSlug(e.displayName ?? '')
     const nn = normalizeSlug(e.name ?? '')
-    return ns === norm || nd === norm || nn === norm ||
-           ns.includes(norm) || nd.includes(norm) || nn.includes(norm)
+    const matches =
+      e.slug === slug || e.name === slug ||                          // exact
+      e.slug?.toLowerCase() === lower ||                            // ci slug
+      e.displayName?.toLowerCase() === lower ||                     // ci displayName
+      e.name?.toLowerCase() === lower ||                            // ci name
+      ns === norm || nd === norm || nn === norm ||                   // normalized exact
+      ns.includes(norm) || nd.includes(norm) || nn.includes(norm)   // normalized substring
+    if (!matches || seen.has(e.slug)) return false
+    seen.add(e.slug)
+    return true
   })
-  return candidates.sort((a, b) => installPriority(a) - installPriority(b))
+
+  return gathered.sort((a, b) => installPriority(a) - installPriority(b))
 }
 
 export function findExtension(slug, registry) {
