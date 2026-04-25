@@ -34,9 +34,8 @@ export async function fetchRegistry({ force = false } = {}) {
   return data
 }
 
-export function searchExtensions(query, registry) {
-  const q = query.toLowerCase()
-  const all = [
+function allEntries(registry) {
+  return [
     ...(registry.mcpServers  ?? []),
     ...(registry.plugins     ?? []),
     ...(registry.skills      ?? []),
@@ -44,7 +43,11 @@ export function searchExtensions(query, registry) {
     ...(registry.commands    ?? []),
     ...(registry.hooks       ?? []),
   ]
-  return all.filter(e =>
+}
+
+export function searchExtensions(query, registry) {
+  const q = query.toLowerCase()
+  return allEntries(registry).filter(e =>
     e.slug?.toLowerCase().includes(q) ||
     e.displayName?.toLowerCase().includes(q) ||
     e.name?.toLowerCase().includes(q) ||
@@ -53,16 +56,38 @@ export function searchExtensions(query, registry) {
   )
 }
 
+// Strip common prefixes/suffixes to get a comparable core name
+function normalizeSlug(s) {
+  return s.toLowerCase()
+    .replace(/^docker-/, '')
+    .replace(/^mcp-/, '')
+    .replace(/-mcp$/, '')
+    .replace(/[^a-z0-9]/g, '')
+}
+
 export function findExtension(slug, registry) {
-  const all = [
-    ...(registry.mcpServers  ?? []),
-    ...(registry.plugins     ?? []),
-    ...(registry.skills      ?? []),
-    ...(registry.subagents   ?? []),
-    ...(registry.commands    ?? []),
-    ...(registry.hooks       ?? []),
-  ]
-  return all.find(e => e.slug === slug || e.name === slug) ?? null
+  const all = allEntries(registry)
+
+  // 1. Exact slug or name match
+  const exact = all.find(e => e.slug === slug || e.name === slug)
+  if (exact) return exact
+
+  // 2. Case-insensitive displayName match
+  const lower = slug.toLowerCase()
+  const ci = all.find(e =>
+    e.slug?.toLowerCase() === lower ||
+    e.displayName?.toLowerCase() === lower ||
+    e.name?.toLowerCase() === lower
+  )
+  if (ci) return ci
+
+  // 3. Normalized fuzzy match — strips docker-/mcp- prefixes/suffixes
+  const norm = normalizeSlug(slug)
+  return all.find(e =>
+    normalizeSlug(e.slug ?? '') === norm ||
+    normalizeSlug(e.name ?? '') === norm ||
+    normalizeSlug(e.displayName ?? '') === norm
+  ) ?? null
 }
 
 export function extensionType(entry, registry) {
@@ -73,6 +98,12 @@ export function extensionType(entry, registry) {
   if (registry.commands?.find(e => e.slug === entry.slug))    return 'command'
   if (registry.hooks?.find(e => e.slug === entry.slug))       return 'hook'
   return 'unknown'
+}
+
+// Extract Docker image name from a Docker Hub URL
+function imageFromDockerUrl(url) {
+  const m = url.match(/hub\.docker\.com\/r\/([^/?#\s]+(?:\/[^/?#\s]+)?)/)
+  return m ? m[1] : null
 }
 
 // Extract install config from README content — regex-based, best-effort
@@ -96,16 +127,16 @@ function extractFromReadme(content) {
 
 /**
  * Derive the CLI install config for an MCP server entry.
- * Priority: explicit packageName → structured packages field → README extraction → heuristics
- * Returns { command, args, env } or null if not installable automatically.
+ * Priority: explicit packageName → npm/pypi packages → Docker/OCI → README → heuristics
+ * Returns { command, args, env, type? } or null if not installable automatically.
  */
 export function getInstallConfig(entry) {
-  // 1. Explicit packageName field (highest trust — set by registry maintainers)
+  // 1. Explicit packageName field (highest trust)
   if (entry.packageName) {
     return { command: 'npx', args: ['-y', entry.packageName], env: {} }
   }
 
-  // 2. Structured packages field from official MCP registry — authoritative
+  // 2. Structured packages field — npm and pypi preferred over Docker
   if (entry.packages?.length) {
     for (const pkg of entry.packages) {
       if (pkg.registryType === 'npm' && pkg.identifier) {
@@ -118,28 +149,56 @@ export function getInstallConfig(entry) {
       if (pkg.registryType === 'pypi' && pkg.identifier) {
         return { command: 'uvx', args: [pkg.identifier], env: {} }
       }
-      // oci/docker skipped — config is too variable to auto-generate
+    }
+
+    // Docker/OCI from packages field
+    for (const pkg of entry.packages) {
+      if (pkg.registryType === 'oci' && pkg.identifier) {
+        const env = {}
+        for (const ev of pkg.environmentVariables ?? []) {
+          if (ev.isRequired && ev.name) env[ev.name] = ''
+        }
+        return {
+          command: 'docker',
+          args: ['run', '-i', '--rm', pkg.identifier],
+          env,
+          type: 'docker',
+        }
+      }
     }
   }
 
-  // 3. README-based extraction (already fetched during registry generation)
+  // 3. dockerUrl field — Docker Hub entries from our indexer
+  if (entry.dockerUrl) {
+    const image = imageFromDockerUrl(entry.dockerUrl)
+    if (image) {
+      return {
+        command: 'docker',
+        args: ['run', '-i', '--rm', image],
+        env: {},
+        type: 'docker',
+      }
+    }
+  }
+
+  // 4. README-based extraction
   if (entry.readmeContent) {
     const config = extractFromReadme(entry.readmeContent)
     if (config) return config
   }
 
-  // 4. Official MCP monorepo heuristic
+  // 5. Official MCP monorepo heuristic
   if (entry.githubUrl?.includes('github.com/modelcontextprotocol/servers')) {
     const pkg = `@modelcontextprotocol/server-${entry.slug.replace(/^mcp-/, '').replace(/-mcp$/, '')}`
     return { command: 'npx', args: ['-y', pkg], env: {} }
   }
 
-  // 5. npm-sourced slug heuristic
+  // 6. npm-sourced slug heuristic
   if (entry.sourceRegistry === 'npm' && entry.slug) {
     return { command: 'npx', args: ['-y', entry.slug], env: {} }
   }
 
-  // 6. GitHub owner/repo guess — uncertain, installer will warn
+  // 7. GitHub owner/repo guess — uncertain, installer will warn
   if (entry.githubUrl) {
     const m = entry.githubUrl.match(/github\.com\/([^/]+)\/([^/?#]+)/)
     if (m) {

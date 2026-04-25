@@ -1,8 +1,15 @@
-import { getDetectedAdapters } from '../adapters/index.js'
-import { ALL_ADAPTERS } from '../adapters/index.js'
+import { execSync } from 'child_process'
+import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtension, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
 import { spinner, success, error, warn, info, c } from '../ui.js'
+
+function hasDocker() {
+  try {
+    execSync('docker info', { stdio: 'ignore' })
+    return true
+  } catch { return false }
+}
 
 export async function install(name, opts = {}) {
   const spin = spinner(`Looking up ${c.primary(name)}...`).start()
@@ -24,13 +31,34 @@ export async function install(name, opts = {}) {
 
   spin.succeed(`Found: ${c.bold(entry.displayName ?? entry.name)} — ${entry.description ?? ''}`)
 
+  // Warn if we matched a different slug than what the user typed
+  if (entry.slug !== name) {
+    info(`Matched registry slug: ${c.bold(entry.slug)}`)
+  }
+
   const installConfig = getInstallConfig(entry)
   if (!installConfig) {
-    error(`No automatic install config for ${name}. Check ${entry.githubUrl ?? 'the repository'} for manual instructions.`)
+    const isRemote = entry.serverType === 'streamable-http' || entry.serverType === 'sse'
+    if (isRemote) {
+      error(`${c.bold(entry.displayName ?? entry.name)} is a remote MCP server (${entry.serverType}).`)
+      info(`Connect via: ${c.bold(`claude mcp add --transport ${entry.serverType} ${entry.slug} <server-url>`)}`)
+      info(`Get the server URL from the provider's documentation.`)
+    } else {
+      error(`No automatic install config for ${name}. Check ${entry.githubUrl ?? entry.dockerUrl ?? 'the repository'} for manual instructions.`)
+    }
     return
   }
 
-  if (installConfig.uncertain) {
+  // Docker-specific checks and warnings
+  if (installConfig.type === 'docker') {
+    if (!hasDocker()) {
+      error('Docker is required to run this MCP server but was not found.\nInstall Docker Desktop: https://docs.docker.com/get-docker/')
+      return
+    }
+    warn(`This MCP server runs via Docker: ${c.bold(installConfig.args.slice(-1)[0])}`)
+    warn('Additional args (e.g. volume mounts, paths) may be needed — edit config after install if required.')
+    console.log()
+  } else if (installConfig.uncertain) {
     warn(`Install command inferred (not verified): ${installConfig.command} ${installConfig.args.join(' ')}`)
   }
 
