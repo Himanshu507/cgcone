@@ -7,7 +7,8 @@ import { list }      from './commands/list.js'
 import { search }    from './commands/search.js'
 import { showInfo }  from './commands/info.js'
 import { doctor }    from './commands/doctor.js'
-import { update }    from './commands/update.js'
+import { update }     from './commands/update.js'
+import { configure }  from './commands/configure.js'
 import { c }         from './ui.js'
 
 const program = new Command()
@@ -15,7 +16,7 @@ const program = new Command()
 program
   .name('cgcone')
   .description('Universal AI CLI extension manager')
-  .version('0.1.8')
+  .version('0.1.9')
   .addHelpText('after', `
 ${c.dim('Examples:')}
   ${c.primary('cgcone scan')}                     detect AI CLIs on this machine
@@ -64,6 +65,13 @@ program
   .command('doctor')
   .description('Diagnose CLI installations and config issues')
   .action(doctor)
+
+program
+  .command('configure <name>')
+  .alias('config')
+  .description('Set or update API keys and env vars for an installed MCP')
+  .option('--for <cli>', 'target a specific CLI')
+  .action((name, opts) => configure(name, opts))
 
 program
   .command('update [name]')

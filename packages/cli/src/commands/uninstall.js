@@ -1,22 +1,8 @@
 import { select, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
-import { normalizeSlug } from '../registry.js'
+import { findInstalledMatches } from '../registry.js'
 import { markUninstalled } from '../store.js'
 import { spinner, success, error, warn, info, c } from '../ui.js'
-
-function findInstalledMatches(query, slugs) {
-  if (slugs.includes(query)) return [query]
-
-  const lower = query.toLowerCase()
-  const ciMatches = slugs.filter(s => s.toLowerCase() === lower)
-  if (ciMatches.length) return ciMatches
-
-  const norm = normalizeSlug(query)
-  return slugs.filter(s => {
-    const ns = normalizeSlug(s)
-    return ns === norm || ns.includes(norm) || norm.includes(ns)
-  })
-}
 
 async function pickSlug(matches) {
   if (matches.length === 1) return matches[0]

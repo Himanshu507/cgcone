@@ -145,6 +145,20 @@ export function findExtension(slug, registry) {
   return bestMatch(candidates)
 }
 
+export function findInstalledMatches(query, slugs) {
+  if (slugs.includes(query)) return [query]
+
+  const lower = query.toLowerCase()
+  const ciMatches = slugs.filter(s => s.toLowerCase() === lower)
+  if (ciMatches.length) return ciMatches
+
+  const norm = normalizeSlug(query)
+  return slugs.filter(s => {
+    const ns = normalizeSlug(s)
+    return ns === norm || ns.includes(norm) || norm.includes(ns)
+  })
+}
+
 export function extensionType(entry, registry) {
   if (registry.mcpServers?.find(e => e.slug === entry.slug))  return 'mcp'
   if (registry.plugins?.find(e => e.slug === entry.slug))     return 'plugin'

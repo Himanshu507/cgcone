@@ -64,6 +64,19 @@ export class GeminiCLIAdapter extends BaseAdapter {
     return Object.keys(data.mcpServers ?? {})
   }
 
+  async getEnv(slug) {
+    const data = await readConfig()
+    return data.mcpServers?.[slug]?.env ?? {}
+  }
+
+  async setEnv(slug, env) {
+    const data = await readConfig()
+    if (!data.mcpServers?.[slug]) return { ok: false, message: `${slug} not found in Gemini CLI config` }
+    data.mcpServers[slug].env = env
+    await writeConfig(data)
+    return { ok: true }
+  }
+
   async doctor() {
     const issues = []
     if (!hasBinary('gemini')) {

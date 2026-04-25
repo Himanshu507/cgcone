@@ -33,6 +33,18 @@ export class BaseAdapter {
   async listInstalled() { return [] }
 
   /**
+   * Get env vars currently stored for an installed MCP slug.
+   * @returns {Promise<Record<string,string>>}
+   */
+  async getEnv(_slug) { return {} }
+
+  /**
+   * Overwrite env vars for an installed MCP slug.
+   * @returns {Promise<{ ok: boolean, message?: string }>}
+   */
+  async setEnv(_slug, _env) { return { ok: false, message: 'not implemented' } }
+
+  /**
    * Run health checks.
    * @returns {Promise<Array<{ level: 'error'|'warn'|'ok', message: string }>>}
    */

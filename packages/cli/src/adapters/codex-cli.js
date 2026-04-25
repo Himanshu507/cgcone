@@ -67,6 +67,19 @@ export class CodexCLIAdapter extends BaseAdapter {
     return Object.keys(doc.mcp_servers ?? {})
   }
 
+  async getEnv(slug) {
+    const doc = await readConfig()
+    return doc.mcp_servers?.[slug]?.env ?? {}
+  }
+
+  async setEnv(slug, env) {
+    const doc = await readConfig()
+    if (!doc.mcp_servers?.[slug]) return { ok: false, message: `${slug} not found in Codex config` }
+    doc.mcp_servers[slug].env = env
+    await writeConfig(doc)
+    return { ok: true }
+  }
+
   async doctor() {
     const issues = []
     if (!hasBinary('codex')) {

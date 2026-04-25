@@ -1,9 +1,41 @@
 import { execSync } from 'child_process'
-import { select, isCancel } from '@clack/prompts'
+import { select, text, password, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
 import { spinner, success, error, warn, info, c } from '../ui.js'
+
+function isSensitiveKey(k) {
+  return /key|token|secret|password|api/i.test(k)
+}
+
+function envDescriptions(entry) {
+  const map = {}
+  for (const pkg of entry.packages ?? []) {
+    for (const ev of pkg.environmentVariables ?? []) {
+      if (ev.name) map[ev.name] = ev.description ?? ''
+    }
+  }
+  return map
+}
+
+async function promptEnvVars(missingEnv, entry) {
+  const descs = envDescriptions(entry)
+  const filled = {}
+  console.log()
+  for (const [key] of missingEnv) {
+    const hint = descs[key] ? ` — ${descs[key]}` : ''
+    const fn = isSensitiveKey(key) ? password : text
+    const val = await fn({
+      message: `${c.bold(key)}${c.dim(hint)}`,
+      placeholder: isSensitiveKey(key) ? '' : 'enter value',
+      validate: v => (v ?? '').trim() ? undefined : `${key} is required`,
+    })
+    if (isCancel(val)) { console.log(); process.exit(0) }
+    filled[key] = val.trim()
+  }
+  return filled
+}
 
 function entryTypeLabel(e) {
   if (e.installCommand?.startsWith('claude skill')) return 'skill'
@@ -126,10 +158,11 @@ export async function install(name, opts = {}) {
   }
 
   const missingEnv = Object.entries(installConfig.env ?? {}).filter(([, v]) => v === '')
+  let finalConfig = installConfig
   if (missingEnv.length) {
-    warn(`Required env vars (edit config after install):`)
-    for (const [key] of missingEnv) console.log(`  ${c.dim('$')}${c.bold(key)}`)
-    console.log()
+    info(`This MCP requires ${missingEnv.length} env var${missingEnv.length > 1 ? 's' : ''}:`)
+    const filled = await promptEnvVars(missingEnv, entry)
+    finalConfig = { ...installConfig, env: { ...installConfig.env, ...filled } }
   }
 
   // Determine which adapters to target
@@ -150,7 +183,7 @@ export async function install(name, opts = {}) {
   for (const adapter of targets) {
     const s = spinner(`Installing to ${c.bold(adapter.name)}...`).start()
     try {
-      const result = await adapter.install(entry.slug, installConfig)
+      const result = await adapter.install(entry.slug, finalConfig)
       if (result.ok) {
         await markInstalled(adapter.id, entry.slug, {
           displayName: entry.displayName ?? entry.name,
