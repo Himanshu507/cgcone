@@ -3,7 +3,7 @@
 **npm for AI CLIs.** One command installs any MCP server, plugin, or skill to every AI CLI on your machine.
 
 ```bash
-npm install -g cgcone
+npm install -g @cgcone/cli
 cgcone install filesystem-mcp
 ```
 
@@ -58,7 +58,7 @@ cgcone update --all               # update everything
 Requires Node.js 18+.
 
 ```bash
-npm install -g cgcone
+npm install -g @cgcone/cli
 ```
 
 ## Registry

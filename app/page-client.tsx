@@ -173,15 +173,15 @@ export default function HomePageClient({
                   <div className="flex-1 overflow-x-auto">
                     <code className="font-mono text-sm whitespace-nowrap">
                       <span className="text-muted-foreground">$</span>{' '}
-                      <span className="text-foreground">npm install -g cgcone</span>
+                      <span className="text-foreground">npm install -g @cgcone/cli</span>
                     </code>
                   </div>
                   <button
-                    onClick={() => handleCopy('npm install -g cgcone')}
+                    onClick={() => handleCopy('npm install -g @cgcone/cli')}
                     className="shrink-0 p-1.5 text-muted-foreground hover:text-foreground transition-colors"
                     aria-label="Copy install command"
                   >
-                    {copiedCmd === 'npm install -g cgcone' ? (
+                    {copiedCmd === 'npm install -g @cgcone/cli' ? (
                       <Check className="w-4 h-4 text-green-500" />
                     ) : (
                       <Copy className="w-4 h-4" />
@@ -502,7 +502,7 @@ export default function HomePageClient({
                   </p>
                   <div className="space-y-2">
                     {[
-                      { cmd: 'npm install -g cgcone', comment: '# install cgcone' },
+                      { cmd: 'npm install -g @cgcone/cli', comment: '# install cgcone' },
                       { cmd: 'cgcone scan', comment: '# detect your AI CLIs' },
                       { cmd: 'cgcone install filesystem-mcp', comment: '# install to all of them' },
                     ].map(({ cmd, comment }) => (
