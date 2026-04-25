@@ -15,7 +15,7 @@ const program = new Command()
 program
   .name('cgcone')
   .description('Universal AI CLI extension manager')
-  .version('0.1.6')
+  .version('0.1.7')
   .addHelpText('after', `
 ${c.dim('Examples:')}
   ${c.primary('cgcone scan')}                     detect AI CLIs on this machine

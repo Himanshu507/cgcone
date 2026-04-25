@@ -1,5 +1,5 @@
 import { execSync } from 'child_process'
-import { createInterface } from 'readline'
+import { select, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
@@ -18,25 +18,22 @@ async function pickEntry(entries) {
   if (entries.length === 1) return entries[0]
 
   console.log()
-  info('Multiple matches found — pick one to install:')
-  console.log()
-  entries.forEach((e, i) => {
-    const label = e.displayName ?? e.name ?? e.slug
-    const type  = entryTypeLabel(e)
-    const desc  = e.description ? '  ' + c.dim(e.description.slice(0, 72)) : ''
-    console.log(`  ${c.bold(String(i + 1).padStart(2))}. ${label} ${c.dim('(' + e.slug + ')')} ${c.primary('[' + type + ']')}`)
-    if (desc) console.log(`      ${desc}`)
+  const result = await select({
+    message: 'Multiple matches — select one to install:',
+    options: entries.map(e => ({
+      value: e,
+      label: `${e.displayName ?? e.name ?? e.slug}  ${c.dim(e.slug)}  ${c.primary('[' + entryTypeLabel(e) + ']')}`,
+      hint: e.description?.slice(0, 80) ?? '',
+    })),
   })
-  console.log()
 
-  const rl = createInterface({ input: process.stdin, output: process.stdout })
-  return new Promise(resolve => {
-    rl.question(c.bold(`Select [1-${entries.length}] (default 1): `), answer => {
-      rl.close()
-      const n = parseInt(answer.trim(), 10)
-      resolve((n >= 1 && n <= entries.length) ? entries[n - 1] : entries[0])
-    })
-  })
+  if (isCancel(result)) {
+    console.log()
+    info('Installation cancelled.')
+    process.exit(0)
+  }
+
+  return result
 }
 
 function hasDocker() {

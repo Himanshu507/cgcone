@@ -1,6 +1,6 @@
 {
   "name": "@cgcone/cli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Universal AI CLI extension manager — install MCP servers, plugins and skills across Claude Code, Gemini CLI and Codex in one command",
   "type": "module",
   "bin": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://cgcone.com",
   "dependencies": {
+    "@clack/prompts": "^1.2.0",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "ora": "^8.1.0",
