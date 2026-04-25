@@ -66,13 +66,18 @@ async function fetchGitHubSkills() {
     // Fetch SKILL.md content
     const [owner, repo] = result.repo.split('/')
     let frontmatter = null
-    try {
-      const rawRes = await fetch(`https://raw.githubusercontent.com/${result.repo}/${result.repoObj.default_branch ?? 'main'}/${result.path}`)
-      if (rawRes.ok) {
-        const text = await rawRes.text()
-        frontmatter = parseFrontmatter(text)
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const rawRes = await fetch(`https://raw.githubusercontent.com/${result.repo}/${result.repoObj.default_branch ?? 'main'}/${result.path}`)
+        if (rawRes.ok) {
+          const text = await rawRes.text()
+          frontmatter = parseFrontmatter(text)
+        }
+        break
+      } catch {
+        if (attempt < 2) await sleep(1500)
       }
-    } catch {}
+    }
 
     if (!frontmatter?.name && !skillDir) continue
 

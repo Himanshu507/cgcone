@@ -128,11 +128,16 @@ async function fetchGitHubMCPs() {
   // Process with concurrency limit
   async function processRepo(repo) {
     const [owner, name] = repo.full_name.split('/')
-    const runtime = await detectRuntime(owner, name, repo.default_branch)
-    const installConfig = runtimeToInstallConfig(runtime)
-
     done++
     process.stdout.write(`\r  Runtime detection: ${done}/${rawRepos.length}`)
+
+    let runtime, installConfig
+    try {
+      runtime = await detectRuntime(owner, name, repo.default_branch)
+      installConfig = runtimeToInstallConfig(runtime)
+    } catch {
+      installConfig = null
+    }
 
     const slug = slugify(owner, name)
 

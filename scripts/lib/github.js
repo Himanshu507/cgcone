@@ -15,9 +15,19 @@ async function sleep(ms) {
   return new Promise(r => setTimeout(r, ms))
 }
 
-async function rateLimitedFetch(url, opts = {}, retries = 4) {
+async function rateLimitedFetch(url, opts = {}, retries = 5) {
   for (let attempt = 0; attempt < retries; attempt++) {
-    const res = await fetch(url, { ...opts, headers: { ...headers(), ...opts.headers } })
+    let res
+    try {
+      res = await fetch(url, { ...opts, headers: { ...headers(), ...opts.headers } })
+    } catch (err) {
+      // Network error (socket closed, ECONNRESET, etc.) — retry with backoff
+      if (attempt < retries - 1) {
+        await sleep((attempt + 1) * 2000)
+        continue
+      }
+      return null // exhaust retries → caller treats null as skip
+    }
 
     if (res.status === 200 || res.status === 201) return res
     if (res.status === 404 || res.status === 451) return res // caller handles
@@ -109,10 +119,12 @@ async function fetchFileContent(owner, repo, filePath, branch = null) {
   const ref = branch ? `?ref=${branch}` : ''
   const url = `${GITHUB_REST}/repos/${owner}/${repo}/contents/${filePath}${ref}`
   const res = await rateLimitedFetch(url)
-  if (!res.ok) return null
-  const data = await res.json()
-  if (!data.content || data.encoding !== 'base64') return null
-  return Buffer.from(data.content.replace(/\n/g, ''), 'base64').toString('utf-8')
+  if (!res || !res.ok) return null
+  try {
+    const data = await res.json()
+    if (!data.content || data.encoding !== 'base64') return null
+    return Buffer.from(data.content.replace(/\n/g, ''), 'base64').toString('utf-8')
+  } catch { return null }
 }
 
 /**

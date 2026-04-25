@@ -80,15 +80,19 @@ async function fetchGitHubPlugins() {
 
     // Fetch marketplace.json content
     const [owner, repo] = result.repo.split('/')
-    try {
-      const rawRes = await fetch(
-        `https://raw.githubusercontent.com/${result.repo}/${result.repoObj.default_branch ?? 'main'}/${result.path}`
-      )
-      if (!rawRes.ok) continue
-      const content  = await rawRes.text()
-      const plugins  = extractPlugins(content, result.repo, stars)
-      allPlugins.push(...plugins)
-    } catch {}
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const rawRes = await fetch(
+          `https://raw.githubusercontent.com/${result.repo}/${result.repoObj.default_branch ?? 'main'}/${result.path}`
+        )
+        if (!rawRes.ok) break
+        const content = await rawRes.text()
+        allPlugins.push(...extractPlugins(content, result.repo, stars))
+        break
+      } catch {
+        if (attempt < 2) await sleep(1500)
+      }
+    }
 
     await sleep(200)
   }
