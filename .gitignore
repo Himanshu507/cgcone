@@ -47,3 +47,4 @@ next-env.d.ts
 
 # Test artifacts
 .playwright-mcp/
+ROADMAP.md
