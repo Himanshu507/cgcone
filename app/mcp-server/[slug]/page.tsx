@@ -1,11 +1,11 @@
 import { getMCPBySlug, getMCPServers } from "@/lib/registry"
-import { fetchGitHubReadme } from "@/lib/github-readme"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import MCPInstallSection from "./install-section"
 import { ReadmeViewer } from "@/components/readme-viewer"
+import { ReadmeFetcher } from "@/components/readme-fetcher"
 import { ArrowLeft } from "lucide-react"
 
 export async function generateStaticParams() {
@@ -34,16 +34,6 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
   const server = getMCPBySlug(slug)
   if (!server) notFound()
 
-  // Fetch README from GitHub if not pre-computed in registry
-  let readmeContent = server.readmeContent
-  let readmeTruncated = server.readmeTruncated ?? false
-  if (!readmeContent && server.githubUrl) {
-    const readme = await fetchGitHubReadme(server.githubUrl)
-    if (readme) {
-      readmeContent = readme.content
-      readmeTruncated = readme.truncated
-    }
-  }
 
   return (
     <div className="min-h-screen">
@@ -139,14 +129,21 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
         )}
 
         {/* README */}
-        {readmeContent && (
+        {(server.readmeContent || server.githubUrl) && (
           <div className="border-t border-border/40 mt-8 sm:mt-12 pt-8 sm:pt-10">
-            <ReadmeViewer
-              content={readmeContent}
-              sourceUrl={server.githubUrl}
-              repoName={server.githubUrl?.replace('https://github.com/', '')}
-              truncated={readmeTruncated}
-            />
+            {server.readmeContent ? (
+              <ReadmeViewer
+                content={server.readmeContent}
+                sourceUrl={server.githubUrl}
+                repoName={server.githubUrl?.replace('https://github.com/', '')}
+                truncated={server.readmeTruncated}
+              />
+            ) : (
+              <ReadmeFetcher
+                githubUrl={server.githubUrl!}
+                repoName={server.githubUrl!.replace('https://github.com/', '')}
+              />
+            )}
           </div>
         )}
       </div>

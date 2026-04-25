@@ -1,5 +1,5 @@
 import { getPluginBySlug, getPlugins } from "@/lib/registry"
-import { fetchGitHubReadme } from "@/lib/github-readme"
+import { ReadmeFetcher } from "@/components/readme-fetcher"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
@@ -28,16 +28,6 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
   const { slug } = await params
   const plugin = getPluginBySlug(slug)
   if (!plugin) notFound()
-
-  let readmeContent = plugin.readmeContent
-  let readmeTruncated = plugin.readmeTruncated ?? false
-  if (!readmeContent && plugin.repository?.includes('github.com')) {
-    const readme = await fetchGitHubReadme(plugin.repository)
-    if (readme) {
-      readmeContent = readme.content
-      readmeTruncated = readme.truncated
-    }
-  }
 
   return (
     <div className="min-h-screen">
@@ -119,14 +109,21 @@ export default async function PluginPage({ params }: { params: Promise<{ slug: s
         )}
 
         {/* README */}
-        {readmeContent && (
+        {(plugin.readmeContent || plugin.repository?.includes('github.com')) && (
           <div className="border-t border-border/40 mt-8 sm:mt-12 pt-8 sm:pt-10">
-            <ReadmeViewer
-              content={readmeContent!}
-              sourceUrl={plugin.repository}
-              repoName={plugin.repository?.replace('https://github.com/', '')}
-              truncated={readmeTruncated}
-            />
+            {plugin.readmeContent ? (
+              <ReadmeViewer
+                content={plugin.readmeContent}
+                sourceUrl={plugin.repository}
+                repoName={plugin.repository?.replace('https://github.com/', '')}
+                truncated={plugin.readmeTruncated}
+              />
+            ) : (
+              <ReadmeFetcher
+                githubUrl={plugin.repository!}
+                repoName={plugin.repository!.replace('https://github.com/', '')}
+              />
+            )}
           </div>
         )}
       </div>
