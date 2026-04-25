@@ -124,8 +124,9 @@ export function Footer() {
           </p>
 
           {/* Copyright */}
-          <p className="order-last sm:order-none">
+          <p className="order-last sm:order-none text-center">
             © {new Date().getFullYear()} cgcone. All rights reserved.
+            <span className="block sm:inline sm:ml-1 text-muted-foreground/60">Extensions are property of their respective owners.</span>
           </p>
 
           {/* Status + version */}

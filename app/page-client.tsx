@@ -275,18 +275,18 @@ export default function HomePageClient({
       </section>
 
       {/* ── Stats bar ────────────────────────────────────────── */}
-      <section aria-label="Extension counts" className="border-y border-border bg-secondary/30 py-6">
+      <section aria-label="Extension counts" className="border-y border-border bg-gradient-to-r from-secondary/20 via-secondary/40 to-secondary/20 py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <dl className="flex flex-wrap justify-center gap-8 sm:gap-16 text-center">
+          <dl className="flex flex-wrap justify-center text-center divide-x divide-border">
             {[
               { value: totalCount + '+', label: 'Total Extensions' },
               { value: mcpCount, label: 'MCP Servers' },
               { value: pluginCount, label: 'Plugins' },
               { value: skillCount + subagentCount, label: 'Skills & Agents' },
             ].map(stat => (
-              <div key={stat.label}>
-                <dt className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{stat.label}</dt>
-                <dd className="text-2xl font-serif text-foreground">{stat.value}</dd>
+              <div key={stat.label} className="px-8 sm:px-12 first:pl-0 last:pr-0">
+                <dt className="text-xs text-muted-foreground uppercase tracking-widest mb-2">{stat.label}</dt>
+                <dd className="text-4xl font-serif text-foreground tabular-nums">{stat.value}</dd>
               </div>
             ))}
           </dl>
@@ -294,7 +294,7 @@ export default function HomePageClient({
       </section>
 
       {/* ── How it works ─────────────────────────────────────── */}
-      <section aria-labelledby="how-heading" className="py-24">
+      <section aria-labelledby="how-heading" className="py-24 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">How it works</p>
@@ -305,10 +305,16 @@ export default function HomePageClient({
             {HOW_IT_WORKS.map((step, i) => {
               const Icon = step.icon
               return (
-                <article key={step.step} className="relative p-7 rounded-xl border border-border bg-card">
+                <article key={step.step} className="relative p-7 rounded-xl border border-border bg-gradient-to-br from-card to-secondary/40 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.06)] transition-all duration-300 overflow-hidden">
                   {i < HOW_IT_WORKS.length - 1 && (
-                    <ChevronRight className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-border z-10" aria-hidden="true" />
+                    <ChevronRight className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-border/50 z-10" aria-hidden="true" />
                   )}
+                  <span
+                    aria-hidden="true"
+                    className="absolute -top-3 -right-2 text-9xl font-serif font-bold text-foreground/[0.03] leading-none select-none pointer-events-none"
+                  >
+                    {step.step}
+                  </span>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-xs font-mono text-muted-foreground/50">{step.step}</span>
                     <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -324,8 +330,15 @@ export default function HomePageClient({
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* ── Features ─────────────────────────────────────────── */}
-      <section aria-labelledby="features-heading" className="py-24 border-t border-border bg-secondary/20">
+      <section aria-labelledby="features-heading" className="py-24 bg-secondary/20 relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 0%, hsl(var(--primary)/0.04) 0%, transparent 70%)' }}
+        />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Features</p>
@@ -336,7 +349,8 @@ export default function HomePageClient({
             {FEATURES.map(feat => {
               const Icon = feat.icon
               return (
-                <article key={feat.title} className="p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-colors">
+                <article key={feat.title} className="p-6 rounded-xl border border-border border-t-0 bg-card hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_hsl(var(--primary)/0.05)] transition-all duration-300 relative overflow-hidden">
+                  <div className={`absolute top-0 inset-x-0 h-px ${feat.bg} opacity-80`} />
                   <div className={`w-10 h-10 rounded-lg ${feat.bg} flex items-center justify-center mb-4`}>
                     <Icon className={`h-5 w-5 ${feat.color}`} aria-hidden="true" />
                   </div>
@@ -377,12 +391,12 @@ export default function HomePageClient({
             </div>
 
             {/* Commands */}
-            <div className="rounded-xl border border-border overflow-hidden bg-card">
+            <div className="rounded-xl border border-border overflow-hidden bg-card shadow-[0_0_50px_hsl(var(--primary)/0.07)]">
               <div className="flex items-center gap-2 px-4 py-3 bg-secondary border-b border-border">
                 <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-muted" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
                 </div>
                 <span className="ml-2 text-xs text-muted-foreground font-mono">cgcone commands</span>
               </div>
@@ -418,8 +432,10 @@ export default function HomePageClient({
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* ── Marketplace preview ──────────────────────────────── */}
-      <section aria-labelledby="marketplace-heading" className="py-24 border-t border-border">
+      <section aria-labelledby="marketplace-heading" className="py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Marketplace</p>
@@ -438,11 +454,11 @@ export default function HomePageClient({
               const c = colorMap[cat.color]
               return (
                 <Link key={cat.href} href={cat.href}>
-                  <article className="p-5 rounded-xl border border-border hover:border-primary/40 transition-all group text-center cursor-pointer">
+                  <article className="p-5 rounded-xl border border-border hover:border-primary/40 hover:scale-[1.03] hover:shadow-[0_4px_16px_hsl(var(--primary)/0.06)] transition-all duration-200 group text-center cursor-pointer">
                     <div className={`w-11 h-11 rounded-full ${c.pill} ${c.hover} flex items-center justify-center mx-auto mb-3 transition-colors`}>
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <div className="text-2xl font-serif text-foreground mb-0.5">{cat.count}</div>
+                    <div className="text-3xl font-serif text-foreground mb-1 tabular-nums">{cat.count}</div>
                     <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">{cat.label}</div>
                   </article>
                 </Link>
@@ -477,17 +493,24 @@ export default function HomePageClient({
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
       {/* ── Get started ──────────────────────────────────────── */}
-      <section aria-labelledby="getstarted-heading" className="py-24 border-t border-border bg-secondary/20">
+      <section aria-labelledby="getstarted-heading" className="py-24 bg-secondary/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto relative">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 pointer-events-none -z-10"
+              style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 10%, hsl(var(--primary)/0.05) 0%, transparent 65%)' }}
+            />
             <div className="text-center mb-12">
               <h2 id="getstarted-heading" className="text-display-2 mb-4">Get started in seconds</h2>
               <p className="text-muted-foreground">Requires Node.js 18+. Works on macOS, Windows, and Linux.</p>
             </div>
 
             {/* Primary: CLI install */}
-            <div className="p-8 rounded-2xl border border-primary/20 bg-card flex flex-col mb-6">
+            <div className="p-8 rounded-2xl border border-primary/20 bg-gradient-to-br from-card via-card to-primary/[0.03] flex flex-col mb-6 shadow-[0_0_40px_hsl(var(--primary)/0.08)]">
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0">
                   <Terminal className="h-6 w-6 text-green-500" aria-hidden="true" />
