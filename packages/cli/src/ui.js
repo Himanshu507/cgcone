@@ -24,11 +24,18 @@ export function spinner(text) {
   return ora({ text, color: 'yellow' })
 }
 
+// Strip ANSI escape codes to get the visible character count for column sizing.
+const ANSI_RE = /\x1b\[[0-9;]*m/g
+function visibleLen(str) { return String(str).replace(ANSI_RE, '').length }
+function padVisible(str, width) {
+  return String(str) + ' '.repeat(Math.max(0, width - visibleLen(str)))
+}
+
 export function table(rows, cols) {
   if (!rows.length) return
 
   const widths = cols.map((col, i) =>
-    Math.max(col.length, ...rows.map(r => String(r[i] ?? '').length))
+    Math.max(col.length, ...rows.map(r => visibleLen(r[i] ?? '')))
   )
 
   const header = cols.map((col, i) => c.bold(col.padEnd(widths[i]))).join('  ')
@@ -37,7 +44,7 @@ export function table(rows, cols) {
   console.log(header)
   console.log(c.dim(divider))
   rows.forEach(row => {
-    console.log(row.map((cell, i) => String(cell ?? '').padEnd(widths[i])).join('  '))
+    console.log(row.map((cell, i) => padVisible(cell ?? '', widths[i])).join('  '))
   })
 }
 
