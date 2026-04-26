@@ -3,6 +3,7 @@ import { Outfit, Instrument_Serif, JetBrains_Mono } from "next/font/google"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const outfit = Outfit({
@@ -84,6 +85,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
