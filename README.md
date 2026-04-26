@@ -13,6 +13,8 @@ cgcone install context7
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-green)](https://nodejs.org)
 
+![cgcone demo](docs/images/demo.gif)
+
 ---
 
 ## What it does
