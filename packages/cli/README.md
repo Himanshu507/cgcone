@@ -105,6 +105,12 @@ When you run `cgcone install <name>`:
 
 See [CONTRIBUTING.md](https://github.com/Himanshu507/cgcone/blob/main/CONTRIBUTING.md) — submit extensions, add CLI adapters, or improve the CLI.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Himanshu507/cgcone&type=Date)](https://star-history.com/#Himanshu507/cgcone&Date)
+
+---
+
 ## License
 
 MIT — see [LICENSE](https://github.com/Himanshu507/cgcone/blob/main/LICENSE).

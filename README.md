@@ -233,6 +233,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Himanshu507/cgcone&type=Date)](https://star-history.com/#Himanshu507/cgcone&Date)
+
+---
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

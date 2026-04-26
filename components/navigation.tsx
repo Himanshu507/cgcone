@@ -4,8 +4,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { GitHubLogoIcon, HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons"
-import { Sun, Moon } from "lucide-react"
-import { useState } from "react"
+import { Sun, Moon, Star } from "lucide-react"
+import { useState, useEffect } from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { cn } from "@/lib/utils"
 import { useTheme } from "@/components/theme-provider"
@@ -13,8 +13,16 @@ import { LogoMark } from "@/components/logo-mark"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [stars, setStars] = useState<number | null>(null)
   const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/Himanshu507/cgcone')
+      .then(r => r.json())
+      .then(d => { if (typeof d.stargazers_count === 'number') setStars(d.stargazers_count) })
+      .catch(() => {})
+  }, [])
 
   const navigationLinks = [
     { href: "/mcp-servers", label: "MCP Servers" },
@@ -85,10 +93,23 @@ export function Navigation() {
                 href="https://github.com/Himanshu507/cgcone"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hidden sm:flex items-center gap-1.5 h-8 px-3 rounded-md border border-border text-xs text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+                aria-label="Star cgcone on GitHub"
               >
-                <Button variant="ghost" size="sm" className="h-8 gap-1.5 text-muted-foreground hover:text-foreground">
+                <Star className="h-3.5 w-3.5 fill-current" />
+                <span>Star</span>
+                {stars !== null && (
+                  <span className="font-mono tabular-nums text-foreground/70">{stars.toLocaleString()}</span>
+                )}
+              </a>
+              <a
+                href="https://github.com/Himanshu507/cgcone"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sm:hidden"
+              >
+                <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground">
                   <GitHubLogoIcon className="h-4 w-4" />
-                  <span className="hidden sm:inline text-sm">GitHub</span>
                 </Button>
               </a>
             </div>
