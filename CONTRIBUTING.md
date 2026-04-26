@@ -76,6 +76,21 @@ node src/index.js scan    # run commands directly
 
 Open a pull request against `main`. Keep PRs focused — one thing per PR.
 
+### Releasing the CLI to npm
+
+Releases are tagged manually. The GitHub Actions workflow at `.github/workflows/publish.yml` handles the rest, including [npm provenance attestation](https://docs.npmjs.com/generating-provenance-statements) (the Verified badge on npmjs.com).
+
+```bash
+# 1. Bump version in packages/cli/package.json
+# 2. Commit and push to main as normal
+# 3. Tag the release — this triggers the publish workflow:
+git tag cli-v0.2.1 && git push origin cli-v0.2.1
+```
+
+Tag format is `cli-v<semver>`. The workflow runs `npm publish --provenance --access public` with the `NPM_TOKEN` secret.
+
+> **Maintainers only.** Requires `NPM_TOKEN` secret with publish access to `@cgcone/cli`.
+
 ### Code style
 
 - ES modules throughout (`"type": "module"`)
