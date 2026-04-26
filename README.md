@@ -235,7 +235,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Himanshu507/cgcone&type=Date)](https://star-history.com/#Himanshu507/cgcone&Date)
+[![Star History Chart](https://api.star-history.com/chart?repos=Himanshu507/cgcone&type=date&legend=top-left)](https://www.star-history.com/?repos=Himanshu507%2Fcgcone&type=date&legend=top-left)
 
 ---
 
