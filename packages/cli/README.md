@@ -10,6 +10,8 @@ cgcone install filesystem-mcp
 [![npm](https://img.shields.io/npm/v/@cgcone/cli)](https://www.npmjs.com/package/@cgcone/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Himanshu507/cgcone/blob/main/LICENSE)
 
+![cgcone demo](https://raw.githubusercontent.com/Himanshu507/cgcone/main/docs/images/demo.gif)
+
 ---
 
 ## What it does
