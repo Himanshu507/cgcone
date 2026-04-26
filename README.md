@@ -220,6 +220,23 @@ SKIP_SKILLS=1 SKIP_PLUGINS=1 npm run generate  # skip skill/plugin discovery
 
 ---
 
+## Releasing the CLI
+
+Releases are triggered by a git tag. The GitHub Actions workflow publishes to npm with [provenance attestation](https://docs.npmjs.com/generating-provenance-statements) (Verified badge on npmjs.com).
+
+```bash
+# 1. Bump version in packages/cli/package.json
+# 2. Commit and push to main
+# 3. Tag the release:
+git tag cli-v0.2.1 && git push origin cli-v0.2.1
+```
+
+The `cli-v*` tag triggers `.github/workflows/publish.yml` → `npm publish --provenance`.
+
+**Required secret:** `NPM_TOKEN` must be set in GitHub → Settings → Secrets → Actions.
+
+---
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
