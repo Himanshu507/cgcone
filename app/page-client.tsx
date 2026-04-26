@@ -9,6 +9,7 @@ import {
   Monitor, Command, Copy, Star, GitFork
 } from 'lucide-react'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import { HeroTerminal } from '@/components/hero-terminal'
 import type { MCPServer, Plugin, Skill, Subagent, Command as CommandType, Hook } from '@/lib/types'
 
 interface HomePageClientProps {
@@ -218,57 +219,9 @@ export default function HomePageClient({
               </div>
             </div>
 
-            {/* Right: Terminal demo */}
+            {/* Right: Animated terminal demo */}
             <div aria-hidden="true" className="hidden lg:block">
-              <div className="rounded-xl overflow-hidden border border-border bg-card shadow-2xl">
-                {/* Terminal header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-secondary border-b border-border">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                  </div>
-                  <span className="ml-2 text-xs text-muted-foreground font-mono">terminal</span>
-                </div>
-                {/* Terminal body */}
-                <div className="p-5 font-mono text-sm leading-loose">
-                  <div className="text-muted-foreground/60 mb-1"># install filesystem MCP across all AI CLIs</div>
-                  <div className="mb-4">
-                    <span className="text-primary">$</span>{' '}
-                    <span className="text-foreground">cgcone install filesystem-mcp</span>
-                  </div>
-
-                  <div className="space-y-1 text-sm">
-                    <div className="text-muted-foreground">
-                      <span className="text-yellow-500">⟳</span> Scanning AI CLIs on your machine...
-                    </div>
-                    <div className="text-muted-foreground ml-4">
-                      Found: <span className="text-foreground">Claude Code, Gemini CLI, OpenAI Codex</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 space-y-1 text-sm">
-                    <div className="text-muted-foreground">Installing <span className="text-foreground">filesystem-mcp v2.1.0</span>...</div>
-                    <div className="ml-4 space-y-1">
-                      <div><span className="text-green-500">✓</span> <span className="text-foreground">Claude Code</span><span className="text-muted-foreground/60"> → configured</span></div>
-                      <div><span className="text-green-500">✓</span> <span className="text-foreground">Gemini CLI</span><span className="text-muted-foreground/60"> → configured</span></div>
-                      <div><span className="text-green-500">✓</span> <span className="text-foreground">OpenAI Codex</span><span className="text-muted-foreground/60"> → configured</span></div>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 text-sm">
-                    <span className="text-green-500">✓</span>{' '}
-                    <span className="text-foreground">3 CLIs updated</span>
-                    <span className="text-muted-foreground/60"> in 1.8s</span>
-                  </div>
-
-                  <div className="mt-5 border-t border-border pt-4">
-                    <span className="text-primary">$</span>{' '}
-                    <span className="text-foreground">cgcone list</span>
-                    <span className="ml-2 text-muted-foreground/40 animate-pulse">▍</span>
-                  </div>
-                </div>
-              </div>
+              <HeroTerminal />
             </div>
           </div>
         </div>
