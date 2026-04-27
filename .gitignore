@@ -56,3 +56,4 @@ marketing_roadmap.md
 # Promotion scripts — credentials + send state stay local
 scripts/promote/.env
 scripts/promote/posted.json
+ROADMAP.md
