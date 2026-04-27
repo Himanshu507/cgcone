@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from 'fs/promises'
 import { join } from 'path'
 import { homedir } from 'os'
 
-const REGISTRY_URL   = 'https://cgcone.com/registry.json'
+const REGISTRY_URL   = 'https://raw.githubusercontent.com/Himanshu507/cgcone/main/public/registry.json'
 const CACHE_DIR      = join(homedir(), '.cgcone')
 const CACHE_FILE     = join(CACHE_DIR, 'registry-cache.json')
 const CACHE_TTL_MS   = 60 * 60 * 1000 // 1 hour
