@@ -162,7 +162,8 @@ cgcone/
 ├── components/           Shared UI components
 ├── lib/                  Shared utilities (registry, types, utils)
 ├── scripts/              Registry generation pipeline
-│   ├── generate-registry.js        orchestrator
+│   ├── generate-registry.js        orchestrator (full rebuild)
+│   ├── sync-registry.js            dedup/sync (removes dead repos, renames, star refresh)
 │   ├── fetch-mcp-official.js       official MCP registry
 │   ├── fetch-mcp-github.js         GitHub topic search
 │   ├── fetch-mcp-docker.js         Docker Hub
@@ -201,6 +202,32 @@ cgcone/
 ├── CONTRIBUTING.md
 └── LICENSE
 ```
+
+---
+
+## Roadmap status
+
+| Phase | Description | Status |
+|---|---|---|
+| 1A | MCP servers rebuilt from GitHub (1943 entries) | ✅ Done |
+| 1B | Skills discovery (262 entries) | ✅ Done |
+| 1C | Plugins discovery (251 entries) | ✅ Done |
+| 1D | Dedup + sync - removes deleted repos, fixes renames, refreshes stars | ✅ Done |
+| 2A/2B | Runtime detection + pre-computed installConfig | ✅ Done |
+| 2D | CLI uses pre-computed installConfig from registry | ✅ Done |
+| 5F | `cgcone install --dry-run` diff flag | Pending |
+| 5H | `cgcone doctor` actual startup validation | Pending |
+| 5I | Install-time Node/SDK compatibility warnings | Pending |
+| 5G | TOML comment preservation for Codex | Pending |
+| 3C | Scheduled registry refresh automation | Pending |
+| 4B/4E | Star counts refresh + quality signals (archived, last commit) | Pending |
+| 4D | installType badge field | Pending |
+| 4A | LLM summaries per entry | Pending |
+| 3A/3B | Supabase storage | Pending |
+| 5B/5C | Skills + plugin install via CLI | Pending |
+| 5D/5E | Search filters + version diff in update | Pending |
+
+Full details: [ROADMAP.md](ROADMAP.md)
 
 ---
 

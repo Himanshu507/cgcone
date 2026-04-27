@@ -47,7 +47,6 @@ next-env.d.ts
 
 # Test artifacts
 .playwright-mcp/
-ROADMAP.md
 scripts/.runtime-cache.json
 
 # Local demo / marketing assets (not for repo)
