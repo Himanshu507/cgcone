@@ -9,7 +9,7 @@ async function pickSlug(matches) {
 
   console.log()
   const result = await select({
-    message: 'Multiple installed matches — select one to uninstall:',
+    message: 'Multiple installed matches - select one to uninstall:',
     options: matches.map(s => ({ value: s, label: s })),
   })
 

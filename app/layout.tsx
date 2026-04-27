@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://cgcone.com'),
   title: {
-    default: 'cgcone — Universal AI CLI Extension Manager',
+    default: 'cgcone - Universal AI CLI Extension Manager',
     template: '%s | cgcone',
   },
   description:
@@ -51,16 +51,16 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://cgcone.com',
     siteName: 'cgcone',
-    title: 'cgcone — Universal AI CLI Extension Manager',
+    title: 'cgcone - Universal AI CLI Extension Manager',
     description:
-      'Install MCP servers, plugins, and skills to every AI CLI — Claude Code, Gemini CLI, Codex — in one command.',
+      'Install MCP servers, plugins, and skills to every AI CLI - Claude Code, Gemini CLI, Codex - in one command.',
   },
   twitter: {
     card: 'summary_large_image',
     site: '@cgcone',
-    title: 'cgcone — Universal AI CLI Extension Manager',
+    title: 'cgcone - Universal AI CLI Extension Manager',
     description:
-      'Install MCP servers, plugins, and skills to every AI CLI — Claude Code, Gemini CLI, Codex — in one command.',
+      'Install MCP servers, plugins, and skills to every AI CLI - Claude Code, Gemini CLI, Codex - in one command.',
   },
   other: {
     'theme-color': '#0a0a0a',

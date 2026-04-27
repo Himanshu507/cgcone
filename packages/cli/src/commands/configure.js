@@ -21,7 +21,7 @@ async function pickSlug(matches) {
   if (matches.length === 1) return matches[0]
   console.log()
   const result = await select({
-    message: 'Multiple installed matches — select one to configure:',
+    message: 'Multiple installed matches - select one to configure:',
     options: matches.map(s => ({ value: s, label: s })),
   })
   if (isCancel(result)) { console.log(); info('Cancelled.'); process.exit(0) }
@@ -94,13 +94,13 @@ export async function configure(name, opts = {}) {
   }
 
   console.log()
-  info(`Configuring ${c.bold(slug)} — press Enter to keep current value`)
+  info(`Configuring ${c.bold(slug)} - press Enter to keep current value`)
   console.log()
 
   const newEnv = {}
   for (const [key, current] of Object.entries(currentEnv)) {
     const sensitive = isSensitiveKey(key)
-    const hint = descs[key] ? ` — ${descs[key]}` : ''
+    const hint = descs[key] ? ` - ${descs[key]}` : ''
     const currentDisplay = current
       ? (sensitive ? '••••••••' : current)
       : c.dim('(not set)')

@@ -93,7 +93,7 @@ export class CodexCLIAdapter extends BaseAdapter {
       issues.push({ level: 'ok', message: '~/.codex/config.toml valid' })
     } catch (err) {
       issues.push(err.code === 'ENOENT'
-        ? { level: 'warn', message: '~/.codex/config.toml not found — created on first install' }
+        ? { level: 'warn', message: '~/.codex/config.toml not found - created on first install' }
         : { level: 'error', message: `~/.codex/config.toml invalid TOML: ${err.message}` })
     }
     return issues

@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'cgcone — Universal AI CLI Extension Manager'
+export const alt = 'cgcone - Universal AI CLI Extension Manager'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -15,7 +15,7 @@ const badge = {
   display: 'flex',
 } as const
 
-// Icon mark — bold design at 72x72 (scale from 32x32 by 2.25)
+// Icon mark - bold design at 72x72 (scale from 32x32 by 2.25)
 // Node diameter=13 (r=3*2.25=6.75), apex diameter=18 (r=4*2.25=9)
 // Lines width=5 (2.2*2.25≈5), nodes at y=19 (8.5*2.25), x=17/36/55, apex y=56 (25*2.25)
 function IconMark() {
@@ -30,12 +30,12 @@ function IconMark() {
       {/* Right line: (55,19)→(36,56), midpoint=(45.5,37.5), rotate(+27.3°) */}
       <div style={{ position: 'absolute', left: 43, top: 17.85, width: 5, height: 40, background: P, opacity: 0.7, transform: 'rotate(27.3deg)', display: 'flex' }} />
 
-      {/* Source nodes — diameter=13 */}
+      {/* Source nodes - diameter=13 */}
       <div style={{ position: 'absolute', left: 10.5, top: 12.5, width: 13, height: 13, borderRadius: '50%', background: P, opacity: 0.85, display: 'flex' }} />
       <div style={{ position: 'absolute', left: 29.5, top: 12.5, width: 13, height: 13, borderRadius: '50%', background: P, display: 'flex' }} />
       <div style={{ position: 'absolute', left: 48.5, top: 12.5, width: 13, height: 13, borderRadius: '50%', background: P, opacity: 0.85, display: 'flex' }} />
 
-      {/* Apex node — diameter=18 */}
+      {/* Apex node - diameter=18 */}
       <div style={{ position: 'absolute', left: 27, top: 47, width: 18, height: 18, borderRadius: '50%', background: P, display: 'flex' }} />
     </div>
   )

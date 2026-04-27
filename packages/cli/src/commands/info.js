@@ -30,12 +30,12 @@ export async function showInfo(name) {
   const fields = [
     ['Slug',     c.primary(entry.slug ?? entry.name)],
     ['Type',     type],
-    ['Category', entry.category ?? c.dim('—')],
-    ['Author',   entry.author ?? entry.vendor ?? c.dim('—')],
-    ['Version',  entry.version ? `v${entry.version}` : c.dim('—')],
-    ['Status',   entry.verificationStatus ? badge(entry.verificationStatus) : c.dim('—')],
-    ['Stars',    entry.stars != null ? `⭐ ${entry.stars.toLocaleString()}` : c.dim('—')],
-    ['License',  entry.license ?? c.dim('—')],
+    ['Category', entry.category ?? c.dim('-')],
+    ['Author',   entry.author ?? entry.vendor ?? c.dim('-')],
+    ['Version',  entry.version ? `v${entry.version}` : c.dim('-')],
+    ['Status',   entry.verificationStatus ? badge(entry.verificationStatus) : c.dim('-')],
+    ['Stars',    entry.stars != null ? `⭐ ${entry.stars.toLocaleString()}` : c.dim('-')],
+    ['License',  entry.license ?? c.dim('-')],
   ]
 
   fields.forEach(([label, value]) => {
@@ -56,7 +56,7 @@ export async function showInfo(name) {
     console.log()
     console.log(`  ${c.dim('Install')}      ${c.bold('cgcone install ' + (entry.slug ?? entry.name))}`)
     if (config.uncertain) {
-      console.log(`  ${c.dim('Note')}         Install command inferred — verify with repository`)
+      console.log(`  ${c.dim('Note')}         Install command inferred - verify with repository`)
     }
   } else {
     console.log()

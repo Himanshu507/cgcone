@@ -15,7 +15,7 @@ export function HeroTerminal() {
     const sleep = (ms: number) =>
       new Promise<void>(r => {
         const id = setTimeout(r, ms)
-        // no cancellation needed — stopRef checked at scene boundaries
+        // no cancellation needed - stopRef checked at scene boundaries
         void id
       })
 
@@ -98,7 +98,7 @@ export function HeroTerminal() {
       appendLine(`<span class="ht-ind"><span class="ht-ok">✓</span>  <span class="ht-w">Copilot CLI</span>    <span class="ht-m">~/.copilot/mcp-config.json</span></span>`)
       await sleep(380)
       blankLine()
-      appendLine(`<span class="ht-ind2"><span class="ht-p">4 CLIs detected</span> <span class="ht-m">— ready to install</span></span>`)
+      appendLine(`<span class="ht-ind2"><span class="ht-p">4 CLIs detected</span> <span class="ht-m">- ready to install</span></span>`)
       await sleep(1200)
       blankLine()
 
@@ -111,7 +111,7 @@ export function HeroTerminal() {
       appendLine(`<span class="ht-dim">  Searching registry...</span>`)
       await sleep(650)
 
-      appendLine(`<span class="ht-p">◆</span> <span class="ht-w">Multiple matches — select one:</span>`)
+      appendLine(`<span class="ht-p">◆</span> <span class="ht-w">Multiple matches - select one:</span>`)
       await sleep(160)
 
       const p1 = document.createElement("div")
@@ -144,7 +144,7 @@ export function HeroTerminal() {
 
       // API key prompt
       blankLine()
-      appendLine(`<span class="ht-p">◆</span> <span class="ht-w">BRAVE_API_KEY</span> <span class="ht-m">— Brave Search API key</span>`)
+      appendLine(`<span class="ht-p">◆</span> <span class="ht-w">BRAVE_API_KEY</span> <span class="ht-m">- Brave Search API key</span>`)
       await sleep(280)
 
       const mrow = document.createElement("div")
@@ -215,7 +215,7 @@ export function HeroTerminal() {
           <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
           <div className="w-3 h-3 rounded-full bg-green-500/60" />
         </div>
-        <span className="ml-2 text-xs text-muted-foreground font-mono">cgcone — terminal</span>
+        <span className="ml-2 text-xs text-muted-foreground font-mono">cgcone - terminal</span>
       </div>
 
       {/* Animated body */}

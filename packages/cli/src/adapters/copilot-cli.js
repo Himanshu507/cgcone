@@ -90,7 +90,7 @@ export class CopilotCLIAdapter extends BaseAdapter {
       issues.push({ level: 'ok', message: '~/.copilot/mcp-config.json valid' })
     } catch (err) {
       issues.push(err.code === 'ENOENT'
-        ? { level: 'warn', message: '~/.copilot/mcp-config.json not found — created on first install' }
+        ? { level: 'warn', message: '~/.copilot/mcp-config.json not found - created on first install' }
         : { level: 'error', message: `~/.copilot/mcp-config.json invalid JSON: ${err.message}` })
     }
     return issues

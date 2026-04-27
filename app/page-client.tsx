@@ -39,7 +39,7 @@ const HOW_IT_WORKS = [
   {
     step: '01',
     title: 'Scan',
-    description: 'cgcone detects every AI CLI tool installed on your machine — Claude Code, Gemini CLI, Codex, and more.',
+    description: 'cgcone detects every AI CLI tool installed on your machine - Claude Code, Gemini CLI, Codex, and more.',
     icon: Search,
   },
   {
@@ -81,7 +81,7 @@ const FEATURES = [
   {
     icon: Shield,
     title: 'Verified Extensions',
-    description: 'Registry entries include verification status — verified, community, or experimental — so you know what you\'re installing.',
+    description: 'Registry entries include verification status - verified, community, or experimental - so you know what you\'re installing.',
     color: 'text-purple-500',
     bg: 'bg-purple-500/10',
   },
@@ -527,7 +527,7 @@ export default function HomePageClient({
               <Link href="/mcp-servers" className="text-primary hover:underline">
                 browse the marketplace
               </Link>
-              {' '}— no install required.
+              {' '}- no install required.
             </p>
           </div>
         </div>

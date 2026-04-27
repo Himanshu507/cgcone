@@ -173,7 +173,7 @@ export default function ContributePage() {
                     <a href="https://registry.modelcontextprotocol.io" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                       registry.modelcontextprotocol.io
                     </a>
-                    {' '}— verified and community servers
+                    {' '}- verified and community servers
                   </p>
                 </div>
               </div>
@@ -185,7 +185,7 @@ export default function ContributePage() {
                     <a href="https://hub.docker.com/u/mcp" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                       hub.docker.com/u/mcp
                     </a>
-                    {' '}— containerized MCP servers
+                    {' '}- containerized MCP servers
                   </p>
                 </div>
               </div>

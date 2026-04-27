@@ -49,3 +49,11 @@ next-env.d.ts
 .playwright-mcp/
 ROADMAP.md
 scripts/.runtime-cache.json
+
+# Local demo / marketing assets (not for repo)
+docs/demo/
+marketing_roadmap.md
+
+# Promotion scripts — credentials + send state stay local
+scripts/promote/.env
+scripts/promote/posted.json

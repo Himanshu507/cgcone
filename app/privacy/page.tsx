@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for cgcone — how we collect, use, and protect your information.",
+  description: "Privacy Policy for cgcone - how we collect, use, and protect your information.",
 }
 
 export default function PrivacyPage() {
@@ -50,8 +50,8 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-base font-semibold text-foreground mb-3">4. Third-Party Services</h2>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong className="text-foreground">Vercel</strong> — website hosting and analytics. Subject to Vercel&apos;s privacy policy.</li>
-              <li><strong className="text-foreground">GitHub</strong> — source code and registry hosting. Subject to GitHub&apos;s privacy policy.</li>
+              <li><strong className="text-foreground">Vercel</strong> - website hosting and analytics. Subject to Vercel&apos;s privacy policy.</li>
+              <li><strong className="text-foreground">GitHub</strong> - source code and registry hosting. Subject to GitHub&apos;s privacy policy.</li>
             </ul>
           </section>
 

@@ -25,7 +25,7 @@ export function MCPCard({ server }: MCPCardProps) {
   return (
     <>
       <div className="relative p-5 rounded-lg border border-border hover:border-primary/40 transition-colors h-full flex flex-col gap-3 bg-card">
-        {/* Whole-card click overlay — mouse navigation, hidden from a11y */}
+        {/* Whole-card click overlay - mouse navigation, hidden from a11y */}
         <Link
           href={`/mcp-server/${server.slug}`}
           className="absolute inset-0 rounded-lg z-0"

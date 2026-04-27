@@ -24,7 +24,7 @@ async function promptEnvVars(missingEnv, entry) {
   const filled = {}
   console.log()
   for (const [key] of missingEnv) {
-    const hint = descs[key] ? ` — ${descs[key]}` : ''
+    const hint = descs[key] ? ` - ${descs[key]}` : ''
     const fn = isSensitiveKey(key) ? password : text
     const val = await fn({
       message: `${c.bold(key)}${c.dim(hint)}`,
@@ -73,7 +73,7 @@ async function pickEntry(entries) {
 
   console.log()
   const result = await select({
-    message: 'Multiple matches — select one to install:',
+    message: 'Multiple matches - select one to install:',
     options: entries.map(e => ({
       value: e,
       label: `${e.displayName ?? e.name ?? e.slug}  ${c.dim(e.slug)}  ${c.primary('[' + entryTypeLabel(e) + ']')}`,
@@ -116,7 +116,7 @@ export async function install(name, opts = {}) {
   }
 
   if (matches.length === 1) {
-    spin.succeed(`Found: ${c.bold(matches[0].displayName ?? matches[0].name)} — ${matches[0].description ?? ''}`)
+    spin.succeed(`Found: ${c.bold(matches[0].displayName ?? matches[0].name)} - ${matches[0].description ?? ''}`)
   } else {
     spin.stop()
   }
@@ -133,7 +133,7 @@ export async function install(name, opts = {}) {
     info(`Matched registry slug: ${c.bold(entry.slug)}`)
   }
 
-  // Skills have a direct installCommand (claude skill add ...) — not MCP config
+  // Skills have a direct installCommand (claude skill add ...) - not MCP config
   if (entry.installCommand && (entry.sourceRegistry === 'github' || entry.installCommand.startsWith('claude skill'))) {
     console.log()
     info(`Skill install command:`)
@@ -173,7 +173,7 @@ export async function install(name, opts = {}) {
       return
     }
     warn(`This MCP server runs via Docker: ${c.bold(installConfig.args.slice(-1)[0])}`)
-    warn('Additional args (e.g. volume mounts, paths) may be needed — edit config after install if required.')
+    warn('Additional args (e.g. volume mounts, paths) may be needed - edit config after install if required.')
     console.log()
   } else if (installConfig.uncertain) {
     warn(`Install command inferred (not verified): ${installConfig.command} ${installConfig.args.join(' ')}`)

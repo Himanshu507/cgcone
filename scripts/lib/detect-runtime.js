@@ -83,7 +83,7 @@ async function batchDetectRuntimes(repos) {
     return results
   }
 
-  // All attempts failed — return nulls
+  // All attempts failed - return nulls
   const results = new Map()
   repos.forEach(r => results.set(`${r.owner}/${r.name}`, null))
   return results
@@ -102,7 +102,7 @@ function extractInstallConfig(pkgJsonText, pyprojectText, language) {
         return { command: 'npx', args: ['-y', name], env: {}, type: 'npm' }
       }
     } catch {}
-    // package.json exists but couldn't parse name — still Node project, uncertain
+    // package.json exists but couldn't parse name - still Node project, uncertain
     return null
   }
 
@@ -113,7 +113,7 @@ function extractInstallConfig(pkgJsonText, pyprojectText, language) {
     return null
   }
 
-  // Language fallback — no file found but language gives a hint
+  // Language fallback - no file found but language gives a hint
   if (/typescript|javascript/i.test(language)) return null // need package.json name
   if (/python/i.test(language))               return null // need pyproject name
 

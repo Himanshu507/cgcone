@@ -24,7 +24,7 @@ export async function search(query) {
     c.primary(e.slug ?? e.name ?? ''),
     e.displayName ?? e.name ?? '',
     (e.description ?? '').slice(0, 60) + ((e.description?.length ?? 0) > 60 ? '…' : ''),
-    e.verificationStatus ? badge(e.verificationStatus) : c.dim('—'),
+    e.verificationStatus ? badge(e.verificationStatus) : c.dim('-'),
   ])
 
   console.log()

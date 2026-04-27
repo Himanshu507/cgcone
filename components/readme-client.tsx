@@ -18,7 +18,7 @@ export function ReadmeClient({ html, toc, sourceUrl, repoName, truncated }: Read
   const hasToc = toc.length > 1
 
   useEffect(() => {
-    // TOC is only visible on lg+ — skip all scroll work on smaller screens
+    // TOC is only visible on lg+ - skip all scroll work on smaller screens
     if (!window.matchMedia("(min-width: 1024px)").matches) return
 
     const el = contentRef.current
@@ -26,7 +26,7 @@ export function ReadmeClient({ html, toc, sourceUrl, repoName, truncated }: Read
 
     const THRESHOLD = 88 + 8 // navbar height + buffer
 
-    // Cache absolute document positions once — no DOM queries on scroll
+    // Cache absolute document positions once - no DOM queries on scroll
     type HeadingPos = { id: string; top: number }
     let positions: HeadingPos[] = []
 
@@ -69,7 +69,7 @@ export function ReadmeClient({ html, toc, sourceUrl, repoName, truncated }: Read
   return (
     <div className={`grid grid-cols-1 gap-6 xl:gap-8 items-start ${hasToc ? "lg:grid-cols-[200px_1fr]" : ""}`}>
 
-      {/* TOC — left column, sticky */}
+      {/* TOC - left column, sticky */}
       {hasToc && (
         <aside className="hidden lg:block sticky top-20 self-start order-first">
           <div className="rounded-lg border border-border bg-card p-4">
@@ -107,7 +107,7 @@ export function ReadmeClient({ html, toc, sourceUrl, repoName, truncated }: Read
         </aside>
       )}
 
-      {/* Content — right column */}
+      {/* Content - right column */}
       <div className="min-w-0">
         <div className="rounded-lg border border-border bg-card">
           <div

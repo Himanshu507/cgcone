@@ -31,12 +31,12 @@ export default function Icon() {
         {/* Right line: midpoint=(20.25,16.75), rotate(+28.7°) */}
         <div style={{ position: 'absolute', left: 19.25, top: 7.85, width: 2, height: 18, background: '#c96a50', opacity: 0.7, transform: 'rotate(28.7deg)', display: 'flex' }} />
 
-        {/* Source nodes — diameter=6, radius=3 */}
+        {/* Source nodes - diameter=6, radius=3 */}
         <div style={{ position: 'absolute', left: 4.5, top: 5.5, width: 6, height: 6, borderRadius: '50%', background: '#c96a50', opacity: 0.85, display: 'flex' }} />
         <div style={{ position: 'absolute', left: 13, top: 5.5, width: 6, height: 6, borderRadius: '50%', background: '#c96a50', display: 'flex' }} />
         <div style={{ position: 'absolute', left: 21.5, top: 5.5, width: 6, height: 6, borderRadius: '50%', background: '#c96a50', opacity: 0.85, display: 'flex' }} />
 
-        {/* Apex node — diameter=8, radius=4 */}
+        {/* Apex node - diameter=8, radius=4 */}
         <div style={{ position: 'absolute', left: 12, top: 21, width: 8, height: 8, borderRadius: '50%', background: '#c96a50', display: 'flex' }} />
       </div>
     ),

@@ -21,7 +21,7 @@ async function rateLimitedFetch(url, opts = {}, retries = 5) {
     try {
       res = await fetch(url, { ...opts, headers: { ...headers(), ...opts.headers } })
     } catch (err) {
-      // Network error (socket closed, ECONNRESET, etc.) — retry with backoff
+      // Network error (socket closed, ECONNRESET, etc.) - retry with backoff
       if (attempt < retries - 1) {
         await sleep((attempt + 1) * 2000)
         continue
@@ -83,7 +83,7 @@ async function searchRepos(query, { maxPages = 5, minStars = 0, sort = 'stars' }
 }
 
 /**
- * GitHub Code Search — find files across repos.
+ * GitHub Code Search - find files across repos.
  * Returns array of { repo, path, sha, url, htmlUrl }
  */
 async function searchCode(query, { maxPages = 5 } = {}) {

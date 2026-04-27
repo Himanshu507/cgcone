@@ -28,12 +28,12 @@ $ cgcone scan
   ✓ OpenAI Codex   ~/.codex/config.toml
 
 $ cgcone install brave-search
-  Multiple matches — select one to install:
+  Multiple matches - select one to install:
   ● Brave Search  brave-brave-search-mcp-server  [npm]
   ○ docker-brave-search                          [docker]
 
   Does this MCP require API keys or env vars? ● Yes
-  BRAVE_API_KEY — Your Brave Search API key:  ••••••••••
+  BRAVE_API_KEY - Your Brave Search API key:  ••••••••••
 
   ✓ Claude Code  → configured
   ✓ Gemini CLI   → configured
@@ -90,7 +90,7 @@ cgcone doctor                        # diagnose broken installs and config issue
 When a search query matches multiple extensions, cgcone shows an interactive selection prompt instead of auto-installing the wrong one:
 
 ```
-◆ Multiple matches — select one to install:
+◆ Multiple matches - select one to install:
 │ ● Context7  upstash-context7  [npm]
 │ ○ Context7  docker-context7   [docker]
 └
@@ -105,7 +105,7 @@ MCPs that require API keys prompt you interactively during install. Sensitive ke
 ```
 ℹ This MCP requires 1 env var:
 
-◆ BRAVE_API_KEY — Your Brave Search API key
+◆ BRAVE_API_KEY - Your Brave Search API key
 │ ••••••••••••••••••••••••••••••
 └
 
@@ -122,7 +122,7 @@ cgcone configure brave-search
 
 ## Registry
 
-cgcone pulls from **[cgcone.com/registry.json](https://cgcone.com/registry.json)** — 2400+ extensions indexed from:
+cgcone pulls from **[cgcone.com/registry.json](https://cgcone.com/registry.json)** - 2400+ extensions indexed from:
 
 - Official [modelcontextprotocol.io](https://registry.modelcontextprotocol.io) registry
 - GitHub repositories tagged `mcp-server`, `model-context-protocol`
@@ -139,9 +139,9 @@ Browse at **[cgcone.com](https://cgcone.com)**.
 ![cgcone website](docs/images/mcp-servers.png)
 
 **[cgcone.com](https://cgcone.com)** is a full marketplace UI with:
-- **MCP Servers** — 1943 servers, searchable by name, category, source
-- **Plugins** — Claude Code plugins with one-line install commands
-- **Skills, Subagents, Commands, Hooks** — Claude Code extensions
+- **MCP Servers** - 1943 servers, searchable by name, category, source
+- **Plugins** - Claude Code plugins with one-line install commands
+- **Skills, Subagents, Commands, Hooks** - Claude Code extensions
 - Per-entry detail pages with README, install command, tags, links
 - Light/dark mode
 
@@ -260,4 +260,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

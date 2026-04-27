@@ -36,7 +36,7 @@ async function fetchReadme(githubUrl, retries = 3) {
         const remaining = res.headers.get('X-RateLimit-Remaining')
         if (remaining === '0' && reset) {
           const wait = Math.max(1000, parseInt(reset) * 1000 - Date.now() + 1000)
-          console.warn(`  Rate limited — waiting ${Math.ceil(wait / 1000)}s for reset...`)
+          console.warn(`  Rate limited - waiting ${Math.ceil(wait / 1000)}s for reset...`)
           await new Promise(r => setTimeout(r, Math.min(wait, 65000)))
         } else {
           await new Promise(r => setTimeout(r, (attempt + 1) * 3000))

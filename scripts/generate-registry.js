@@ -55,7 +55,7 @@ function sortMCPs(servers) {
 
 async function main() {
   if (!process.env.GITHUB_TOKEN) {
-    console.warn('⚠  GITHUB_TOKEN not set — GitHub API rate limit is 60 req/hr (5000/hr with token)')
+    console.warn('⚠  GITHUB_TOKEN not set - GitHub API rate limit is 60 req/hr (5000/hr with token)')
     console.warn('   Set GITHUB_TOKEN for full results. Unauthenticated runs will be severely rate-limited.\n')
   }
 
@@ -84,7 +84,7 @@ async function main() {
   }
 
   // Merge: official > github > docker (docker as fallback)
-  // Dedup by slug — first occurrence wins
+  // Dedup by slug - first occurrence wins
   const allMCPs    = dedup([...officialMCPs, ...githubMCPs, ...dockerMCPs], 'slug')
   const mcpServers = sortMCPs(allMCPs)
 

@@ -90,7 +90,7 @@ export class GeminiCLIAdapter extends BaseAdapter {
       issues.push({ level: 'ok', message: '~/.gemini/settings.json valid' })
     } catch (err) {
       issues.push(err.code === 'ENOENT'
-        ? { level: 'warn', message: '~/.gemini/settings.json not found — created on first install' }
+        ? { level: 'warn', message: '~/.gemini/settings.json not found - created on first install' }
         : { level: 'error', message: `~/.gemini/settings.json invalid JSON: ${err.message}` })
     }
     return issues

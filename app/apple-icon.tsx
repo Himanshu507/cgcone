@@ -35,12 +35,12 @@ export default function AppleIcon() {
         {/* Right line: midpoint=(114,94.5), rotate(+27.3°) */}
         <div style={{ position: 'absolute', left: 108.5, top: 42.5, width: 11, height: 104, background: '#c96a50', opacity: 0.7, transform: 'rotate(27.3deg)', display: 'flex' }} />
 
-        {/* Source nodes — diameter=34, radius=17 */}
+        {/* Source nodes - diameter=34, radius=17 */}
         <div style={{ position: 'absolute', left: 25, top: 31, width: 34, height: 34, borderRadius: '50%', background: '#c96a50', opacity: 0.85, display: 'flex' }} />
         <div style={{ position: 'absolute', left: 73, top: 31, width: 34, height: 34, borderRadius: '50%', background: '#c96a50', display: 'flex' }} />
         <div style={{ position: 'absolute', left: 121, top: 31, width: 34, height: 34, borderRadius: '50%', background: '#c96a50', opacity: 0.85, display: 'flex' }} />
 
-        {/* Apex node — diameter=44, radius=22 */}
+        {/* Apex node - diameter=44, radius=22 */}
         <div style={{ position: 'absolute', left: 68, top: 119, width: 44, height: 44, borderRadius: '50%', background: '#c96a50', display: 'flex' }} />
       </div>
     ),

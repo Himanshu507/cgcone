@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'cgcone — Universal AI CLI Extension Manager',
+    name: 'cgcone - Universal AI CLI Extension Manager',
     short_name: 'cgcone',
     description:
       'Install MCP servers, plugins, skills, and hooks once. cgcone syncs across Claude Code, Gemini CLI, OpenAI Codex, and Copilot CLI.',

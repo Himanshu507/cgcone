@@ -9,7 +9,7 @@ function parseOwnerRepo(githubUrl: string): [string, string] | null {
   return m ? [m[1], m[2]] : null
 }
 
-// Authenticated GitHub API — 5000 req/hr with token, 60/hr without
+// Authenticated GitHub API - 5000 req/hr with token, 60/hr without
 async function fetchViaApi(owner: string, repo: string, token?: string): Promise<string | null> {
   const res = await fetch(
     `https://api.github.com/repos/${owner}/${repo}/readme`,
@@ -25,7 +25,7 @@ async function fetchViaApi(owner: string, repo: string, token?: string): Promise
   return res.ok ? res.text() : null
 }
 
-// raw.githubusercontent.com — no auth required for public repos, very high limits
+// raw.githubusercontent.com - no auth required for public repos, very high limits
 async function fetchViaRaw(owner: string, repo: string): Promise<string | null> {
   const branches  = ['main', 'master', 'develop']
   const filenames = ['README.md', 'readme.md', 'Readme.md']

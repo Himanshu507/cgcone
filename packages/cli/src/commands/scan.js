@@ -10,7 +10,7 @@ export async function scan() {
       return [
         a.name,
         detected ? c.green('✓ detected') : c.dim('✗ not found'),
-        detected ? c.dim(a.id) : c.dim('—'),
+        detected ? c.dim(a.id) : c.dim('-'),
       ]
     })
   )

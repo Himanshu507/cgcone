@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms of Service for cgcone — rules and conditions for using our platform.",
+  description: "Terms of Service for cgcone - rules and conditions for using our platform.",
 }
 
 export default function TermsPage() {
@@ -17,7 +17,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-base font-semibold text-foreground mb-3">1. Acceptance</h2>
             <p>
-              By using cgcone — the website, desktop application, or CLI — you agree to these Terms of Service.
+              By using cgcone - the website, desktop application, or CLI - you agree to these Terms of Service.
               If you do not agree, do not use cgcone.
             </p>
           </section>

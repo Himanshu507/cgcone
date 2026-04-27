@@ -94,12 +94,12 @@ export class ClaudeCodeAdapter extends BaseAdapter {
       issues.push({ level: 'ok', message: `~/.claude.json valid` })
     } catch (err) {
       issues.push(err.code === 'ENOENT'
-        ? { level: 'warn', message: '~/.claude.json not found — created on first install' }
+        ? { level: 'warn', message: '~/.claude.json not found - created on first install' }
         : { level: 'error', message: `~/.claude.json invalid JSON: ${err.message}` })
     }
 
     if (!hasBinary('npx')) {
-      issues.push({ level: 'error', message: 'npx not found — required to run most MCP servers' })
+      issues.push({ level: 'error', message: 'npx not found - required to run most MCP servers' })
     } else {
       issues.push({ level: 'ok', message: 'npx available' })
     }

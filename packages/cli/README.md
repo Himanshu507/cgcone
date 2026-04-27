@@ -89,7 +89,7 @@ cgcone doctor
 
 ## Registry
 
-cgcone fetches from [cgcone.com/registry.json](https://cgcone.com/registry.json) — 380+ extensions indexed from the official MCP registry, Docker Hub, and community submissions. Registry is cached locally at `~/.cgcone/registry-cache.json` with a 1-hour TTL.
+cgcone fetches from [cgcone.com/registry.json](https://cgcone.com/registry.json) - 380+ extensions indexed from the official MCP registry, Docker Hub, and community submissions. Registry is cached locally at `~/.cgcone/registry-cache.json` with a 1-hour TTL.
 
 Browse the full registry at **[cgcone.com](https://cgcone.com)**.
 
@@ -99,13 +99,13 @@ When you run `cgcone install <name>`:
 
 1. Fetches the registry (or uses local cache)
 2. Finds the extension by slug
-3. Resolves the install config — npm package, pypi package, or Docker image
+3. Resolves the install config - npm package, pypi package, or Docker image
 4. Writes the config to each detected CLI's config file atomically (temp file + rename)
 5. Reports success per CLI
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/Himanshu507/cgcone/blob/main/CONTRIBUTING.md) — submit extensions, add CLI adapters, or improve the CLI.
+See [CONTRIBUTING.md](https://github.com/Himanshu507/cgcone/blob/main/CONTRIBUTING.md) - submit extensions, add CLI adapters, or improve the CLI.
 
 ## Star History
 
@@ -115,4 +115,4 @@ See [CONTRIBUTING.md](https://github.com/Himanshu507/cgcone/blob/main/CONTRIBUTI
 
 ## License
 
-MIT — see [LICENSE](https://github.com/Himanshu507/cgcone/blob/main/LICENSE).
+MIT - see [LICENSE](https://github.com/Himanshu507/cgcone/blob/main/LICENSE).
