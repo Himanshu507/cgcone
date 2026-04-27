@@ -28,6 +28,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
         run: node scripts/generate-registry.js
 
+      - name: Sync registry (dedup, renames, removed repos, star refresh)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-registry.js
+
       - name: Commit updated registry
         run: |
           git config user.name "github-actions[bot]"
