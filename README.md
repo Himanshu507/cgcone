@@ -68,21 +68,23 @@ npm install -g @cgcone/cli
 
 ```bash
 # Discover
-cgcone scan                          # detect AI CLIs installed on this machine
-cgcone search <query>                # search 2400+ extensions in the registry
-cgcone info <name>                   # show details, author, install config
+cgcone scan                               # detect AI CLIs installed on this machine
+cgcone search <query>                     # search 2400+ extensions in the registry
+cgcone search <query> --type npm          # filter by type: npm | uvx | docker | skill | plugin | remote
+cgcone info <name>                        # show details, author, install type, install config
 
 # Install & manage
-cgcone install <name>                # install to all detected CLIs (interactive picker if multiple matches)
+cgcone install <name>                     # install to all detected CLIs (interactive picker if multiple matches)
 cgcone install <name> --for claude-code   # install to one CLI only
-cgcone uninstall <name>              # remove from all CLIs (fuzzy match + picker)
-cgcone configure <name>              # update API keys / env vars for an installed MCP
+cgcone install <name> --dry-run           # preview config changes without writing anything
+cgcone uninstall <name>                   # remove from all CLIs (fuzzy match + picker)
+cgcone configure <name>                   # update API keys / env vars for an installed MCP
 
 # Maintenance
-cgcone list                          # show installed extensions per CLI
-cgcone update <name>                 # update a single extension
-cgcone update --all                  # update all installed extensions
-cgcone doctor                        # diagnose broken installs and config issues
+cgcone list                               # show installed extensions per CLI
+cgcone update <name>                      # update a single extension
+cgcone update --all                       # update all installed extensions
+cgcone doctor                             # diagnose broken installs, MCP startup, sync drift
 ```
 
 ### Interactive install picker
@@ -207,25 +209,33 @@ cgcone/
 
 ## Roadmap status
 
+`█████████████░░░░░░░░░` **60%** — 57 / 95 tasks done
+
 | Phase | Description | Status |
 |---|---|---|
 | 1A | MCP servers rebuilt from GitHub (1943 entries) | ✅ Done |
 | 1B | Skills discovery (262 entries) | ✅ Done |
 | 1C | Plugins discovery (251 entries) | ✅ Done |
-| 1D | Dedup + sync - removes deleted repos, fixes renames, refreshes stars | ✅ Done |
+| 1D | Dedup + sync — removes deleted repos, fixes renames, refreshes stars | ✅ Done |
 | 2A/2B | Runtime detection + pre-computed installConfig | ✅ Done |
 | 2D | CLI uses pre-computed installConfig from registry | ✅ Done |
-| 5F | `cgcone install --dry-run` diff flag | ✅ Done |
-| 5H | `cgcone doctor` actual startup validation | Pending |
-| 5I | Install-time Node/SDK compatibility warnings | Pending |
-| 5G | TOML comment preservation for Codex | Pending |
-| 3C | Scheduled registry refresh automation | Pending |
-| 4B/4E | Star counts refresh + quality signals (archived, last commit) | Pending |
-| 4D | installType badge field | Pending |
-| 4A | LLM summaries per entry | Pending |
-| 3A/3B | Supabase storage | Pending |
-| 5B/5C | Skills + plugin install via CLI | Pending |
-| 5D/5E | Search filters + version diff in update | Pending |
+| 5A | CLI uses baked-in install config, heuristics removed from hot path | ✅ Done |
+| 5F | `cgcone install --dry-run` — preview before writing | ✅ Done |
+| 5G | TOML comment preservation for Codex | ✅ Done |
+| 5H | `cgcone doctor` MCP startup handshake + env var flagging | ✅ Done |
+| 5I | Install-time Node version + SDK pinning warnings | ✅ Done |
+| 5B | `cgcone install <skill>` — runs `claude skill add` directly | ✅ Done |
+| 5C | `cgcone install <plugin>` — shows `/plugin install` command | ✅ Done |
+| 4D | `--type` filter in search + installType badge in info/search | ✅ Done |
+| 2E | Fix 163 broken npm package names (needs GITHUB_TOKEN) | 🔄 Pending |
+| 3C | Scheduled registry refresh (GitHub Actions cron) | 🔄 Pending |
+| 4B | Star count refresh + sort by stars on cgcone.com | 🔄 Pending |
+| 4E | Quality signals: lastCommit, isArchived, openIssues | 🔄 Pending |
+| 4A | LLM summaries per entry (needs API budget) | 🔄 Pending |
+| 4C | Category classification | 🔄 Pending |
+| 3A/3B | Supabase storage + auto-regenerate registry.json | 🔄 Pending |
+| 5D | Search filters: `--type mcp`, `--installable`, sort by stars | 🔄 Pending |
+| 5E | Version diff in `cgcone update` (`0.1.0 → 0.2.0`) | 🔄 Pending |
 
 Full details: [ROADMAP.md](ROADMAP.md)
 
@@ -257,7 +267,7 @@ Releases are triggered by a git tag. The GitHub Actions workflow publishes to np
 # 1. Bump version in packages/cli/package.json
 # 2. Commit and push to main
 # 3. Tag the release:
-git tag cli-v0.2.1 && git push origin cli-v0.2.1
+git tag cli-v0.3.1 && git push origin cli-v0.3.1
 ```
 
 The `cli-v*` tag triggers `.github/workflows/publish.yml` → `npm publish --provenance`.
