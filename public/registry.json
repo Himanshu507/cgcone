@@ -146,7 +146,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@upstash/context7"
+          "@upstash/context7-mcp"
         ],
         "env": {},
         "type": "npm"
@@ -32837,7 +32837,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "bitbucket-server"
+          "bitbucket-server-mcp"
         ],
         "env": {},
         "type": "npm"
@@ -33035,7 +33035,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "memory-bank-server"
+          "mcp-memory-bank-server"
         ],
         "env": {},
         "type": "npm"
@@ -67424,5 +67424,6 @@
     "subagents": 5,
     "commands": 5,
     "hooks": 5
-  }
+  },
+  "syncedAt": "2026-04-28T07:07:11.530Z"
 }
