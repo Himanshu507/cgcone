@@ -36,6 +36,7 @@ program
   .command('install <name>')
   .description('Install an extension to all detected AI CLIs')
   .option('--for <cli>', 'target a specific CLI (claude-code | gemini-cli | codex-cli)')
+  .option('--dry-run', 'preview what would be written without modifying any config files')
   .action((name, opts) => install(name, opts))
 
 program

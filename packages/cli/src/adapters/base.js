@@ -49,4 +49,12 @@ export class BaseAdapter {
    * @returns {Promise<Array<{ level: 'error'|'warn'|'ok', message: string }>>}
    */
   async doctor() { return [] }
+
+  /**
+   * Preview what install() would write without touching the config file.
+   * @param {string} slug
+   * @param {{ command: string, args: string[], env?: Record<string,string> }} config
+   * @returns {Promise<{ configPath: string, action: 'add'|'update', slug: string, entry: object, existing: object|null } | null>}
+   */
+  async preview(_slug, _config) { return null }
 }

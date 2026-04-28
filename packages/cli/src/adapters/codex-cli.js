@@ -80,6 +80,16 @@ export class CodexCLIAdapter extends BaseAdapter {
     return { ok: true }
   }
 
+  async preview(slug, config) {
+    const doc = await readConfig()
+    const existing = doc.mcp_servers?.[slug] ?? null
+    const entry = { enabled: true }
+    if (config.command) entry.command = config.command
+    if (config.args?.length) entry.args = config.args
+    if (config.env && Object.keys(config.env).length) entry.env = config.env
+    return { configPath: CONFIG_PATH, action: existing ? 'update' : 'add', slug, entry, existing }
+  }
+
   async doctor() {
     const issues = []
     if (!hasBinary('codex')) {

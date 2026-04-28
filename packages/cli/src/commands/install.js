@@ -1,4 +1,5 @@
 import { execSync } from 'child_process'
+import { homedir } from 'os'
 import { select, text, password, confirm, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
@@ -95,6 +96,41 @@ function hasDocker() {
     execSync('docker info', { stdio: 'ignore' })
     return true
   } catch { return false }
+}
+
+function printDryRunPreview(adapter, preview) {
+  const home = homedir()
+  const displayPath = preview.configPath.startsWith(home)
+    ? '~' + preview.configPath.slice(home.length)
+    : preview.configPath
+
+  const actionLabel = preview.action === 'add'
+    ? c.green('+ add')
+    : c.yellow('~ update')
+
+  console.log(`  ${c.bold(adapter.name)}  ${c.dim(displayPath)}`)
+  console.log(`    ${actionLabel}  ${c.primary(preview.slug)}`)
+  console.log()
+
+  const { entry } = preview
+  const indent = '      '
+  if (entry.command) {
+    console.log(`${indent}command  ${entry.command}`)
+  }
+  if (entry.args?.length) {
+    const argsStr = '[' + entry.args.map(a => `"${a}"`).join(', ') + ']'
+    console.log(`${indent}args     ${argsStr}`)
+  }
+  if (entry.env && Object.keys(entry.env).length) {
+    for (const [k, v] of Object.entries(entry.env)) {
+      const display = isSensitiveKey(k) ? '•'.repeat(Math.min(String(v).length, 24)) : v
+      console.log(`${indent}env      ${c.bold(k)} = ${display}`)
+    }
+  }
+  if ('enabled' in entry) {
+    console.log(`${indent}enabled  ${entry.enabled}`)
+  }
+  console.log()
 }
 
 export async function install(name, opts = {}) {
@@ -198,6 +234,47 @@ export async function install(name, opts = {}) {
     } else {
       error('No AI CLIs detected on this machine. Run cgcone scan to diagnose.')
     }
+    return
+  }
+
+  // ── Dry run: show what would be written, then exit ─────────────────────────
+  if (opts.dryRun) {
+    // If registry didn't define required env vars, ask now (same as live install does post-install)
+    // so the preview can show the full config including any API keys.
+    if (missingEnv.length === 0) {
+      console.log()
+      const addEnv = await confirm({
+        message: 'Does this MCP require API keys or env vars?',
+        initialValue: false,
+      })
+      if (!isCancel(addEnv) && addEnv) {
+        console.log()
+        const extraEnv = await promptFreeformEnvVars()
+        if (Object.keys(extraEnv).length) {
+          finalConfig = { ...finalConfig, env: { ...finalConfig.env, ...extraEnv } }
+        }
+      }
+    }
+
+    console.log()
+    warn('Dry run - no config files will be changed.\n')
+
+    for (const adapter of targets) {
+      let preview
+      try {
+        preview = await adapter.preview(entry.slug, finalConfig)
+      } catch (err) {
+        console.log(`  ${c.bold(adapter.name)}  ${c.dim('preview error: ' + err.message)}\n`)
+        continue
+      }
+      if (!preview) {
+        console.log(`  ${c.bold(adapter.name)}  ${c.dim('dry-run not supported')}\n`)
+        continue
+      }
+      printDryRunPreview(adapter, preview)
+    }
+
+    info('Run without --dry-run to apply these changes.')
     return
   }
 

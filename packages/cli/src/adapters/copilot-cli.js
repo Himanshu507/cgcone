@@ -77,6 +77,17 @@ export class CopilotCLIAdapter extends BaseAdapter {
     return { ok: true }
   }
 
+  async preview(slug, config) {
+    const data = await readConfig()
+    const existing = data.mcpServers?.[slug] ?? null
+    const entry = {
+      command: config.command,
+      args:    config.args ?? [],
+      ...(config.env && Object.keys(config.env).length ? { env: config.env } : {}),
+    }
+    return { configPath: CONFIG_PATH, action: existing ? 'update' : 'add', slug, entry, existing }
+  }
+
   async doctor() {
     const issues = []
     if (!hasBinary('copilot')) {
