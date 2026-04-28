@@ -16,7 +16,7 @@ const program = new Command()
 program
   .name('cgcone')
   .description('Universal AI CLI extension manager')
-  .version('0.3.1')
+  .version('0.3.2')
   .addHelpText('after', `
 ${c.dim('Examples:')}
   ${c.primary('cgcone scan')}                     detect AI CLIs on this machine
@@ -56,6 +56,8 @@ program
   .command('search <query>')
   .description('Search the cgcone registry')
   .option('--type <type>', 'filter by install type: npm | uvx | docker | skill | plugin | remote')
+  .option('--installable', 'only show extensions with a working install command')
+  .option('--sort <field>', 'sort results: stars (default: relevance)')
   .action((query, opts) => search(query, opts))
 
 program
