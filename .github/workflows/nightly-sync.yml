@@ -14,7 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+          # Always use built-in GITHUB_TOKEN for checkout — controls git push auth.
+          # Using a PAT here causes 403 if the token expires (the "denied to Himanshu507" bug).
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
@@ -25,6 +27,7 @@ jobs:
 
       - name: Generate registry.json
         env:
+          # GH_SYNC_TOKEN (fine-grained PAT) = 5000 req/hr. Falls back to GITHUB_TOKEN (1000/hr).
           GITHUB_TOKEN: ${{ secrets.GH_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
         run: node scripts/generate-registry.js
 
@@ -38,5 +41,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/registry.json
-          git diff --staged --quiet || git commit -m "chore: update registry [skip ci]"
+          if git diff --staged --quiet; then
+            echo "No registry changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: update registry [skip ci]"
           git push

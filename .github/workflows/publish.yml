@@ -15,6 +15,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag is on main branch
+        run: |
+          git fetch origin main
+          if ! git merge-base --is-ancestor ${{ github.sha }} origin/main; then
+            echo "::error::Tag ${{ github.ref_name }} is not on main branch — aborting publish."
+            exit 1
+          fi
+          echo "Tag is on main branch"
+
+      - name: Verify package.json version matches tag
+        run: |
+          TAG="${{ github.ref_name }}"
+          TAG_VER="${TAG#cli-v}"
+          PKG_VER=$(node -p "require('./packages/cli/package.json').version")
+          if [ "$TAG_VER" != "$PKG_VER" ]; then
+            echo "::error::Tag version ($TAG_VER) != package.json version ($PKG_VER) — aborting."
+            exit 1
+          fi
+          echo "Version check passed: $PKG_VER"
 
       - uses: actions/setup-node@v4
         with:
