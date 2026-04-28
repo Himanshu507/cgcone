@@ -215,7 +215,7 @@ cgcone/
 | 1D | Dedup + sync - removes deleted repos, fixes renames, refreshes stars | ✅ Done |
 | 2A/2B | Runtime detection + pre-computed installConfig | ✅ Done |
 | 2D | CLI uses pre-computed installConfig from registry | ✅ Done |
-| 5F | `cgcone install --dry-run` diff flag | Pending |
+| 5F | `cgcone install --dry-run` diff flag | ✅ Done |
 | 5H | `cgcone doctor` actual startup validation | Pending |
 | 5I | Install-time Node/SDK compatibility warnings | Pending |
 | 5G | TOML comment preservation for Codex | Pending |
