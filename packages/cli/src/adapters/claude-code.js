@@ -68,6 +68,16 @@ export class ClaudeCodeAdapter extends BaseAdapter {
     return Object.keys(data.mcpServers ?? {})
   }
 
+  async listInstalledWithConfig() {
+    const data = await readConfig()
+    return Object.entries(data.mcpServers ?? {}).map(([slug, cfg]) => ({
+      slug,
+      command: cfg.command ?? '',
+      args:    cfg.args ?? [],
+      env:     cfg.env ?? {},
+    }))
+  }
+
   async getEnv(slug) {
     const data = await readConfig()
     return data.mcpServers?.[slug]?.env ?? {}

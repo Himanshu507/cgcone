@@ -5,6 +5,7 @@ import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
 import { spinner, success, error, warn, info, c } from '../ui.js'
+import { checkNpmCompat } from '../compat.js'
 
 function isSensitiveKey(k) {
   return /key|token|secret|password|api/i.test(k)
@@ -200,6 +201,15 @@ export async function install(name, opts = {}) {
       error(`No automatic install config for ${name}. Check ${entry.githubUrl ?? entry.dockerUrl ?? 'the repository'} for manual instructions.`)
     }
     return
+  }
+
+  // 5I: npm compatibility warnings (Node version, SDK pinning)
+  if (installConfig.type === 'npm') {
+    const pkgName = installConfig.args?.[1]
+    if (pkgName) {
+      const { warnings } = await checkNpmCompat(pkgName)
+      for (const w of warnings) warn(w)
+    }
   }
 
   // Docker-specific checks and warnings

@@ -33,6 +33,12 @@ export class BaseAdapter {
   async listInstalled() { return [] }
 
   /**
+   * List all installed extensions with their full config.
+   * @returns {Promise<Array<{ slug: string, command: string, args: string[], env: Record<string,string> }>>}
+   */
+  async listInstalledWithConfig() { return [] }
+
+  /**
    * Get env vars currently stored for an installed MCP slug.
    * @returns {Promise<Record<string,string>>}
    */
