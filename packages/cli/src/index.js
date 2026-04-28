@@ -55,7 +55,8 @@ program
 program
   .command('search <query>')
   .description('Search the cgcone registry')
-  .action(search)
+  .option('--type <type>', 'filter by install type: npm | uvx | docker | skill | plugin | remote')
+  .action((query, opts) => search(query, opts))
 
 program
   .command('info <name>')

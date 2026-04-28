@@ -145,6 +145,24 @@ export function findExtension(slug, registry) {
   return bestMatch(candidates)
 }
 
+/**
+ * Derive the install type for an entry.
+ * Returns: 'npm' | 'uvx' | 'docker' | 'remote' | 'plugin' | 'skill' | null
+ */
+export function deriveInstallType(entry) {
+  if (entry.installType) return entry.installType
+  if (entry.installCommand?.startsWith('claude skill')) return 'skill'
+  if (entry.installCommand?.startsWith('/plugin install')) return 'plugin'
+  if (entry.serverType === 'streamable-http' || entry.serverType === 'sse') return 'remote'
+  const cfg = entry.installConfig
+  if (cfg?.type === 'docker' || cfg?.command === 'docker') return 'docker'
+  if (cfg?.command === 'uvx') return 'uvx'
+  if (cfg?.command === 'npx') return 'npm'
+  if (entry.sourceRegistry === 'docker') return 'docker'
+  if (entry.sourceRegistry === 'npm') return 'npm'
+  return null
+}
+
 export function findInstalledMatches(query, slugs) {
   if (slugs.includes(query)) return [query]
 
@@ -200,6 +218,10 @@ function extractFromReadme(content) {
  * Returns { command, args, env, type? } or null if not installable automatically.
  */
 export function getInstallConfig(entry) {
+  // Skills and plugins have their own install path — not MCP config
+  if (entry.installCommand?.startsWith('claude skill')) return null
+  if (entry.installCommand?.startsWith('/plugin install')) return null
+
   // 0. Pre-computed installConfig from registry generation (highest trust)
   if (entry.installConfig?.command) {
     return entry.installConfig

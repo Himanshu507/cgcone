@@ -1,5 +1,5 @@
-import { fetchRegistry, findExtension, extensionType, getInstallConfig } from '../registry.js'
-import { spinner, error, info, section, c, badge } from '../ui.js'
+import { fetchRegistry, findExtension, extensionType, getInstallConfig, deriveInstallType } from '../registry.js'
+import { spinner, error, info, section, c, badge, typeBadge } from '../ui.js'
 
 export async function showInfo(name) {
   const spin = spinner(`Looking up ${c.primary(name)}...`).start()
@@ -21,15 +21,20 @@ export async function showInfo(name) {
 
   spin.stop()
 
-  const type    = extensionType(entry, registry)
-  const config  = getInstallConfig(entry)
+  const type        = extensionType(entry, registry)
+  const installType = deriveInstallType(entry)
+  const config      = getInstallConfig(entry)
 
   section(entry.displayName ?? entry.name ?? entry.slug)
   console.log()
 
+  const typeDisplay = (installType && installType !== type)
+    ? `${type}  ${typeBadge(installType)}`
+    : (installType ? typeBadge(installType) : type)
+
   const fields = [
     ['Slug',     c.primary(entry.slug ?? entry.name)],
-    ['Type',     type],
+    ['Type',     typeDisplay],
     ['Category', entry.category ?? c.dim('-')],
     ['Author',   entry.author ?? entry.vendor ?? c.dim('-')],
     ['Version',  entry.version ? `v${entry.version}` : c.dim('-')],
@@ -52,7 +57,11 @@ export async function showInfo(name) {
     console.log(`  ${c.dim('Repository')}  ${entry.githubUrl}`)
   }
 
-  if (config) {
+  if (entry.installCommand?.startsWith('claude skill') || entry.installCommand?.startsWith('/plugin install')) {
+    console.log()
+    console.log(`  ${c.dim('Install')}      ${c.bold('cgcone install ' + (entry.slug ?? entry.name))}`)
+    console.log(`  ${c.dim('Command')}      ${c.dim(entry.installCommand)}`)
+  } else if (config) {
     console.log()
     console.log(`  ${c.dim('Install')}      ${c.bold('cgcone install ' + (entry.slug ?? entry.name))}`)
     if (config.uncertain) {

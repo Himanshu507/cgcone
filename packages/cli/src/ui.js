@@ -56,3 +56,15 @@ export function badge(status) {
     default:            return chalk.bgGray.white(` ${status?.toUpperCase() ?? 'UNKNOWN'} `)
   }
 }
+
+export function typeBadge(type) {
+  switch (type) {
+    case 'npm':    return chalk.hex('#cb3837').bold('npm')
+    case 'uvx':    return chalk.hex('#2196f3').bold('uvx')
+    case 'docker': return chalk.hex('#2496ed').bold('docker')
+    case 'remote': return chalk.hex('#9c27b0').bold('remote')
+    case 'skill':  return chalk.hex('#4caf50').bold('skill')
+    case 'plugin': return chalk.hex('#ff9800').bold('plugin')
+    default:       return chalk.dim(type ?? '?')
+  }
+}

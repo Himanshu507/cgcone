@@ -1,4 +1,4 @@
-import { execSync } from 'child_process'
+import { execSync, spawnSync } from 'child_process'
 import { homedir } from 'os'
 import { select, text, password, confirm, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
@@ -99,6 +99,13 @@ function hasDocker() {
   } catch { return false }
 }
 
+function hasClaude() {
+  try {
+    execSync('claude --version', { stdio: 'ignore' })
+    return true
+  } catch { return false }
+}
+
 function printDryRunPreview(adapter, preview) {
   const home = homedir()
   const displayPath = preview.configPath.startsWith(home)
@@ -170,23 +177,39 @@ export async function install(name, opts = {}) {
     info(`Matched registry slug: ${c.bold(entry.slug)}`)
   }
 
-  // Skills have a direct installCommand (claude skill add ...) - not MCP config
-  if (entry.installCommand && (entry.sourceRegistry === 'github' || entry.installCommand.startsWith('claude skill'))) {
+  // Skills: run `claude skill add owner/repo:skill` directly
+  if (entry.installCommand?.startsWith('claude skill')) {
     console.log()
-    info(`Skill install command:`)
-    console.log(`  ${c.bold(entry.installCommand)}`)
-    console.log()
-    success(`Run the command above to install ${c.primary(entry.name ?? entry.id)}`)
+    if (hasClaude()) {
+      info(`Running: ${c.dim(entry.installCommand)}`)
+      console.log()
+      const parts = entry.installCommand.split(' ')
+      const result = spawnSync(parts[0], parts.slice(1), { stdio: 'inherit' })
+      console.log()
+      if (result.status === 0) {
+        success(`Skill ${c.primary(entry.name ?? entry.slug)} installed`)
+      } else {
+        error(`Skill install exited with code ${result.status}`)
+        info(`Run manually: ${c.bold(entry.installCommand)}`)
+      }
+    } else {
+      info(`Skill install command (requires Claude Code):`)
+      console.log()
+      console.log(`  ${c.bold(entry.installCommand)}`)
+      console.log()
+      warn(`Claude Code not found in PATH. Install from claude.ai/code, then re-run.`)
+    }
     return
   }
 
-  // Plugins have /plugin install ... command
+  // Plugins: /plugin install runs inside Claude Code REPL — cannot execute from terminal
   if (entry.installCommand?.startsWith('/plugin install')) {
     console.log()
     info(`Plugin install command (run inside Claude Code):`)
+    console.log()
     console.log(`  ${c.bold(entry.installCommand)}`)
     console.log()
-    success(`Run the command above inside Claude Code to install ${c.primary(entry.name)}`)
+    info(`Open Claude Code and paste the command above.`)
     return
   }
 
