@@ -67,8 +67,9 @@ cgcone uninstall <name>                  # remove from all CLIs
 cgcone configure <name>                  # update API keys / env vars for an installed MCP
 cgcone list                              # show installed extensions + which CLI
 cgcone search <query>                    # search the registry
-cgcone info <name>                       # details, version, install config
-cgcone doctor                            # validate configs + test MCP server startup
+cgcone search <query> --type npm         # filter by install type: npm | uvx | docker | skill | plugin | remote
+cgcone info <name>                       # details, version, install type, install config
+cgcone doctor                            # validate configs, check MCP startup, detect drift
 cgcone update <name>                     # update an extension
 cgcone update --all                      # update everything
 ```
@@ -82,6 +83,9 @@ cgcone install github-mcp
 # Install only to Claude Code
 cgcone install filesystem-mcp --for claude-code
 
+# Install a Claude Code skill directly
+cgcone install daloopa-investing--comps
+
 # Preview exactly what would be written before committing
 cgcone install brave-search --dry-run
 
@@ -91,10 +95,13 @@ cgcone configure brave-search
 # Search the registry
 cgcone search database
 
+# Search only npm-installable MCP servers
+cgcone search database --type npm
+
 # Check what's installed and where
 cgcone list
 
-# Diagnose config problems and verify MCP servers actually start
+# Diagnose config problems, verify MCP servers start, detect sync drift
 cgcone doctor
 ```
 
@@ -117,20 +124,23 @@ When you run `cgcone install <name>`:
 
 1. Fetches the registry (or uses local 1-hour cache)
 2. Finds the extension by slug — interactive picker if multiple matches
-3. Checks npm compatibility: Node version and SDK pinning (npm packages only)
-4. Prompts for required API keys / env vars (masked input for sensitive values)
-5. Writes the config to each detected CLI's config file atomically (temp file + rename)
-6. For Codex: preserves all existing comments and non-MCP sections in `config.toml`
-7. Reports success per CLI
+3. Detects extension type: MCP server, Claude Code skill, or plugin
+4. **Skills**: runs `claude skill add owner/repo:skill` directly (requires Claude Code in PATH)
+5. **Plugins**: shows the `/plugin install` command to paste inside Claude Code
+6. **MCP servers**: checks npm compatibility (Node version, SDK pinning), prompts for env vars, writes config atomically to each detected CLI
+7. For Codex: preserves all existing comments and non-MCP sections in `config.toml`
+8. Reports success per CLI
 
 ## How doctor works
 
 `cgcone doctor` goes beyond config validation:
 
 1. Verifies each CLI binary is in PATH and config file is valid
-2. For every installed MCP server: spawns the process, sends an MCP `initialize` handshake, confirms it responds
-3. Flags servers with empty / missing env vars with the exact `cgcone configure <slug>` fix command
-4. Docker-based servers are noted but skipped (require additional setup)
+2. Detects broken Gemini extension skill symlinks (created by Gemini's temp-dir install pattern, lost after reboot)
+3. **MCP Sync Drift**: flags MCPs present in some CLIs but missing from others — shows exact `cgcone install <slug> --for <cli>` fix command
+4. For every installed MCP server: spawns the process, sends an MCP `initialize` handshake, confirms it responds
+5. Flags servers with empty / missing env vars with the exact `cgcone configure <slug>` fix command
+6. Docker-based servers are noted but skipped (require additional setup)
 
 ## Contributing
 
