@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, rename } from 'fs/promises'
+import { readFile, writeFile, mkdir, rename, readdir, lstat, access } from 'fs/promises'
 import { execSync } from 'child_process'
 import { join } from 'path'
 import { homedir, tmpdir } from 'os'
@@ -29,6 +29,33 @@ function hasBinary(name) {
     execSync(process.platform === 'win32' ? `where ${name}` : `which ${name}`, { stdio: 'ignore' })
     return true
   } catch { return false }
+}
+
+async function findBrokenSkillSymlinks(extensionsDir) {
+  const broken = []
+  let extDirs
+  try { extDirs = await readdir(extensionsDir) } catch { return broken }
+  for (const ext of extDirs) {
+    const skillsDir = join(extensionsDir, ext, 'skills')
+    let skillDirs
+    try { skillDirs = await readdir(skillsDir) } catch { continue }
+    for (const skill of skillDirs) {
+      const skillPath = join(skillsDir, skill)
+      let entries
+      try { entries = await readdir(skillPath) } catch { continue }
+      for (const entry of entries) {
+        const full = join(skillPath, entry)
+        try {
+          const stat = await lstat(full)
+          if (stat.isSymbolicLink()) {
+            // lstat succeeds on symlinks; access checks if the target exists
+            try { await access(full) } catch { broken.push(full) }
+          }
+        } catch { /* skip unreadable */ }
+      }
+    }
+  }
+  return broken
 }
 
 export class GeminiCLIAdapter extends BaseAdapter {
@@ -114,6 +141,18 @@ export class GeminiCLIAdapter extends BaseAdapter {
         ? { level: 'warn', message: '~/.gemini/settings.json not found - created on first install' }
         : { level: 'error', message: `~/.gemini/settings.json invalid JSON: ${err.message}` })
     }
+
+    // Check for broken symlinks in extension skill dirs — Gemini creates temp-dir symlinks
+    // that break after system reboot or tmpdir cleanup.
+    const brokenLinks = await findBrokenSkillSymlinks(join(homedir(), '.gemini', 'extensions'))
+    for (const link of brokenLinks) {
+      const display = link.replace(homedir(), '~')
+      issues.push({ level: 'error', message: `Broken skill symlink: ${display}` })
+    }
+    if (brokenLinks.length > 0) {
+      issues.push({ level: 'warn', message: `Run: cgcone doctor --fix-gemini-skills  (or re-install the extension)` })
+    }
+
     return issues
   }
 }

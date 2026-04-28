@@ -119,12 +119,39 @@ export async function doctor() {
   }
 
   // ── MCP startup checks ──────────────────────────────────────────────────
-  // Collect all installed MCPs across adapters (deduplicated by slug)
-  const seen    = new Map() // slug → { command, args, env }
+  // Collect all installed MCPs per adapter and globally (deduplicated by slug)
+  const detectedAdapters = []
+  const byAdapter        = new Map() // adapterId → Set<slug>
+  const seen             = new Map() // slug → { command, args, env }
+
   for (const adapter of ALL_ADAPTERS) {
     if (!await adapter.detect()) continue
-    for (const cfg of await adapter.listInstalledWithConfig()) {
+    detectedAdapters.push(adapter)
+    const installed = await adapter.listInstalledWithConfig()
+    byAdapter.set(adapter.id, new Set(installed.map(c => c.slug)))
+    for (const cfg of installed) {
       if (!seen.has(cfg.slug)) seen.set(cfg.slug, cfg)
+    }
+  }
+
+  // ── MCP drift: MCPs present in some CLIs but not others ─────────────────
+  if (detectedAdapters.length > 1 && seen.size > 0) {
+    const driftLines = []
+    for (const [slug] of seen) {
+      const missing = detectedAdapters.filter(a => !byAdapter.get(a.id)?.has(slug))
+      if (missing.length > 0 && missing.length < detectedAdapters.length) {
+        driftLines.push({ slug, missing: missing.map(a => a.id) })
+      }
+    }
+    if (driftLines.length > 0) {
+      section('MCP Sync Drift')
+      console.log()
+      for (const { slug, missing } of driftLines) {
+        console.log(`   ${c.yellow('⚠')} ${c.bold(slug)} not in: ${missing.join(', ')}`)
+        console.log(`      ${c.dim('→')} ${c.dim(`cgcone install ${slug} --for ${missing[0]}`)}`)
+        totalWarns++
+      }
+      console.log()
     }
   }
 
