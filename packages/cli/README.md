@@ -24,11 +24,14 @@ $ cgcone scan
   ✓ Gemini CLI     ~/.gemini/settings.json
   ✓ OpenAI Codex   ~/.codex/config.toml
 
-$ cgcone install github-mcp
+$ cgcone install brave-search
+  ◆ BRAVE_API_KEY - Your Brave Search API key
+  │ ••••••••••••••••••••••••
+
   ✓ Claude Code  → configured
   ✓ Gemini CLI   → configured
   ✓ OpenAI Codex → configured
-  ✓ github-mcp installed in 1.2s
+  ✓ brave-search installed
 ```
 
 ## Supported CLIs
@@ -59,11 +62,13 @@ npm install -g @cgcone/cli
 cgcone scan                              # detect AI CLIs on this machine
 cgcone install <name>                    # install to all detected CLIs
 cgcone install <name> --for claude-code  # install to one CLI only
+cgcone install <name> --dry-run          # preview config changes without writing
 cgcone uninstall <name>                  # remove from all CLIs
+cgcone configure <name>                  # update API keys / env vars for an installed MCP
 cgcone list                              # show installed extensions + which CLI
 cgcone search <query>                    # search the registry
-cgcone info <name>                       # details, version, security status
-cgcone doctor                            # diagnose broken installs and configs
+cgcone info <name>                       # details, version, install config
+cgcone doctor                            # validate configs + test MCP server startup
 cgcone update <name>                     # update an extension
 cgcone update --all                      # update everything
 ```
@@ -77,19 +82,32 @@ cgcone install github-mcp
 # Install only to Claude Code
 cgcone install filesystem-mcp --for claude-code
 
+# Preview exactly what would be written before committing
+cgcone install brave-search --dry-run
+
+# Update an API key after install
+cgcone configure brave-search
+
 # Search the registry
 cgcone search database
 
 # Check what's installed and where
 cgcone list
 
-# Diagnose config problems
+# Diagnose config problems and verify MCP servers actually start
 cgcone doctor
 ```
 
 ## Registry
 
-cgcone fetches from [cgcone.com/registry.json](https://cgcone.com/registry.json) - 380+ extensions indexed from the official MCP registry, Docker Hub, and community submissions. Registry is cached locally at `~/.cgcone/registry-cache.json` with a 1-hour TTL.
+cgcone fetches from the [cgcone GitHub registry](https://github.com/Himanshu507/cgcone/blob/main/public/registry.json) — 2400+ extensions indexed from:
+
+- Official [modelcontextprotocol.io](https://modelcontextprotocol.io) registry
+- GitHub repositories tagged `mcp-server`, `model-context-protocol`
+- Claude Code plugins and skills
+- Community subagents, commands, and hooks
+
+Registry is cached locally at `~/.cgcone/registry-cache.json` with a 1-hour TTL.
 
 Browse the full registry at **[cgcone.com](https://cgcone.com)**.
 
@@ -97,11 +115,22 @@ Browse the full registry at **[cgcone.com](https://cgcone.com)**.
 
 When you run `cgcone install <name>`:
 
-1. Fetches the registry (or uses local cache)
-2. Finds the extension by slug
-3. Resolves the install config - npm package, pypi package, or Docker image
-4. Writes the config to each detected CLI's config file atomically (temp file + rename)
-5. Reports success per CLI
+1. Fetches the registry (or uses local 1-hour cache)
+2. Finds the extension by slug — interactive picker if multiple matches
+3. Checks npm compatibility: Node version and SDK pinning (npm packages only)
+4. Prompts for required API keys / env vars (masked input for sensitive values)
+5. Writes the config to each detected CLI's config file atomically (temp file + rename)
+6. For Codex: preserves all existing comments and non-MCP sections in `config.toml`
+7. Reports success per CLI
+
+## How doctor works
+
+`cgcone doctor` goes beyond config validation:
+
+1. Verifies each CLI binary is in PATH and config file is valid
+2. For every installed MCP server: spawns the process, sends an MCP `initialize` handshake, confirms it responds
+3. Flags servers with empty / missing env vars with the exact `cgcone configure <slug>` fix command
+4. Docker-based servers are noted but skipped (require additional setup)
 
 ## Contributing
 
