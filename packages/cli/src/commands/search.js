@@ -47,18 +47,22 @@ export async function search(query, opts = {}) {
 
   const rows = results.slice(0, 20).map(e => {
     const itype = deriveInstallType(e)
+    const repoShort = e.githubUrl
+      ? e.githubUrl.replace('https://github.com/', '')
+      : c.dim('-')
     const row = [
       c.primary(e.slug ?? e.name ?? ''),
       e.displayName ?? e.name ?? '',
       (e.description ?? '').slice(0, 46) + ((e.description?.length ?? 0) > 46 ? '…' : ''),
       itype ? typeBadge(itype) : c.dim('-'),
-      e.verificationStatus ? badge(e.verificationStatus, e.githubUrl) : c.dim('-'),
+      e.verificationStatus ? badge(e.verificationStatus) : c.dim('-'),
+      repoShort,
     ]
     if (showStars) row.push(fmtStars(e.stars))
     return row
   })
 
-  const cols = ['Slug', 'Name', 'Description', 'Type', 'Status']
+  const cols = ['Slug', 'Name', 'Description', 'Type', 'Status', 'Repo']
   if (showStars) cols.push('Stars')
 
   console.log()
