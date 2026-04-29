@@ -1,5 +1,5 @@
 import { fetchRegistry, findExtension, extensionType, getInstallConfig, deriveInstallType } from '../registry.js'
-import { spinner, error, info, section, c, badge, typeBadge, link } from '../ui.js'
+import { spinner, error, info, section, c, typeBadge, link } from '../ui.js'
 
 export async function showInfo(name) {
   const spin = spinner(`Looking up ${c.primary(name)}...`).start()
@@ -41,17 +41,21 @@ export async function showInfo(name) {
     return monthsAgo > 12 ? c.yellow(label + ' ⚠') : label
   })()
 
+  const authorDisplay = entry.author ?? entry.vendor
+    ?? (entry.githubUrl ? entry.githubUrl.replace('https://github.com/', '').split('/')[0] : null)
+    ?? c.dim('-')
+
   const fields = [
     ['Slug',        c.primary(entry.slug ?? entry.name)],
     ['Type',        typeDisplay],
     ['Category',    entry.category ?? c.dim('-')],
-    ['Author',      entry.author ?? entry.vendor ?? c.dim('-')],
+    ['Author',      authorDisplay],
     ['Version',     entry.version ? `v${entry.version}` : c.dim('-')],
-    ['Status',      entry.verificationStatus ? badge(entry.verificationStatus, entry.githubUrl) : c.dim('-')],
+    ['Status',      entry.verificationStatus ?? c.dim('-')],
     ['Stars',       entry.stars != null ? `⭐ ${entry.stars.toLocaleString()}` : c.dim('-')],
-    ['Last commit', lastCommitDisplay ?? c.dim('-')],
-    ['License',     entry.license ?? c.dim('-')],
-  ]
+    lastCommitDisplay ? ['Last commit', lastCommitDisplay]                          : null,
+    entry.license   ? ['License',     entry.license]                                : null,
+  ].filter(Boolean)
 
   fields.forEach(([label, value]) => {
     console.log(`  ${c.dim(label.padEnd(12))}  ${value}`)

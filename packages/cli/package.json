@@ -1,6 +1,6 @@
 {
   "name": "@cgcone/cli",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Universal AI CLI extension manager - install MCP servers, plugins and skills across Claude Code, Gemini CLI and Codex in one command",
   "type": "module",
   "bin": {

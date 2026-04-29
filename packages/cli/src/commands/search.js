@@ -1,5 +1,5 @@
 import { fetchRegistry, searchExtensions, deriveInstallType } from '../registry.js'
-import { spinner, table, info, c, badge, typeBadge } from '../ui.js'
+import { spinner, table, info, c, typeBadge, link } from '../ui.js'
 
 function fmtStars(n) {
   if (n == null) return c.dim('-')
@@ -47,22 +47,19 @@ export async function search(query, opts = {}) {
 
   const rows = results.slice(0, 20).map(e => {
     const itype = deriveInstallType(e)
-    const repoShort = e.githubUrl
-      ? e.githubUrl.replace('https://github.com/', '')
-      : c.dim('-')
+    const repoShort = e.githubUrl ? link(e.githubUrl, e.githubUrl) : c.dim('-')
     const row = [
       c.primary(e.slug ?? e.name ?? ''),
       e.displayName ?? e.name ?? '',
-      (e.description ?? '').slice(0, 46) + ((e.description?.length ?? 0) > 46 ? '…' : ''),
       itype ? typeBadge(itype) : c.dim('-'),
-      e.verificationStatus ? badge(e.verificationStatus) : c.dim('-'),
+      e.verificationStatus ?? c.dim('-'),
       repoShort,
     ]
     if (showStars) row.push(fmtStars(e.stars))
     return row
   })
 
-  const cols = ['Slug', 'Name', 'Description', 'Type', 'Status', 'Repo']
+  const cols = ['Slug', 'Name', 'Type', 'Status', 'Repo']
   if (showStars) cols.push('Stars')
 
   console.log()
