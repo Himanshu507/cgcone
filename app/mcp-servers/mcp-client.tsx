@@ -17,6 +17,7 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
   const [search, setSearch] = useState("")
   const [activeCategory, setActiveCategory] = useState<string>("all")
   const [activeSource, setActiveSource] = useState<string>("all")
+  const [sortBy, setSortBy] = useState<"stars" | "relevance">("stars")
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
@@ -28,7 +29,7 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
   const sources = ["all", "official-mcp", "docker", "github", "community"]
 
   const filtered = useMemo(() => {
-    return servers.filter(s => {
+    const base = servers.filter(s => {
       const matchesSearch =
         !search ||
         s.displayName.toLowerCase().includes(search.toLowerCase()) ||
@@ -38,7 +39,11 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
       const matchesSource = activeSource === "all" || s.sourceRegistry === activeSource
       return matchesSearch && matchesCategory && matchesSource
     })
-  }, [servers, search, activeCategory, activeSource])
+    if (sortBy === "stars") {
+      return [...base].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+    }
+    return base
+  }, [servers, search, activeCategory, activeSource, sortBy])
 
   const visible = filtered.slice(0, visibleCount)
 
@@ -111,10 +116,29 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
           ))}
         </div>
 
-        {/* Results count */}
-        <p className="text-sm text-muted-foreground mb-6">
-          Showing {Math.min(visibleCount, filtered.length)} of {filtered.length} results
-        </p>
+        {/* Sort + results count row */}
+        <div className="flex items-center justify-between mb-6">
+          <p className="text-sm text-muted-foreground">
+            Showing {Math.min(visibleCount, filtered.length)} of {filtered.length} results
+          </p>
+          <div className="flex items-center gap-1 text-sm">
+            <span className="text-muted-foreground mr-1">Sort:</span>
+            {(["stars", "relevance"] as const).map(opt => (
+              <button
+                key={opt}
+                onClick={() => { setSortBy(opt); setVisibleCount(PAGE_SIZE) }}
+                className={cn(
+                  "px-2.5 py-1 rounded-md transition-colors",
+                  sortBy === opt
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {opt === "stars" ? "⭐ Stars" : "Relevance"}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Grid */}
         {filtered.length === 0 ? (

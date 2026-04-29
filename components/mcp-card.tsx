@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { InstallationModal } from "@/components/installation-modal"
 import type { MCPServer } from "@/lib/types"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
-import { Terminal } from "lucide-react"
+import { Terminal, Star } from "lucide-react"
 
 interface MCPCardProps {
   server: MCPServer
@@ -57,6 +57,12 @@ export function MCPCard({ server }: MCPCardProps) {
               {tag}
             </Badge>
           ))}
+          {server.stars != null && (
+            <span className="ml-auto flex items-center gap-1 text-xs text-muted-foreground">
+              <Star className="h-3 w-3" />
+              {server.stars >= 1000 ? `${(server.stars / 1000).toFixed(1)}k` : server.stars}
+            </span>
+          )}
         </div>
 
         <div className="relative z-10 flex items-center gap-2 mt-auto pt-1">

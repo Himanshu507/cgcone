@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import MCPInstallSection from "./install-section"
 import { ReadmeViewer } from "@/components/readme-viewer"
 import { ReadmeFetcher } from "@/components/readme-fetcher"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Star, AlertTriangle, Clock } from "lucide-react"
 
 export async function generateStaticParams() {
   const servers = getMCPServers()
@@ -47,11 +47,25 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
 
         {/* Header */}
         <div className="mb-6 sm:mb-8">
+          {server.isArchived && (
+            <div className="flex items-center gap-2 mb-4 px-4 py-3 rounded-lg border border-yellow-500/30 bg-yellow-500/5 text-yellow-600 dark:text-yellow-400 text-sm">
+              <AlertTriangle className="h-4 w-4 shrink-0" />
+              This repository is archived and no longer actively maintained.
+            </div>
+          )}
           <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-3">
             <h1 className="text-display-2 flex-1 min-w-0 break-words">{server.displayName}</h1>
-            <span className={`self-start shrink-0 inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${verificationColors[server.verificationStatus]}`}>
-              {server.verificationStatus}
-            </span>
+            <div className="flex items-center gap-2 self-start shrink-0">
+              {server.stars != null && (
+                <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <Star className="h-4 w-4" />
+                  {server.stars >= 1000 ? `${(server.stars / 1000).toFixed(1)}k` : server.stars}
+                </span>
+              )}
+              <span className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${verificationColors[server.verificationStatus]}`}>
+                {server.verificationStatus}
+              </span>
+            </div>
           </div>
           <p className="text-base sm:text-lg text-muted-foreground">{server.description}</p>
         </div>
@@ -80,6 +94,24 @@ export default async function MCPServerPage({ params }: { params: Promise<{ slug
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-muted-foreground shrink-0">Vendor</span>
                   <span className="text-foreground truncate">{server.vendor}</span>
+                </div>
+              )}
+              {server.stars != null && (
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-muted-foreground shrink-0">Stars</span>
+                  <span className="text-foreground flex items-center gap-1">
+                    <Star className="h-3.5 w-3.5" />
+                    {server.stars.toLocaleString()}
+                  </span>
+                </div>
+              )}
+              {server.lastCommit && (
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-muted-foreground shrink-0">Last commit</span>
+                  <span className="text-foreground flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5" />
+                    {new Date(server.lastCommit).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </span>
                 </div>
               )}
             </div>

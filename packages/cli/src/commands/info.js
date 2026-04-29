@@ -32,20 +32,35 @@ export async function showInfo(name) {
     ? `${type}  ${typeBadge(installType)}`
     : (installType ? typeBadge(installType) : type)
 
+  const lastCommitDisplay = (() => {
+    if (!entry.lastCommit) return null
+    const d = new Date(entry.lastCommit)
+    const now = new Date()
+    const monthsAgo = (now - d) / (1000 * 60 * 60 * 24 * 30)
+    const label = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+    return monthsAgo > 12 ? c.yellow(label + ' ⚠') : label
+  })()
+
   const fields = [
-    ['Slug',     c.primary(entry.slug ?? entry.name)],
-    ['Type',     typeDisplay],
-    ['Category', entry.category ?? c.dim('-')],
-    ['Author',   entry.author ?? entry.vendor ?? c.dim('-')],
-    ['Version',  entry.version ? `v${entry.version}` : c.dim('-')],
-    ['Status',   entry.verificationStatus ? badge(entry.verificationStatus, entry.githubUrl) : c.dim('-')],
-    ['Stars',    entry.stars != null ? `⭐ ${entry.stars.toLocaleString()}` : c.dim('-')],
-    ['License',  entry.license ?? c.dim('-')],
+    ['Slug',        c.primary(entry.slug ?? entry.name)],
+    ['Type',        typeDisplay],
+    ['Category',    entry.category ?? c.dim('-')],
+    ['Author',      entry.author ?? entry.vendor ?? c.dim('-')],
+    ['Version',     entry.version ? `v${entry.version}` : c.dim('-')],
+    ['Status',      entry.verificationStatus ? badge(entry.verificationStatus, entry.githubUrl) : c.dim('-')],
+    ['Stars',       entry.stars != null ? `⭐ ${entry.stars.toLocaleString()}` : c.dim('-')],
+    ['Last commit', lastCommitDisplay ?? c.dim('-')],
+    ['License',     entry.license ?? c.dim('-')],
   ]
 
   fields.forEach(([label, value]) => {
     console.log(`  ${c.dim(label.padEnd(12))}  ${value}`)
   })
+
+  if (entry.isArchived) {
+    console.log()
+    console.log(`  ${c.yellow('⚠  This repository is archived and no longer actively maintained.')}`)
+  }
 
   if (entry.description) {
     console.log()

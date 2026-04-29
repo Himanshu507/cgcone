@@ -47,13 +47,20 @@ function allEntries(registry) {
 
 export function searchExtensions(query, registry) {
   const q = query.toLowerCase()
-  return allEntries(registry).filter(e =>
+  const results = allEntries(registry).filter(e =>
     e.slug?.toLowerCase().includes(q) ||
     e.displayName?.toLowerCase().includes(q) ||
     e.name?.toLowerCase().includes(q) ||
     e.description?.toLowerCase().includes(q) ||
     e.tags?.some(t => t.toLowerCase().includes(q))
   )
+  // Archived repos sink to bottom; within each group sort by stars desc
+  return results.sort((a, b) => {
+    const aArchived = a.isArchived ? 1 : 0
+    const bArchived = b.isArchived ? 1 : 0
+    if (aArchived !== bArchived) return aArchived - bArchived
+    return (b.stars ?? 0) - (a.stars ?? 0)
+  })
 }
 
 // Strip common prefixes/suffixes to get a comparable core name

@@ -25,11 +25,14 @@ export interface MCPServer {
   dockerUrl?: string
   npmUrl?: string
   documentationUrl?: string
+  stars?: number
   githubStars?: number
   dockerPulls?: number
   packages?: unknown[]
   installationMethods?: unknown[]
   verificationStatus: 'verified' | 'community' | 'experimental'
+  isArchived?: boolean
+  lastCommit?: string
   lastIndexedAt: string
   readmeContent?: string
   readmeTruncated?: boolean
