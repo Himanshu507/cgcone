@@ -1,7 +1,9 @@
 import { getDetectedAdapters } from '../adapters/index.js'
-import { fetchRegistry, findExtension, getInstallConfig } from '../registry.js'
+import { fetchRegistry, findExtension, findExtensions, findInstalledMatches, getInstallConfig } from '../registry.js'
 import { markInstalled, getInstalled } from '../store.js'
 import { spinner, success, error, info, warn, c } from '../ui.js'
+import { select, confirm, isCancel } from '@clack/prompts'
+import { install } from './install.js'
 
 async function fetchNpmVersion(pkgName) {
   try {
@@ -33,16 +35,73 @@ async function getStoredVersion(adapters, slug) {
   return null
 }
 
-async function updateOne(name, adapters, registry, opts = {}) {
-  const entry = findExtension(name, registry)
+// Collect all installed slugs across all detected adapters
+async function getAllInstalledSlugs(adapters) {
+  const sets = await Promise.all(adapters.map(a => a.listInstalled()))
+  return [...new Set(sets.flat())]
+}
+
+// Find which installed slugs match the user's query
+function findInstalledByQuery(query, allSlugs) {
+  return findInstalledMatches(query, allSlugs)
+}
+
+async function offerInstall(name, registry, adapters) {
+  console.log()
+  info(`${c.bold(name)} is not installed on this machine.`)
+  console.log()
+
+  const matches = findExtensions(name, registry)
+  if (!matches.length) {
+    error(`No extensions matching "${name}" found in registry.`)
+    info(`Try: ${c.bold('cgcone search ' + name)}`)
+    return
+  }
+
+  // Show matches and ask if user wants to install
+  let entry
+  if (matches.length === 1) {
+    entry = matches[0]
+    const displayName = entry.displayName ?? entry.name ?? entry.slug
+    const confirmed = await confirm({
+      message: `Found ${c.bold(displayName)} ${c.dim('(' + entry.slug + ')')} — install it?`,
+    })
+    if (isCancel(confirmed) || !confirmed) {
+      console.log()
+      info('Cancelled.')
+      return
+    }
+  } else {
+    const result = await select({
+      message: `Found ${matches.length} matches — select one to install:`,
+      options: matches.map(e => ({
+        value: e,
+        label: `${e.displayName ?? e.name ?? e.slug}  ${c.dim(e.slug)}`,
+        hint: e.description?.slice(0, 80) ?? '',
+      })),
+    })
+    if (isCancel(result)) {
+      console.log()
+      info('Cancelled.')
+      return
+    }
+    entry = result
+  }
+
+  console.log()
+  await install(entry.slug, {})
+}
+
+async function updateOne(slug, adapters, registry) {
+  const entry = findExtension(slug, registry)
   if (!entry) {
-    error(`"${name}" not found in registry`)
+    error(`"${slug}" not found in registry — skipping`)
     return false
   }
 
   const config = getInstallConfig(entry)
   if (!config) {
-    error(`No automatic install config for ${name}`)
+    error(`No automatic install config for ${slug}`)
     return false
   }
 
@@ -58,14 +117,23 @@ async function updateOne(name, adapters, registry, opts = {}) {
   }
 
   if (latestVer || storedVer) {
-    const from = storedVer ? c.dim('v' + storedVer)  : c.dim('unknown')
-    const to   = latestVer ? c.green('v' + latestVer) : c.dim('latest')
+    const from = storedVer ? c.dim('v' + storedVer)   : c.dim('unknown')
+    const to   = latestVer ? c.green('v' + latestVer)  : c.dim('latest')
     console.log(`  ${from} ${c.dim('→')} ${to}`)
   }
 
-  // ── install into each adapter ────────────────────────────────────────────
+  // ── install into each adapter where this slug is present ────────────────
   let ok = false
+  // Only update adapters that actually have this slug installed
+  const targetAdapters = []
   for (const adapter of adapters) {
+    const installedSlugs = await adapter.listInstalled()
+    if (installedSlugs.includes(entry.slug)) targetAdapters.push(adapter)
+  }
+  // Fallback: if store has it but adapter config doesn't (edge case), update all
+  if (!targetAdapters.length) targetAdapters.push(...adapters)
+
+  for (const adapter of targetAdapters) {
     const s = spinner(`Updating ${c.bold(entry.slug)} in ${c.bold(adapter.name)}...`).start()
     try {
       const result = await adapter.install(entry.slug, config)
@@ -104,8 +172,7 @@ export async function update(name, opts = {}) {
   }
 
   if (opts.all) {
-    const slugSets = await Promise.all(adapters.map(a => a.listInstalled()))
-    const allSlugs = [...new Set(slugSets.flat())]
+    const allSlugs = await getAllInstalledSlugs(adapters)
 
     if (!allSlugs.length) {
       info('Nothing installed yet.')
@@ -116,7 +183,7 @@ export async function update(name, opts = {}) {
     let updatedCount = 0
     let skippedCount = 0
     for (const slug of allSlugs) {
-      const ok = await updateOne(slug, adapters, registry, opts)
+      const ok = await updateOne(slug, adapters, registry)
       if (ok) updatedCount++
       else skippedCount++
       console.log()
@@ -124,10 +191,26 @@ export async function update(name, opts = {}) {
 
     if (updatedCount) success(`${updatedCount} extension${updatedCount > 1 ? 's' : ''} updated`)
     if (skippedCount) info(`${skippedCount} already at latest`)
-  } else {
-    console.log()
-    const ok = await updateOne(name, adapters, registry, opts)
-    console.log()
-    if (ok) success(`${c.primary(name)} updated`)
+    return
   }
+
+  // ── single update ────────────────────────────────────────────────────────
+  // Check if the queried name is actually installed before doing anything
+  const allSlugs = await getAllInstalledSlugs(adapters)
+  const matchedSlugs = findInstalledByQuery(name, allSlugs)
+
+  if (!matchedSlugs.length) {
+    // Not installed — offer to install instead
+    await offerInstall(name, registry, adapters)
+    return
+  }
+
+  console.log()
+  let anyUpdated = false
+  for (const slug of matchedSlugs) {
+    const ok = await updateOne(slug, adapters, registry)
+    if (ok) anyUpdated = true
+    console.log()
+  }
+  if (anyUpdated) success(`${c.primary(name)} updated`)
 }
