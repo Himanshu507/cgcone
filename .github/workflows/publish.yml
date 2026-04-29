@@ -3,7 +3,7 @@ name: Publish CLI to npm
 on:
   push:
     tags:
-      - 'cli-v*'
+      - 'v*'
   workflow_dispatch:
 
 permissions:
@@ -30,7 +30,7 @@ jobs:
       - name: Verify package.json version matches tag
         run: |
           TAG="${{ github.ref_name }}"
-          TAG_VER="${TAG#cli-v}"
+          TAG_VER="${TAG#v}"
           PKG_VER=$(node -p "require('./packages/cli/package.json').version")
           if [ "$TAG_VER" != "$PKG_VER" ]; then
             echo "::error::Tag version ($TAG_VER) != package.json version ($PKG_VER) — aborting."
