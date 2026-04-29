@@ -52,7 +52,7 @@ export async function search(query, opts = {}) {
       e.displayName ?? e.name ?? '',
       (e.description ?? '').slice(0, 46) + ((e.description?.length ?? 0) > 46 ? '…' : ''),
       itype ? typeBadge(itype) : c.dim('-'),
-      e.verificationStatus ? badge(e.verificationStatus) : c.dim('-'),
+      e.verificationStatus ? badge(e.verificationStatus, e.githubUrl) : c.dim('-'),
     ]
     if (showStars) row.push(fmtStars(e.stars))
     return row

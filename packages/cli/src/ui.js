@@ -24,8 +24,15 @@ export function spinner(text) {
   return ora({ text, color: 'yellow' })
 }
 
-// Strip ANSI escape codes to get the visible character count for column sizing.
-const ANSI_RE = /\x1b\[[0-9;]*m/g
+// OSC 8 terminal hyperlink — wraps text so it opens url on click.
+// Falls back silently on terminals that don't support it (plain text renders fine).
+export function link(text, url) {
+  if (!url) return text
+  return `\x1b]8;;${url}\x1b\\${text}\x1b]8;;\x1b\\`
+}
+
+// Strip ANSI + OSC 8 escape codes to get visible character count for column sizing.
+const ANSI_RE = /\x1b\[[0-9;]*m|\x1b]8;;[^\x1b]*\x1b\\|\x1b]8;;\x1b\\/g
 function visibleLen(str) { return String(str).replace(ANSI_RE, '').length }
 function padVisible(str, width) {
   return String(str) + ' '.repeat(Math.max(0, width - visibleLen(str)))
@@ -48,13 +55,15 @@ export function table(rows, cols) {
   })
 }
 
-export function badge(status) {
+export function badge(status, url) {
+  let b
   switch (status) {
-    case 'verified':    return chalk.bgGreen.black(' VERIFIED ')
-    case 'community':   return chalk.bgBlue.white(' COMMUNITY ')
-    case 'experimental': return chalk.bgYellow.black(' EXPERIMENTAL ')
-    default:            return chalk.bgGray.white(` ${status?.toUpperCase() ?? 'UNKNOWN'} `)
+    case 'verified':     b = chalk.bgGreen.black(' VERIFIED ');     break
+    case 'community':    b = chalk.bgBlue.white(' COMMUNITY ');     break
+    case 'experimental': b = chalk.bgYellow.black(' EXPERIMENTAL '); break
+    default:             b = chalk.bgGray.white(` ${status?.toUpperCase() ?? 'UNKNOWN'} `)
   }
+  return url ? link(b, url) : b
 }
 
 export function typeBadge(type) {

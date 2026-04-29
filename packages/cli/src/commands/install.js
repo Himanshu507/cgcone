@@ -4,7 +4,7 @@ import { select, text, password, confirm, isCancel } from '@clack/prompts'
 import { getDetectedAdapters, ALL_ADAPTERS } from '../adapters/index.js'
 import { fetchRegistry, findExtensions, getInstallConfig } from '../registry.js'
 import { markInstalled } from '../store.js'
-import { spinner, success, error, warn, info, c } from '../ui.js'
+import { spinner, success, error, warn, info, c, link } from '../ui.js'
 import { checkNpmCompat } from '../compat.js'
 
 function isSensitiveKey(k) {
@@ -79,7 +79,7 @@ async function pickEntry(entries) {
     options: entries.map(e => ({
       value: e,
       label: `${e.displayName ?? e.name ?? e.slug}  ${c.dim(e.slug)}  ${c.primary('[' + entryTypeLabel(e) + ']')}`,
-      hint: e.description?.slice(0, 80) ?? '',
+      hint: (e.description?.slice(0, 70) ?? '') + (e.githubUrl ? c.dim('  ' + link('→ repo', e.githubUrl)) : ''),
     })),
   })
 

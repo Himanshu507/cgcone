@@ -1,5 +1,5 @@
 import { fetchRegistry, findExtension, extensionType, getInstallConfig, deriveInstallType } from '../registry.js'
-import { spinner, error, info, section, c, badge, typeBadge } from '../ui.js'
+import { spinner, error, info, section, c, badge, typeBadge, link } from '../ui.js'
 
 export async function showInfo(name) {
   const spin = spinner(`Looking up ${c.primary(name)}...`).start()
@@ -38,7 +38,7 @@ export async function showInfo(name) {
     ['Category', entry.category ?? c.dim('-')],
     ['Author',   entry.author ?? entry.vendor ?? c.dim('-')],
     ['Version',  entry.version ? `v${entry.version}` : c.dim('-')],
-    ['Status',   entry.verificationStatus ? badge(entry.verificationStatus) : c.dim('-')],
+    ['Status',   entry.verificationStatus ? badge(entry.verificationStatus, entry.githubUrl) : c.dim('-')],
     ['Stars',    entry.stars != null ? `⭐ ${entry.stars.toLocaleString()}` : c.dim('-')],
     ['License',  entry.license ?? c.dim('-')],
   ]
@@ -54,7 +54,7 @@ export async function showInfo(name) {
 
   if (entry.githubUrl) {
     console.log()
-    console.log(`  ${c.dim('Repository')}  ${entry.githubUrl}`)
+    console.log(`  ${c.dim('Repository')}  ${link(entry.githubUrl, entry.githubUrl)}`)
   }
 
   if (entry.installCommand?.startsWith('claude skill') || entry.installCommand?.startsWith('/plugin install')) {
