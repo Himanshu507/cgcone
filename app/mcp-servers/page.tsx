@@ -1,4 +1,3 @@
-import { getMCPServers } from "@/lib/registry"
 import MCPPageClient from "./mcp-client"
 
 export const metadata = {
@@ -7,6 +6,5 @@ export const metadata = {
 }
 
 export default function MCPServersPage() {
-  const servers = getMCPServers()
-  return <MCPPageClient servers={servers} />
+  return <MCPPageClient />
 }

@@ -1,62 +1,95 @@
 "use client"
 
-import { useState, useMemo, useRef, useCallback } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Input } from "@/components/ui/input"
 import { MCPCard } from "@/components/mcp-card"
 import type { MCPServer } from "@/lib/types"
-import { Search } from "lucide-react"
+import { Search, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-interface MCPPageClientProps {
-  servers: MCPServer[]
-}
 
 const PAGE_SIZE = 24
 
-export default function MCPPageClient({ servers }: MCPPageClientProps) {
-  const [search, setSearch] = useState("")
-  const [activeCategory, setActiveCategory] = useState<string>("all")
-  const [activeSource, setActiveSource] = useState<string>("all")
-  const [sortBy, setSortBy] = useState<"stars" | "relevance">("stars")
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+const CATEGORIES = [
+  'all', 'ai-models', 'browser', 'cloud', 'code-analysis', 'communication',
+  'databases', 'dev-tools', 'education', 'entertainment', 'files', 'finance',
+  'general', 'health', 'iot', 'productivity', 'science', 'security', 'web',
+]
+
+const SOURCES = ['all', 'official-mcp', 'github', 'docker', 'community']
+
+export default function MCPPageClient() {
+  const [search, setSearch]           = useState("")
+  const [debouncedQ, setDebouncedQ]   = useState("")
+  const [activeCategory, setCategory] = useState("all")
+  const [activeSource, setSource]     = useState("all")
+  const [sortBy, setSortBy]           = useState<"stars" | "relevance">("stars")
+
+  const [items, setItems]             = useState<MCPServer[]>([])
+  const [total, setTotal]             = useState(0)
+  const [page, setPage]               = useState(0)
+  const [loading, setLoading]         = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [fetchError, setFetchError]   = useState<string | null>(null)
+
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const hasMore = items.length < total
 
-  const categories = useMemo(() => {
-    const cats = new Set(servers.map(s => s.category))
-    return ["all", ...Array.from(cats).sort()]
-  }, [servers])
+  // Debounce search
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedQ(search), 300)
+    return () => clearTimeout(t)
+  }, [search])
 
-  const sources = ["all", "official-mcp", "docker", "github", "community"]
+  // Fetch first page whenever filters change
+  useEffect(() => {
+    let cancelled = false
 
-  const filtered = useMemo(() => {
-    const base = servers.filter(s => {
-      const matchesSearch =
-        !search ||
-        s.displayName.toLowerCase().includes(search.toLowerCase()) ||
-        s.description.toLowerCase().includes(search.toLowerCase()) ||
-        s.tags.some(t => t.toLowerCase().includes(search.toLowerCase()))
-      const matchesCategory = activeCategory === "all" || s.category === activeCategory
-      const matchesSource = activeSource === "all" || s.sourceRegistry === activeSource
-      return matchesSearch && matchesCategory && matchesSource
-    })
-    if (sortBy === "stars") {
-      return [...base].sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+    async function load() {
+      setLoading(true)
+      setFetchError(null)
+      const params = buildParams(debouncedQ, activeCategory, activeSource, sortBy, 0)
+      try {
+        const res  = await fetch(`/api/search?${params}`)
+        const json = await res.json()
+        if (cancelled) return
+        if (json.error) { setFetchError(json.error); return }
+        setItems(json.items)
+        setTotal(json.total)
+        setPage(0)
+      } catch {
+        if (!cancelled) setFetchError('Failed to load results. Try again.')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
     }
-    return base
-  }, [servers, search, activeCategory, activeSource, sortBy])
 
-  const visible = filtered.slice(0, visibleCount)
+    load()
+    return () => { cancelled = true }
+  }, [debouncedQ, activeCategory, activeSource, sortBy])
+
+  const loadMore = useCallback(async () => {
+    if (loadingMore || !hasMore) return
+    const nextPage = page + 1
+    setLoadingMore(true)
+    const params = buildParams(debouncedQ, activeCategory, activeSource, sortBy, nextPage)
+    try {
+      const res  = await fetch(`/api/search?${params}`)
+      const json = await res.json()
+      setItems(prev => [...prev, ...json.items])
+      setPage(nextPage)
+    } finally {
+      setLoadingMore(false)
+    }
+  }, [loadingMore, hasMore, page, debouncedQ, activeCategory, activeSource, sortBy])
 
   const sentinelRef = useCallback((node: HTMLDivElement | null) => {
     if (observerRef.current) observerRef.current.disconnect()
     if (!node) return
     observerRef.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        setVisibleCount(prev => prev + PAGE_SIZE)
-      }
+      if (entries[0].isIntersecting) loadMore()
     })
     observerRef.current.observe(node)
-  }, [])
+  }, [loadMore])
 
   return (
     <div className="min-h-screen">
@@ -65,7 +98,9 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
         <div className="mb-6 sm:mb-10">
           <h1 className="text-display-2 mb-3">MCP Servers</h1>
           <p className="text-muted-foreground">
-            {servers.length} servers across {categories.length - 1} categories
+            {loading
+              ? 'Loading...'
+              : `${total.toLocaleString()} servers across ${CATEGORIES.length - 1} categories`}
           </p>
         </div>
 
@@ -75,17 +110,17 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
           <Input
             placeholder="Search servers..."
             value={search}
-            onChange={e => { setSearch(e.target.value); setVisibleCount(PAGE_SIZE) }}
+            onChange={e => setSearch(e.target.value)}
             className="pl-9"
           />
         </div>
 
         {/* Source filter */}
         <div className="flex gap-2 flex-wrap mb-4">
-          {sources.map(source => (
+          {SOURCES.map(source => (
             <button
               key={source}
-              onClick={() => { setActiveSource(source); setVisibleCount(PAGE_SIZE) }}
+              onClick={() => setSource(source)}
               className={cn(
                 "px-3 py-1.5 rounded-full text-sm transition-colors border",
                 activeSource === source
@@ -100,10 +135,10 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
 
         {/* Category filter */}
         <div className="flex gap-2 flex-wrap mb-8">
-          {categories.map(cat => (
+          {CATEGORIES.map(cat => (
             <button
               key={cat}
-              onClick={() => { setActiveCategory(cat); setVisibleCount(PAGE_SIZE) }}
+              onClick={() => setCategory(cat)}
               className={cn(
                 "px-3 py-1.5 rounded-full text-sm transition-colors border",
                 activeCategory === cat
@@ -116,17 +151,19 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
           ))}
         </div>
 
-        {/* Sort + results count row */}
+        {/* Sort + result count */}
         <div className="flex items-center justify-between mb-6">
           <p className="text-sm text-muted-foreground">
-            Showing {Math.min(visibleCount, filtered.length)} of {filtered.length} results
+            {loading
+              ? 'Searching...'
+              : `Showing ${items.length.toLocaleString()} of ${total.toLocaleString()} results`}
           </p>
           <div className="flex items-center gap-1 text-sm">
             <span className="text-muted-foreground mr-1">Sort:</span>
             {(["stars", "relevance"] as const).map(opt => (
               <button
                 key={opt}
-                onClick={() => { setSortBy(opt); setVisibleCount(PAGE_SIZE) }}
+                onClick={() => setSortBy(opt)}
                 className={cn(
                   "px-2.5 py-1 rounded-md transition-colors",
                   sortBy === opt
@@ -140,24 +177,36 @@ export default function MCPPageClient({ servers }: MCPPageClientProps) {
           </div>
         </div>
 
-        {/* Grid */}
-        {filtered.length === 0 ? (
+        {/* Results */}
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          </div>
+        ) : fetchError ? (
+          <div className="py-20 text-center text-destructive text-sm">{fetchError}</div>
+        ) : items.length === 0 ? (
           <div className="py-20 text-center text-muted-foreground">
             No MCP servers found matching your criteria.
           </div>
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {visible.map(server => (
+              {items.map(server => (
                 <MCPCard key={server.slug} server={server} />
               ))}
             </div>
-            {visibleCount < filtered.length && (
-              <div ref={sentinelRef} className="h-10 mt-8" />
+            {hasMore && (
+              <div ref={sentinelRef} className="flex items-center justify-center h-16 mt-4">
+                {loadingMore && <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />}
+              </div>
             )}
           </>
         )}
       </div>
     </div>
   )
+}
+
+function buildParams(q: string, category: string, source: string, sort: string, page: number) {
+  return new URLSearchParams({ q, category, source, sort, page: String(page), limit: String(PAGE_SIZE) })
 }
