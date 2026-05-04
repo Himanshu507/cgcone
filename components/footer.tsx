@@ -18,6 +18,7 @@ const LEGAL_LINKS = [
 
 const RESOURCE_LINKS = [
   { href: "https://github.com/Himanshu507/cgcone", label: "GitHub", external: true },
+  { href: "https://www.npmjs.com/package/@cgcone/cli", label: "npm Package", external: true },
   { href: "/contribute", label: "Contribute" },
   { href: "https://github.com/Himanshu507/cgcone/blob/main/LICENSE", label: "MIT License", external: true },
 ]
