@@ -124,7 +124,7 @@ cgcone configure brave-search
 
 ## Registry
 
-cgcone pulls from **[cgcone.com/registry.json](https://cgcone.com/registry.json)** - 2400+ extensions indexed from:
+cgcone pulls from **[cgcone.com/registry.json](https://cgcone.com/registry.json)** — 3300+ extensions indexed from:
 
 - Official [modelcontextprotocol.io](https://registry.modelcontextprotocol.io) registry
 - GitHub repositories tagged `mcp-server`, `model-context-protocol`
@@ -132,7 +132,7 @@ cgcone pulls from **[cgcone.com/registry.json](https://cgcone.com/registry.json)
 - Claude Code skills (SKILL.md format)
 - Community subagents, commands, and hooks
 
-Browse at **[cgcone.com](https://cgcone.com)**.
+Registry is refreshed nightly via GitHub Actions and synced to Supabase. Browse at **[cgcone.com](https://cgcone.com)**.
 
 ---
 
@@ -141,10 +141,11 @@ Browse at **[cgcone.com](https://cgcone.com)**.
 ![cgcone website](docs/images/mcp-servers.png)
 
 **[cgcone.com](https://cgcone.com)** is a full marketplace UI with:
-- **MCP Servers** - 1943 servers, searchable by name, category, source
-- **Plugins** - Claude Code plugins with one-line install commands
-- **Skills, Subagents, Commands, Hooks** - Claude Code extensions
-- Per-entry detail pages with README, install command, tags, links
+- **MCP Servers** — 1960 servers, sorted by stars, searchable by name/category/source
+- **Plugins** — 1130 Claude Code plugins with one-line install commands
+- **Skills** — 252 Claude Code skills
+- **Subagents, Commands, Hooks** — community extensions
+- Per-entry detail pages with archived warnings, last commit, stars, install command
 - Light/dark mode
 
 ---
@@ -166,6 +167,9 @@ cgcone/
 ├── scripts/              Registry generation pipeline
 │   ├── generate-registry.js        orchestrator (full rebuild)
 │   ├── sync-registry.js            dedup/sync (removes dead repos, renames, star refresh)
+│   ├── classify-categories.js      keyword-based category assignment (18 categories)
+│   ├── upsert-supabase.js          batch upsert registry.json → Supabase
+│   ├── supabase-schema.sql         Supabase table schema + RLS policies
 │   ├── fetch-mcp-official.js       official MCP registry
 │   ├── fetch-mcp-github.js         GitHub topic search
 │   ├── fetch-mcp-docker.js         Docker Hub
@@ -209,33 +213,36 @@ cgcone/
 
 ## Roadmap status
 
-`█████████████░░░░░░░░░` **60%** — 57 / 95 tasks done
+`████████████████████░░` **88%** — 91 / 103 tasks done
 
 | Phase | Description | Status |
 |---|---|---|
-| 1A | MCP servers rebuilt from GitHub (1943 entries) | ✅ Done |
-| 1B | Skills discovery (262 entries) | ✅ Done |
-| 1C | Plugins discovery (251 entries) | ✅ Done |
+| 1A | MCP servers rebuilt from GitHub (1960 entries) | ✅ Done |
+| 1B | Skills discovery (252 entries) | ✅ Done |
+| 1C | Plugins discovery (1130 entries) | ✅ Done |
 | 1D | Dedup + sync — removes deleted repos, fixes renames, refreshes stars | ✅ Done |
 | 2A/2B | Runtime detection + pre-computed installConfig | ✅ Done |
 | 2D | CLI uses pre-computed installConfig from registry | ✅ Done |
+| 2E | npm package name fixes (27 resolved, 138 removed) | ✅ Partial |
+| 3A | Supabase tables + schema + RLS — 1960 MCPs, 252 skills, 1130 plugins | ✅ Done |
+| 3C | Nightly GitHub Actions sync: classify → upsert → commit registry.json | ✅ Done |
+| 4B | Star counts + sort by stars default on website listing + detail pages | ✅ Done |
+| 4C | Category classification — 18 categories, 1196 entries reclassified | ✅ Done |
+| 4D | `--type` filter in search + installType badge in info/search | ✅ Done |
+| 4E | Quality signals: lastCommit, isArchived in CLI info + website (archived banner) | ✅ Done |
 | 5A | CLI uses baked-in install config, heuristics removed from hot path | ✅ Done |
+| 5B | `cgcone install <skill>` — runs `claude skill add` directly | ✅ Done |
+| 5C | `cgcone install <plugin>` — shows `/plugin install` command | ✅ Done |
+| 5D | Search filters: `--type`, `--installable`, sort by stars | ✅ Done |
+| 5E | Version diff in `cgcone update` (`v0.1.0 → v0.2.0`) | ✅ Done |
 | 5F | `cgcone install --dry-run` — preview before writing | ✅ Done |
 | 5G | TOML comment preservation for Codex | ✅ Done |
 | 5H | `cgcone doctor` MCP startup handshake + env var flagging | ✅ Done |
 | 5I | Install-time Node version + SDK pinning warnings | ✅ Done |
-| 5B | `cgcone install <skill>` — runs `claude skill add` directly | ✅ Done |
-| 5C | `cgcone install <plugin>` — shows `/plugin install` command | ✅ Done |
-| 4D | `--type` filter in search + installType badge in info/search | ✅ Done |
-| 2E | Fix 163 broken npm package names (needs GITHUB_TOKEN) | 🔄 Pending |
-| 3C | Scheduled registry refresh (GitHub Actions cron) | 🔄 Pending |
-| 4B | Star count refresh + sort by stars on cgcone.com | 🔄 Pending |
-| 4E | Quality signals: lastCommit, isArchived, openIssues | 🔄 Pending |
+| 5J | Clickable repo links (OSC 8) in search + info | ✅ Done |
+| 3B | registry.json regenerated from Supabase (reverse direction) | 🔄 Pending |
 | 4A | LLM summaries per entry (needs API budget) | 🔄 Pending |
-| 4C | Category classification | 🔄 Pending |
-| 3A/3B | Supabase storage + auto-regenerate registry.json | 🔄 Pending |
-| 5D | Search filters: `--type mcp`, `--installable`, sort by stars | 🔄 Pending |
-| 5E | Version diff in `cgcone update` (`0.1.0 → 0.2.0`) | 🔄 Pending |
+| 4E | `openIssues` field in quality signals | 🔄 Pending |
 
 Full details: [ROADMAP.md](ROADMAP.md)
 
@@ -267,10 +274,10 @@ Releases are triggered by a git tag. The GitHub Actions workflow publishes to np
 # 1. Bump version in packages/cli/package.json
 # 2. Commit and push to main
 # 3. Tag the release:
-git tag cli-v0.3.1 && git push origin cli-v0.3.1
+git tag v0.3.5 && git push origin v0.3.5
 ```
 
-The `cli-v*` tag triggers `.github/workflows/publish.yml` → `npm publish --provenance`.
+The `v*` tag triggers `.github/workflows/publish.yml` → `npm publish --provenance`.
 
 **Required secret:** `NPM_TOKEN` must be set in GitHub → Settings → Secrets → Actions.
 
