@@ -10,8 +10,6 @@
  *   SUPABASE_SERVICE_ROLE_KEY     (service role key — never commit)
  */
 
-require('dotenv').config({ path: require('path').join(__dirname, '..', '.env.local') })
-
 const fs = require('fs')
 const path = require('path')
 const { createClient } = require('@supabase/supabase-js')
@@ -106,7 +104,13 @@ async function upsertBatch(table, rows) {
 }
 
 async function upsertTable(table, allRows, mapFn) {
-  const mapped = allRows.map(mapFn)
+  // Deduplicate by slug — keep last occurrence
+  const seen = new Map()
+  for (const row of allRows) {
+    const mapped = mapFn(row)
+    seen.set(mapped.slug, mapped)
+  }
+  const mapped = [...seen.values()]
   const total = mapped.length
   let done = 0
 
