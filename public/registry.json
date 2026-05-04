@@ -5469,7 +5469,7 @@
       "verificationStatus": "community",
       "lastIndexedAt": "2026-05-03T05:47:01.354Z",
       "installConfig": {
-        "command": "npx",
+        "command": "uvx",
         "args": [
           "-y",
           "jina-mcp"
@@ -7092,8 +7092,7 @@
         "mcp-apps",
         "mcp-server",
         "modelcontextprotocol",
-        "skills",
-        "vscode-extension"
+        "nestjs"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -7107,7 +7106,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "copilot-mcp"
+          "@rekog/mcp-nest"
         ],
         "env": {},
         "type": "npm"
@@ -7490,19 +7489,7 @@
       "slug": "opentabs-dev-opentabs",
       "description": "Browser automation clicks buttons. OpenTabs calls APIs.",
       "category": "browser-automation",
-      "tags": [
-        "ai-agents",
-        "browser-automation",
-        "chrome",
-        "chrome-extension",
-        "claude-code",
-        "mcp",
-        "mcp-server",
-        "open-source",
-        "opencode",
-        "plugins",
-        "typescript"
-      ],
+      "tags": [],
       "serverType": "stdio",
       "vendor": null,
       "sourceRegistry": "github",
@@ -7515,7 +7502,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "opentabs"
+          "puppeteer-mcp-server"
         ],
         "env": {},
         "type": "npm"
@@ -12162,24 +12149,31 @@
       "lastCommit": "2025-07-30T13:32:22Z"
     },
     {
-      "name": "shinpr/mcp-local-rag",
-      "displayName": "Local Rag",
-      "slug": "shinpr-mcp-local-rag",
-      "description": "Local-first RAG server for developers. Semantic + keyword search for code and technical docs. Works with MCP or CLI. Fully private, zero setup.",
-      "category": "web-search",
+      "name": "Beever-AI/beever-atlas",
+      "displayName": "Beever Atlas",
+      "slug": "beever-ai-beever-atlas",
+      "description": "Your First LLM-Wiki Conversation Knowledge Base",
+      "category": "general",
       "tags": [
-        "agent-skills",
-        "developer-tools",
-        "hybrid-search",
-        "local-first",
-        "local-rag",
+        "adk-google",
+        "agents",
+        "discord-bot",
+        "fastapi",
+        "gemini",
+        "google-adk",
+        "knowledge-base",
+        "large-language-models",
+        "llm",
+        "mattermost",
         "mcp",
         "mcp-server",
-        "privacy-first",
+        "microsoft-teams",
+        "open-source",
+        "python",
         "rag",
-        "semantic-search",
-        "skills",
-        "vector-search"
+        "react",
+        "slack-bot",
+        "wiki"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -12190,10 +12184,9 @@
       "verificationStatus": "community",
       "lastIndexedAt": "2026-05-03T05:47:01.354Z",
       "installConfig": {
-        "command": "npx",
+        "command": "uvx",
         "args": [
-          "-y",
-          "mcp-local-rag"
+          "beever-atlas"
         ],
         "env": {},
         "type": "npm"
@@ -17131,27 +17124,18 @@
       "lastCommit": "2026-03-07T11:39:56Z"
     },
     {
-      "name": "hanzili/hanzi-browse",
-      "displayName": "Hanzi Browse",
-      "slug": "hanzili-hanzi-browse",
-      "description": "let any ai agent use the local browser",
-      "category": "browser-automation",
+      "name": "ilanbenb/wa_llm",
+      "displayName": "Wa Llm",
+      "slug": "ilanbenb-wa-llm",
+      "description": "A WhatsApp bot that can participate in group conversations, powered by AI. The bot monitors group messages and responds when mentioned.",
+      "category": "general",
       "tags": [
-        "ai-agent",
-        "ai-agents",
-        "browser-automation",
-        "chrome",
-        "chrome-extension",
-        "claude-code",
-        "codex",
-        "computer-use",
-        "cursor",
-        "developer-tools",
-        "linkedin-automation",
+        "communities",
         "mcp",
-        "model-context-protocol",
-        "web-automation",
-        "windsurf"
+        "mcp-server",
+        "whatsapp",
+        "whatsapp-api",
+        "whatsapp-bot"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -17165,7 +17149,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "hanzi-browse"
+          "@f4ww4z/mcp-mysql-server"
         ],
         "env": {},
         "type": "npm"
@@ -17338,8 +17322,7 @@
       "tags": [
         "full-stack",
         "mcp-server",
-        "programming",
-        "vibecoding"
+        "typescript"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -17353,7 +17336,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@scaffold-mcp/source"
+          "@bitwarden/mcp-server"
         ],
         "env": {},
         "type": "npm"
@@ -19487,24 +19470,42 @@
       "description": "NOT for educational purposes: An MCP server for professional penetration testers including STDIO/HTTP/SSE support, nmap, go/dirbuster, nikto, JtR, hashcat, wordlist building, and more.",
       "category": "developer-tools",
       "tags": [
-        "cybersecurity",
-        "dirbuster",
-        "gobuster",
-        "hashcat",
-        "http-streaming",
-        "john-the-ripper",
-        "jtr",
+        "esp-idf",
+        "esp32",
+        "mcp",
+        "mcp-server"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/horw/esp-mcp",
+      "stars": 148,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.354Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "esp-mcp"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2025-12-27T01:32:27Z"
+    },
+    {
+      "name": "sirmews/mcp-pinecone",
+      "displayName": "Pinecone",
+      "slug": "sirmews-mcp-pinecone",
+      "description": "Model Context Protocol server to allow for reading and writing from Pinecone. Rudimentary RAG",
+      "category": "general",
+      "tags": [
+        "claude",
         "mcp",
         "mcp-server",
         "model-context-protocol",
-        "nikto",
-        "nmap",
-        "pentesting",
-        "pentesting-tools",
-        "redteam",
-        "sse-server",
-        "sse-streaming",
-        "stdio"
+        "pinecone",
+        "rag"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -19515,10 +19516,9 @@
       "verificationStatus": "community",
       "lastIndexedAt": "2026-05-03T05:47:01.354Z",
       "installConfig": {
-        "command": "npx",
+        "command": "uvx",
         "args": [
-          "-y",
-          "pentest-mcp"
+          "mcp-pinecone"
         ],
         "env": {},
         "type": "npm"
@@ -19526,19 +19526,24 @@
       "lastCommit": "2026-03-23T19:36:42Z"
     },
     {
-      "name": "TickTockBent/charlotte",
-      "displayName": "Charlotte",
-      "slug": "ticktockbent-charlotte",
-      "description": "Token-efficient browser MCP server — structured web pages for AI agents, not raw accessibility dumps",
-      "category": "browser-automation",
+      "name": "harumiWeb/exstruct",
+      "displayName": "Exstruct",
+      "slug": "harumiweb-exstruct",
+      "description": "Conversion from Excel to structured JSON (tables, shapes, charts) for LLM/RAG pipelines, and autonomous Excel reading/writing by AI agents via CLI and MCP integration.",
+      "category": "general",
       "tags": [
-        "ai-agents",
-        "mcp",
+        "data-ex",
+        "document-ai",
+        "excel",
+        "excel-automation",
+        "excel-parsing",
+        "llm",
         "mcp-server",
-        "model-context-protocol",
-        "typescript",
-        "web-browsing",
-        "web-scraping"
+        "python-library",
+        "rag",
+        "skills",
+        "structured-data",
+        "xlwings"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -19747,6 +19752,7 @@
       "description": "Model Context Protocol server for Firefox DevTools - enables AI assistants to inspect and control Firefox browser through the Remote Debugging Protocol",
       "category": "browser-automation",
       "tags": [
+        "ai",
         "claude-code",
         "firefox",
         "mcp",
@@ -23621,15 +23627,14 @@
       "lastCommit": "2025-09-21T23:44:18Z"
     },
     {
-      "name": "pnp/cli-microsoft365-mcp-server",
-      "displayName": "Cli Microsoft365 Mcp Server",
-      "slug": "pnp-cli-microsoft365-mcp-server",
-      "description": "Manage Microsoft 365 using MCP server",
-      "category": "general",
+      "name": "aliyun/alibabacloud-devops-mcp-server",
+      "displayName": "Alibabacloud Devops Mcp Server",
+      "slug": "aliyun-alibabacloud-devops-mcp-server",
+      "description": "Yunxiao MCP Server provides AI assistants with the ability to interact with the Yunxiao platform. It provides a set of tools that interact with Yunxiao's API, allowing AI assistants to manage Codeup repository, Project, Pipeline, Packages etc.",
+      "category": "cloud-infrastructure",
       "tags": [
-        "hacktoberfest",
-        "mcp",
-        "microsoft365"
+        "alibabacloud-devops",
+        "devops-mcp"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -23643,7 +23648,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@pnp/cli-microsoft365-mcp-server"
+          "alibabacloud-devops-mcp-server"
         ],
         "env": {},
         "type": "npm"
@@ -23878,26 +23883,32 @@
       "lastCommit": "2026-04-25T12:37:14Z"
     },
     {
-      "name": "agentailor/fullstack-langgraph-nextjs-agent",
-      "displayName": "Fullstack Langgraph Nextjs Agent",
-      "slug": "agentailor-fullstack-langgraph-nextjs-agent",
-      "description": "  Production-ready Next.js template for building AI agents with LangGraph.js. Features MCP integration for dynamic tool loading, human-in-the-loop tool approval, persistent conversation memory   with PostgreSQL, and real-time streaming responses. Built with TypeScript, React, Prisma, and Tailwind CSS.",
-      "category": "database",
+      "name": "SkeneTechnologies/skene",
+      "displayName": "Skene",
+      "slug": "skenetechnologies-skene",
+      "description": "Product-Led Growth (PLG) analysis toolkit that detects tech stacks, plans growth loops and builds the loop iteratively.",
+      "category": "general",
       "tags": [
-        "agent-framework",
-        "ai-agent",
-        "langchain",
-        "langfuse",
-        "langgraph",
+        "ai-tools",
+        "anthropic",
+        "automation",
+        "cli",
+        "cli-tool",
+        "code-documentation",
+        "codebase-analysis",
+        "developer-tools",
+        "gemini",
+        "growth-hacking",
         "llm",
         "mcp",
-        "model-context-protocol",
-        "nextjs",
-        "open-telemetry",
+        "mcp-server",
         "openai",
-        "postgresql",
-        "prisma",
-        "react"
+        "plg",
+        "product-led-growth",
+        "pydantic",
+        "python",
+        "python3",
+        "tech-stack-detection"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -24031,16 +24042,16 @@
       "description": "Better 'AskUserQuestion' - A lightweight MCP server/OpenCode plugin/Agent Skills + CLI interface which allows parallel AI agents ask questions to you. Be the human in the human-in-the-loop!",
       "category": "ai-agents",
       "tags": [
-        "agent-skills",
-        "ask-user-question",
         "claude",
-        "claude-ai",
-        "claude-code",
-        "codex",
-        "elicitation",
+        "claude-mcp",
+        "code",
         "mcp",
+        "mcp-client",
+        "mcp-python-server",
         "mcp-server",
-        "opencode"
+        "python",
+        "python-mcp-server",
+        "qwen"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -24054,7 +24065,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "auq-mcp-server"
+          "@glifxyz/glif-mcp-server"
         ],
         "env": {},
         "type": "npm"
@@ -24456,7 +24467,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@shortcut/mcp"
+          "claude-patent-creator"
         ],
         "env": {},
         "type": "npm"
@@ -26433,10 +26444,381 @@
       "lastCommit": "2026-04-01T20:47:26Z"
     },
     {
-      "name": "apifox/apifox-mcp-server",
-      "displayName": "Apifox Mcp Server",
-      "slug": "apifox-apifox-mcp-server",
+      "name": "ksylvan/fabric-mcp",
+      "displayName": "Fabric",
+      "slug": "ksylvan-fabric-mcp",
+      "description": "Fabric MCP Server: Seamlessly integrate Fabric AI capabilities into MCP-enabled tools like IDEs and chat interfaces.",
+      "category": "general",
+      "tags": [
+        "ai",
+        "mcp",
+        "mcp-server",
+        "open-source"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/ksylvan/fabric-mcp",
+      "stars": 85,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "fabric-mcp"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2026-04-17T00:44:32Z"
+    },
+    {
+      "name": "ReAPI-com/mcp-openapi",
+      "displayName": "Openapi",
+      "slug": "reapi-com-mcp-openapi",
+      "description": "OpenAPI specification MCP server.",
+      "category": "general",
+      "tags": [
+        "cline",
+        "cursor",
+        "mcp-server",
+        "openapi",
+        "swagger"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/ReAPI-com/mcp-openapi",
+      "stars": 85,
+      "language": "TypeScript",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@reapi/mcp-openapi"
+        ],
+        "env": {},
+        "type": "npm"
+      },
+      "lastCommit": "2025-03-30T07:02:38Z"
+    },
+    {
+      "name": "ztxtxwd/open-feishu-mcp-server",
+      "displayName": "Open Feishu Mcp Server",
+      "slug": "ztxtxwd-open-feishu-mcp-server",
       "description": "",
+      "category": "general",
+      "tags": [
+        "feishu",
+        "lark",
+        "mcp"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/ztxtxwd/open-feishu-mcp-server",
+      "stars": 85,
+      "language": "TypeScript",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-remote"
+        ],
+        "env": {},
+        "type": "npm"
+      },
+      "lastCommit": "2026-01-27T15:00:41Z"
+    },
+    {
+      "name": "loonghao/wecom-bot-mcp-server",
+      "displayName": "Wecom Bot Mcp Server",
+      "slug": "loonghao-wecom-bot-mcp-server",
+      "description": "A Python server implementation for WeCom (WeChat Work) bot that follows the Model Context Protocol (MCP). This server provides a standardized interface for handling automated messaging and context-aware interactions within enterprise WeChat environments.",
+      "category": "general",
+      "tags": [],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/loonghao/wecom-bot-mcp-server",
+      "stars": 85,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "wecom-bot-mcp-server"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2026-04-13T22:16:54Z"
+    },
+    {
+      "name": "ProfessionalWiki/MediaWiki-MCP-Server",
+      "displayName": "MediaWiki MCP Server",
+      "slug": "professionalwiki-mediawiki-mcp-server",
+      "description": "Model Context Protocol (MCP) Server to connect your AI with any MediaWiki",
+      "category": "general",
+      "tags": [
+        "agents",
+        "ai",
+        "ai-agent-tools",
+        "gemini-cli-extension",
+        "llms",
+        "mcp",
+        "mcp-server",
+        "mediawiki",
+        "model-context-protocol",
+        "model-context-protocol-servers",
+        "modelcontextprotocol"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/ProfessionalWiki/MediaWiki-MCP-Server",
+      "stars": 84,
+      "language": "TypeScript",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@professional-wiki/mediawiki-mcp-server"
+        ],
+        "env": {},
+        "type": "npm"
+      },
+      "lastCommit": "2026-05-01T18:24:17Z"
+    },
+    {
+      "name": "wenb1n-dev/SmartDB_MCP",
+      "displayName": "SmartDB MCP",
+      "slug": "wenb1n-dev-smartdb-mcp",
+      "description": "Universal database MCP server connecting to MySQL, PostgreSQL, SQL Server, MariaDB,DM8,Oracle,not only provides basic database connection such as OAuth 2.0 authentication , health checks, SQL optimization, and index health detection",
+      "category": "database",
+      "tags": [
+        "ai",
+        "dameng8",
+        "dify",
+        "mcp",
+        "mcp-server",
+        "mysql",
+        "oauth2",
+        "oracle",
+        "postgresql",
+        "sqlserver"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/wenb1n-dev/SmartDB_MCP",
+      "stars": 84,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "SmartDB_MCP"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2025-09-14T04:37:20Z"
+    },
+    {
+      "name": "keboola/mcp-server",
+      "displayName": "Server",
+      "slug": "keboola-mcp-server",
+      "description": "Model Context Protocol (MCP) Server for the Keboola Platform",
+      "category": "general",
+      "tags": [
+        "data-platform",
+        "etl-pipeline",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/keboola/mcp-server",
+      "stars": 84,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "keboola-mcp-server"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2026-04-30T11:25:35Z"
+    },
+    {
+      "name": "avivsinai/langfuse-mcp",
+      "displayName": "Langfuse",
+      "slug": "avivsinai-langfuse-mcp",
+      "description": "A Model Context Protocol (MCP) server for Langfuse, enabling AI agents to query Langfuse trace data for enhanced debugging and observability",
+      "category": "general",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "developer-tools",
+        "genai",
+        "langfuse",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "observability",
+        "tracing"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/avivsinai/langfuse-mcp",
+      "stars": 84,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "langfuse-mcp"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2026-04-29T13:21:27Z"
+    },
+    {
+      "name": "ywatanabe1989/scitex-python",
+      "displayName": "Scitex Python",
+      "slug": "ywatanabe1989-scitex-python",
+      "description": "Python toolkit for reproducible science — from raw data to manuscript. Includes 42 modules, 270 CLI commands, 186 MCP tools, and 493 skills.",
+      "category": "general",
+      "tags": [
+        "academic-writing",
+        "ai-research",
+        "automation",
+        "bibtex",
+        "data-visualization",
+        "generative-ai",
+        "latex",
+        "literature-review",
+        "machine-learning",
+        "matplotlib",
+        "mcp",
+        "mcp-server",
+        "pandas",
+        "python",
+        "pytorch",
+        "reproducibility",
+        "research-automation",
+        "scientific-computing",
+        "scitex",
+        "statistics"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/ywatanabe1989/scitex-python",
+      "stars": 84,
+      "language": "Python",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "uvx",
+        "args": [
+          "scitex"
+        ],
+        "env": {},
+        "type": "uvx"
+      },
+      "lastCommit": "2026-05-02T07:45:11Z"
+    },
+    {
+      "name": "CircleCI-Public/mcp-server-circleci",
+      "displayName": "Server Circleci",
+      "slug": "circleci-public-mcp-server-circleci",
+      "description": "A specialized server implementation for the Model Context Protocol (MCP) designed to integrate with CircleCI's development workflow. This project serves as a bridge between CircleCI's infrastructure and the Model Context Protocol, enabling enhanced AI-powered development experiences.",
+      "category": "general",
+      "tags": [
+        "mcp-server",
+        "modelcontextprotocol"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/CircleCI-Public/mcp-server-circleci",
+      "stars": 84,
+      "language": "TypeScript",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@circleci/mcp-server-circleci"
+        ],
+        "env": {},
+        "type": "npm"
+      },
+      "lastCommit": "2026-04-27T13:23:01Z"
+    },
+    {
+      "name": "spences10/mcp-memory-libsql",
+      "displayName": "Memory Libsql",
+      "slug": "spences10-mcp-memory-libsql",
+      "description": "🧠 High-performance persistent memory system for Model Context Protocol (MCP) powered by libSQL. Features vector search, semantic knowledge storage, and efficient relationship management - perfect for AI agents and knowledge graph applications.",
+      "category": "database",
+      "tags": [
+        "ai-tools",
+        "embeddings",
+        "knowledge-graph",
+        "libsql",
+        "mcp",
+        "model-context-protocol",
+        "persistent-storage",
+        "semantic-search",
+        "vector-search"
+      ],
+      "serverType": "stdio",
+      "vendor": null,
+      "sourceRegistry": "github",
+      "githubUrl": "https://github.com/spences10/mcp-memory-libsql",
+      "stars": 84,
+      "language": "TypeScript",
+      "verificationStatus": "community",
+      "lastIndexedAt": "2026-05-03T05:47:01.355Z",
+      "installConfig": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-memory-libsql"
+        ],
+        "env": {},
+        "type": "npm"
+      },
+      "lastCommit": "2026-04-29T13:08:40Z"
+    },
+    {
+      "name": "ProgramComputer/NASA-MCP-server",
+      "displayName": "NASA MCP Server",
+      "slug": "programcomputer-nasa-mcp-server",
+      "description": "A Model Context Protocol (MCP) server for NASA APIs, providing a standardized interface for AI models to interact with NASA's vast array of data sources.",
       "category": "api-integration",
       "tags": [],
       "serverType": "stdio",
@@ -26451,7 +26833,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "apifox-mcp-server"
+          "@programcomputer/nasa-mcp-server"
         ],
         "env": {},
         "type": "npm"
@@ -29900,29 +30282,25 @@
       "description": "MCP server for scraping LinkedIn, Facebook, Instagram profiles and Google search.",
       "category": "web-search",
       "tags": [
-        "ai-agent",
-        "facebook-scraper",
-        "instagram-scraper",
-        "linkedin-scraper",
+        "coding-plan",
+        "mcp",
         "mcp-server",
-        "microservices",
-        "rapidapi",
-        "social-media-scraper",
-        "web-scraper",
-        "web-scraping"
+        "mcp-tools",
+        "understand-image",
+        "web-search"
       ],
       "serverType": "stdio",
       "vendor": null,
       "sourceRegistry": "github",
-      "githubUrl": "https://github.com/Sharan-Kumar-R/Custom-MCP-Server",
-      "stars": 74,
+      "githubUrl": "https://github.com/MiniMax-AI/MiniMax-Coding-Plan-MCP",
+      "stars": 75,
       "language": "Python",
       "verificationStatus": "community",
       "lastIndexedAt": "2026-05-03T05:47:01.355Z",
       "installConfig": {
         "command": "uvx",
         "args": [
-          "custom-mcp-server"
+          "minimax-coding-plan-mcp"
         ],
         "env": {},
         "type": "uvx"
@@ -30662,9 +31040,9 @@
       "lastCommit": "2025-09-12T19:00:23Z"
     },
     {
-      "name": "StefanMaron/AL-Dependency-MCP-Server",
-      "displayName": "AL Dependency MCP Server",
-      "slug": "stefanmaron-al-dependency-mcp-server",
+      "name": "misterboe/strapi-mcp-server",
+      "displayName": "Strapi Mcp Server",
+      "slug": "misterboe-strapi-mcp-server",
       "description": "",
       "category": "developer-tools",
       "tags": [],
@@ -30680,7 +31058,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "al-mcp-server"
+          "@bschauer/strapi-mcp-server"
         ],
         "env": {},
         "type": "npm"
@@ -30706,7 +31084,7 @@
       "verificationStatus": "community",
       "lastIndexedAt": "2026-05-03T05:47:01.355Z",
       "installConfig": {
-        "command": "npx",
+        "command": "uvx",
         "args": [
           "-y",
           "raindrop-io-mcp-server"
@@ -42079,10 +42457,7 @@
         "marketing-automation",
         "mcp",
         "mcp-server",
-        "meta-ads",
-        "model-context-protocol",
-        "n8n",
-        "windsurf"
+        "terraform"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -43547,24 +43922,11 @@
       "description": "Config-driven engine that turns JSON into production-grade AI agents. Multi-agent orchestration, 12+ LLM providers, MCP/A2A protocols, RAG, persistent memory, and enterprise compliance (EU AI Act, GDPR, HIPAA). Built on Quarkus.",
       "category": "ai-agents",
       "tags": [
-        "a2a",
-        "ai-agents",
-        "ai-orchestration",
-        "chatbot",
-        "conversation-memory",
-        "conversational-ai",
-        "docker",
-        "enterprise-ai",
-        "java",
-        "langchain4j",
-        "llm",
-        "mcp-client",
+        "mcp",
         "mcp-server",
-        "mongodb",
-        "multi-agent",
-        "postgres",
-        "quarkus",
-        "rag"
+        "mtproto",
+        "telegram",
+        "telegram-api"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -46419,32 +46781,31 @@
       "lastCommit": "2025-03-21T18:48:11Z"
     },
     {
-      "name": "sbroenne/mcp-server-excel",
-      "displayName": "Server Excel",
-      "slug": "sbroenne-mcp-server-excel",
-      "description": "Excel MCP Server & CLI - 23 tools, 214 operations for AI-powered Excel automation via COM API",
-      "category": "api-integration",
+      "name": "erikdarlingdata/PerformanceStudio",
+      "displayName": "PerformanceStudio",
+      "slug": "erikdarlingdata-performancestudio",
+      "description": "Free, open-source SQL Server execution plan analyzer — cross-platform GUI + CLI with 30 analysis rules, missing index detection, SSMS extension. Built-in MCP server for AI-assisted plan review.",
+      "category": "database",
       "tags": [
-        "ai-automation",
-        "claude-ai",
-        "com-automation",
-        "conditional-formatting",
-        "data-connections",
-        "dax",
+        "avalonia",
+        "cli",
+        "cross-platform",
+        "database-performance",
+        "dba-tools",
         "dotnet",
-        "excel",
-        "excel-automation",
-        "excel-charts",
-        "excel-pivottables",
-        "excel-tables",
-        "github-copilot",
+        "execution-plan",
         "mcp-server",
         "model-context-protocol",
-        "named-ranges",
-        "power-pivot",
-        "power-query",
-        "vba",
-        "windows"
+        "query-optimization",
+        "query-performance",
+        "query-plan",
+        "query-store",
+        "query-tuning",
+        "sql-plan-analyzer",
+        "sql-server",
+        "sql-server-management",
+        "sqlplan",
+        "ssms-extension"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -46743,19 +47104,18 @@
       "lastCommit": "2025-03-19T23:44:57Z"
     },
     {
-      "name": "xinnan-tech/mcp-endpoint-server",
-      "displayName": "Endpoint Server",
-      "slug": "xinnan-tech-mcp-endpoint-server",
-      "description": "xiaozhi mcp接入点服务器，用于自定义mcp服务注册，方便拓展小智服务端工具调用",
+      "name": "rust-mcp-stack/rust-mcp-sdk",
+      "displayName": "Rust Mcp Sdk",
+      "slug": "rust-mcp-stack-rust-mcp-sdk",
+      "description": "A high-performance, asynchronous toolkit for building MCP servers and clients in Rust.",
       "category": "general",
       "tags": [
-        "mcp",
-        "xiaozhi",
-        "xiaozhi-ai",
-        "xiaozhi-esp32",
-        "xiaozhi-esp32-server",
-        "xiaozhi-mcp",
-        "xiaozhi-server"
+        "crates-io",
+        "mcp-client",
+        "mcp-server",
+        "mcp-tools",
+        "model-context-protocol",
+        "rust"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -48119,7 +48479,9 @@
         "agents",
         "artificial-intelligence",
         "mcp",
-        "mcp-server"
+        "mcp-server",
+        "model-context-protocol",
+        "semantic-search"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -48139,26 +48501,12 @@
       "description": "Rails Engine with MCP compliant Spec.",
       "category": "ai-agents",
       "tags": [
-        "ai",
-        "authentication",
-        "claude",
-        "gateway",
-        "gem",
-        "http",
-        "json-rpc",
-        "language-model",
-        "llm",
+        "claude-desktop",
+        "data-analytics",
+        "dax",
         "mcp",
-        "mcp-client",
-        "mcp-server",
         "model-context-protocol",
-        "prompt-engineering",
-        "rails",
-        "rest-api",
-        "ruby",
-        "tool-use",
-        "vscode",
-        "websocket"
+        "power-bi"
       ],
       "serverType": "stdio",
       "vendor": null,
@@ -48172,14 +48520,13 @@
       "lastCommit": "2026-04-22T15:04:54Z"
     },
     {
-      "name": "nxtg-ai/forge-orchestrator",
-      "displayName": "Forge Orchestrator",
-      "slug": "nxtg-ai-forge-orchestrator",
-      "description": "Forge Orchestrator: Multi-AI task orchestration. File locking, knowledge capture, drift detection. Rust.",
-      "category": "file-system",
+      "name": "spring-ai-community/spring-ai-playground",
+      "displayName": "Spring Ai Playground",
+      "slug": "spring-ai-community-spring-ai-playground",
+      "description": "Safe local execution layer for AI agent tools. Build, validate, and publish MCP tools with a no-pass-no-run workflow — cross-platform desktop app powered by Spring AI.",
+      "category": "general",
       "tags": [
-        "agent-orchestration",
-        "ai",
+        "agentic-chat",
         "ai-agents",
         "ai-coding",
         "ai-governance",
