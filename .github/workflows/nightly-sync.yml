@@ -36,6 +36,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
         run: node scripts/sync-registry.js
 
+      - name: Classify categories
+        run: node scripts/classify-categories.js
+
+      - name: Upsert registry to Supabase
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "SUPABASE_SERVICE_ROLE_KEY not set — skipping Supabase upsert"
+          else
+            node scripts/upsert-supabase.js
+          fi
+
       - name: Commit updated registry
         run: |
           git config user.name "github-actions[bot]"

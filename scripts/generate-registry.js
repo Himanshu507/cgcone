@@ -122,7 +122,7 @@ async function main() {
   }))], 'id')
 
   const registry = {
-    version:     '2.0',
+    version:     `2.${Math.floor(Date.now() / 86400000)}`,
     generatedAt: new Date().toISOString(),
     mcpServers,
     plugins:     dedup(plugins, 'slug'),
